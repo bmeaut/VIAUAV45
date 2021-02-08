@@ -12,7 +12,7 @@
   - Homework, 60 points, minimum 40%
      - List of topics will be published by the fourth week.
      - Specification must be sent in by the end of the eighth week (by Moodle).
-     - Deadline for submitting the homework is the end of the semester. Late submissions with a late fee are allowed for one extra week
+     - Deadline for submitting the homework is the end of the semester. Late submissions with a late fee are allowed for one extra week.
      - Submissions (by Moodle) must contain the source code of the finished project and a short video demonstrating the application.
 
 ## Resources
