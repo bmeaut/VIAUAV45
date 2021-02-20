@@ -4,6 +4,7 @@
 ## Chapters
 - [Chapter 1: Introduction](./material/01.md)
 - [Chapter 2: Flutter basics](./material/02.md)
+- [Chapter 9: Accessibility and responsive UI support](./material/09.md)
 ## Requirements
 
  - Test, 40 points, minimum 40%
