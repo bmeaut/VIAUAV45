@@ -2,8 +2,11 @@
 # Flutter-based Software Development
 
 ## Chapters
+
 - [Chapter 1: Introduction](./material/01.md)
 - [Chapter 2: Flutter basics](./material/02.md)
+- [Chapter 3: Essential Flutter Widgets](./material/03.md)
+
 ## Requirements
 
  - Test, 40 points, minimum 40%
