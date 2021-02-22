@@ -127,8 +127,8 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
             ),
           ),
           Positioned(
-            left: 20,
-            top: 50,
+            left: 250,
+            top: 230,
             child: Image.asset(
               'assets/images/logo_flutter.png',
               height: 100,
