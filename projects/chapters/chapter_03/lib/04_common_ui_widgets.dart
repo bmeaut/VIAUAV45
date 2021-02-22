@@ -80,6 +80,13 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
                       height: 100,
                     ),
                   ),
+                  SizedBox(
+                      width: 80,
+                      height: 20,
+                      child: Container(
+                        color: Colors.brown,
+                      )
+                  ),
                   Expanded(
                     flex: 2,
                     child: Image.network(
