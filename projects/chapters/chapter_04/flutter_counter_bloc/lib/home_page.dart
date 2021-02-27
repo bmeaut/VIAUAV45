@@ -15,7 +15,13 @@ class MyHomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: BlocBuilder<CounterBloc, CounterState>(
-            builder: (context, state) => state is CounterCountState ? Text("My counter application: ${state.count}") : Text("Counter not counting!"),
+            builder: (context, state) {
+              if (state is CounterCountState) {
+                return Text("My counter application: ${state.count}");
+              } else {
+                return Text("Counter not counting!");
+              }
+            },
           ),
         ),
         body: Center(

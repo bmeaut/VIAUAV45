@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_counter_provider/cubit/counter_cubit.dart';
-import 'file:///C:/flutter/flutter_counter_provider/lib/widget/counter_button.dart';
-import 'file:///C:/flutter/flutter_counter_provider/lib/widget/counter_text.dart';
+import 'widget/counter_button.dart';
+import 'widget/counter_text.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -15,7 +15,13 @@ class MyHomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: BlocBuilder<CounterCubit, CounterState>(
-            builder: (context, state) => state is CounterCountState ? Text("My counter application: ${state.count}") : Text("Counter not counting!"),
+            builder: (context, state) {
+              if (state is CounterCountState) {
+                return Text("My counter application: ${state.count}");
+              } else {
+                return Text("Counter not counting!");
+              }
+            },
           ),
         ),
         body: Center(

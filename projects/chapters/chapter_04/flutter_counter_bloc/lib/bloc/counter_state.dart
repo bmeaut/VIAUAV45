@@ -14,7 +14,6 @@ class CounterInitialLoadedState extends CounterState {
   List<Object> get props => [];
 }
 
-
 class CounterLoadingState extends CounterState {
   @override
   List<Object> get props => [];
