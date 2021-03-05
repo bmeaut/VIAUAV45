@@ -11,14 +11,18 @@ The homework is a mandatory requirement to pass the course. 60% of the course gr
   - Web (responsive UI is a plus, but not mandatory)
   - Windows/macOS/Linux (only in alpha stage, choose at your own risk)
 - The application must use a state management library (such as `provider`, `flutter_bloc`)
-- The following subjects can be chosen:
+- Here are some strongly advised examples for app complexity:
     - Communicate with a public API
        - [A list of public APIs]([https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis))
        - One list page and one detailed page
        - Sorting based on some property
      - Simple game
        - Based on widgets or the [`flame`](https://pub.dev/packages/flame) library
-       - Examples: Tic-Tac-Toe, Snake, Tetris, Game of Life
+       - Examples: 
+           - Tic-Tac-Toe
+           - Snake 
+           - Tetris 
+           - Game of Life
      - Your own idea
        - Must be approved by one of the lecturers beforehand.
 
