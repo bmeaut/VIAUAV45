@@ -29,5 +29,5 @@ The homework is a mandatory requirement to pass the course. 60% of the course gr
 ## Deadlines
 
  - A specification of the application must be submitted in .pdf format by the 8th week (4th of April). The specification must be no longer than 1 page.
- - The completed project must be submitted by the end of the term (16th of May).
+ - The completed project must be submitted by the end of the term (14th of May).
  - The homework can be submitted up to one week later for a compulsory fee.
