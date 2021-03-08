@@ -7,7 +7,7 @@
 - [Chapter 2: Flutter basics](./material/02.md)
 - [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 4: Asynchronous operations, State handling](./material/04.md)
-- [Chapter 5: Material widgets, advanced widgets, navigation, animation](./material/05.md)
+- [Chapter 5: Advanced widgets, navigation, animation](./material/05.md)
 
 ## Requirements
 
@@ -24,3 +24,5 @@
 ## Resources
 [Teams link](https://teams.microsoft.com/l/team/19%3a7d35dc7404c84ca1a1e022b39feac8ac%40thread.tacv2/conversations?groupId=102fff3a-4812-4499-92cb-dc5c3b847c1f&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
 
+
+[]: ./material/05.md
