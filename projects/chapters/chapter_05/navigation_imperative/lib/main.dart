@@ -19,6 +19,7 @@ class ImperativeNavigationApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: MainPage(),
       routes: {
         "/firstpage": (context) => FirstPage(),
         "/secondpage": (context) => SecondPage(),
@@ -27,6 +28,7 @@ class ImperativeNavigationApp extends StatelessWidget {
         // switch (route.name) {
         //   case "/parameterpage":
         //     return MaterialPageRoute(
+        //       settings: RouteSettings(name: "/parameterpage"),
         //       builder: (context) => ParameterPage(
         //         parameter: route.arguments.toString(),
         //       ),
@@ -37,6 +39,7 @@ class ImperativeNavigationApp extends StatelessWidget {
         //   final arg =
         //       routeName.substring(routeName.lastIndexOf("/")+1, routeName.length);
         //   return MaterialPageRoute(
+        //     settings: RouteSettings(name: "/parameterpage/$arg"),
         //     builder: (context) => ParameterPage(
         //       parameter: Uri.decodeFull(arg),
         //     ),
@@ -51,7 +54,6 @@ class ImperativeNavigationApp extends StatelessWidget {
           ),
         );
       },
-      home: MainPage(),
     );
   }
 }

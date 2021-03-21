@@ -7,16 +7,16 @@ import 'pages/parameter_page.dart';
 import 'pages/second_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(PageBasedNavigationApp());
 }
 
 var globalNavigatorHolderKey = GlobalKey<_NavigatorHolderState>();
 
-class MyApp extends StatelessWidget {
+class PageBasedNavigationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Page-based Navigation Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -35,14 +35,8 @@ class NavigatorHolder extends StatefulWidget {
 
 class _NavigatorHolderState extends State<NavigatorHolder> {
   List<Page> pages = [
-    MaterialPage(child: HomeWidget()),
+    MaterialPage(child: MainPage()),
   ];
-
-  void addNewPage(Widget page) {
-    setState(() {
-      pages.add(MaterialPage(child: page));
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +54,7 @@ class _NavigatorHolderState extends State<NavigatorHolder> {
         //   case "/parameterpage":
         //     return MaterialPageRoute(
         //       builder: (context) => ParameterPage(
+        //         settings: RouteSettings(name: "/parameterpage"),
         //         parameter: route.arguments.toString(),
         //       ),
         //     );
@@ -69,6 +64,7 @@ class _NavigatorHolderState extends State<NavigatorHolder> {
         //   final arg =
         //       routeName.substring(routeName.lastIndexOf("/")+1, routeName.length);
         //   return MaterialPageRoute(
+        //     settings: RouteSettings(name: "/parameterpage/$arg"),
         //     builder: (context) => ParameterPage(
         //       parameter: Uri.decodeFull(arg),
         //     ),
@@ -86,6 +82,12 @@ class _NavigatorHolderState extends State<NavigatorHolder> {
     );
   }
 
+  void addNewPage(Widget page) {
+    setState(() {
+      pages.add(MaterialPage(child: page));
+    });
+  }
+
   void replaceTopPage(Widget page) {
     setState(() {
       pages.removeLast();
@@ -94,8 +96,8 @@ class _NavigatorHolderState extends State<NavigatorHolder> {
   }
 }
 
-class HomeWidget extends StatelessWidget {
-  const HomeWidget({
+class MainPage extends StatelessWidget {
+  const MainPage({
     Key? key,
   }) : super(key: key);
 

@@ -18,8 +18,7 @@ class RealEstateSearchFormPage extends StatefulWidget {
       _RealEstateSearchFormPageState();
 }
 
-class _RealEstateSearchFormPageState extends State<RealEstateSearchFormPage>
-    with SingleTickerProviderStateMixin{
+class _RealEstateSearchFormPageState extends State<RealEstateSearchFormPage> {
   final queryTextController = TextEditingController();
 
   @override
@@ -48,7 +47,6 @@ class _RealEstateSearchFormPageState extends State<RealEstateSearchFormPage>
                 TextField(
                   decoration: InputDecoration(
                     labelText: "City, Street, etc.",
-                    alignLabelWithHint: true,
                   ),
                   controller: queryTextController,
                 ),
