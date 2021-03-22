@@ -10,5 +10,14 @@ class WeatherCityItem{
   final num windDegree;
   final num windMagnitude;
 
-  WeatherCityItem(this.id, this.name, this.iconImage, this.minTemp, this.currentTemp, this.maxTemp, this.windDegree, this.windMagnitude);
+  WeatherCityItem(
+    this.id,
+    this.name,
+    this.iconImage,
+    this.minTemp,
+    this.currentTemp,
+    this.maxTemp,
+    this.windDegree,
+    this.windMagnitude
+  );
 }
