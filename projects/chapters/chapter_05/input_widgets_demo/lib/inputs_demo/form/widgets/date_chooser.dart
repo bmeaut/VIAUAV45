@@ -10,9 +10,6 @@ class DateChooser extends StatefulWidget {
 }
 
 class _DateChooserState extends State<DateChooser> {
-
-  final emptyContainer = Container();
-
   @override
   Widget build(BuildContext context) {
     final state = context.watch<RealEstateSearchFormCubit>().state;
@@ -41,8 +38,7 @@ class _DateChooserState extends State<DateChooser> {
     }
   }
 
-  void showSoonestMovingInDatePicker(
-      BuildContext context, DateTime initialDate) async {
+  void showSoonestMovingInDatePicker(BuildContext context, DateTime initialDate) async {
     final now = DateTime.now();
     final date = await showDatePicker(
       context: context,

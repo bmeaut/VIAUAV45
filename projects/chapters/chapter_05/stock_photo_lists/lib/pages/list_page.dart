@@ -21,11 +21,11 @@ class _ListPageState extends State<ListPage> {
       appBar: AppBar(
         title: Text("Lists & Grids"),
       ),
-      /*body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              // ... is the spread operator,
+              // ... is the spread operator
               ...Iterable.generate(
                 10,
                 (id) {
@@ -38,12 +38,14 @@ class _ListPageState extends State<ListPage> {
             ],
           ),
         ),
-      ),*/
+      ),
       /*body: ListView(
         children: [
-          ...Iterable.generate(100000, (id){
+          ...Iterable.generate(100000, (id) {
             var item = StockPhoto.fromId(id);
-            return ListItemWidget(item: item,);
+            return ListItemWidget(
+              item: item,
+            );
           })
         ],
       ),*/
@@ -55,6 +57,7 @@ class _ListPageState extends State<ListPage> {
         },
       )*/
       /*body: ListView.separated(
+        itemCount: 1000000,
         itemBuilder: (context, index) {
           var item = StockPhoto.fromId(index);
           return ListItemWidget(item: item);
@@ -67,9 +70,8 @@ class _ListPageState extends State<ListPage> {
             color: Colors.grey.withOpacity(1),
           ),
         ),
-        itemCount: 1000000,
       ),*/
-      body: GridView.count(
+      /*body: GridView.count(
         crossAxisCount: 3,
         childAspectRatio: 1 / 1,
         crossAxisSpacing: 4,
@@ -85,7 +87,7 @@ class _ListPageState extends State<ListPage> {
             },
           )
         ],
-      ),
+      ),*/
       /*body: GridView.extent(
         maxCrossAxisExtent: 100,
         mainAxisSpacing: 4,
@@ -105,6 +107,7 @@ class _ListPageState extends State<ListPage> {
       )*/
       /*body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          mainAxisExtent: 100,
           crossAxisCount: 4,
           mainAxisSpacing: 4,
           crossAxisSpacing: 4,
