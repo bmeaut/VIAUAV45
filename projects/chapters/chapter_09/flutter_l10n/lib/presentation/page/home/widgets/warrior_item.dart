@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/warrior.dart';
-import 'package:flutter_l10n/presentation/page/details/detail_page.dart';
+import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
 
 class WarriorItem extends StatelessWidget {
   final Warrior warrior;
@@ -48,10 +48,7 @@ class WarriorItem extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16, top: 200, bottom: 8),
                 child: Text(
                   warrior.name,
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: Theme.of(context).textTheme.headline3,
                 ),
               ),
             ),
