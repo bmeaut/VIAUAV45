@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_l10n/domain/model/warrior.dart';
+import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
 
-class WarriorItem extends StatelessWidget {
-  final Warrior warrior;
+class SantaItem extends StatelessWidget {
+  final Santa santa;
 
-  const WarriorItem({
+  const SantaItem({
     Key key,
-    @required this.warrior,
+    @required this.santa,
   }) : super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class WarriorItem extends StatelessWidget {
                   builder: (BuildContext context, Widget child) {
                     return Opacity(
                       opacity: animation.value,
-                      child: DetailPage(warrior: warrior),
+                      child: DetailPage(santa: santa),
                     );
                   });
             },
@@ -34,7 +34,7 @@ class WarriorItem extends StatelessWidget {
       child: Stack(
         children: [
           Hero(
-            tag: "background_${warrior.name}",
+            tag: "background_${santa.name}",
             child: Container(
               //height: MediaQuery.of(context).size.height * 0.1,
               //width: MediaQuery.of(context).size.width * 0.6,
@@ -47,7 +47,7 @@ class WarriorItem extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, top: 200, bottom: 8),
                 child: Text(
-                  warrior.name,
+                  santa.name,
                   style: Theme.of(context).textTheme.headline3,
                 ),
               ),
@@ -57,9 +57,9 @@ class WarriorItem extends StatelessWidget {
             right: 8,
             top: 4,
             child: Hero(
-              tag: "image_${warrior.name}",
-              child: Image.network(
-                warrior.avatar,
+              tag: "image_${santa.name}",
+              child: Image.asset(
+                santa.avatar,
                 height: 200,
                 width: 200,
               ),

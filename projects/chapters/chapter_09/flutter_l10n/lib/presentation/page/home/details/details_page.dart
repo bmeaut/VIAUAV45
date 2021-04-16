@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_l10n/domain/model/warrior.dart';
+import 'package:flutter_l10n/domain/model/santa.dart';
 
 class DetailPage extends StatefulWidget {
-  final Warrior warrior;
+  final Santa santa;
 
   const DetailPage({
     Key key,
-    @required this.warrior,
+    @required this.santa,
   }) : super(key: key);
 
   @override
@@ -36,7 +36,7 @@ class _DetailPageState extends State<DetailPage>
     return Stack(
       children: [
         Hero(
-          tag: "background_${widget.warrior.name}",
+          tag: "background_${widget.santa.name}",
           child: Container(
             color: Theme.of(context).primaryColor,
           ),
@@ -46,7 +46,7 @@ class _DetailPageState extends State<DetailPage>
           appBar: AppBar(
             backgroundColor: Theme.of(context).primaryColor,
             elevation: 0,
-            title: Text(widget.warrior.name),
+            title: Text(widget.santa.name),
             leading: CloseButton(),
           ),
           body: SingleChildScrollView(
@@ -54,9 +54,9 @@ class _DetailPageState extends State<DetailPage>
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Hero(
-                  tag: "image_${widget.warrior.name}",
-                  child: Image.network(
-                    widget.warrior.avatar,
+                  tag: "image_${widget.santa.name}",
+                  child: Image.asset(
+                    widget.santa.avatar,
                     height: MediaQuery.of(context).size.height / 2,
                   ),
                 ),
@@ -71,7 +71,7 @@ class _DetailPageState extends State<DetailPage>
                   child: Padding(
                     padding: EdgeInsets.all(16),
                     child: Text(
-                      widget.warrior.description,
+                      widget.santa.description,
                       style: TextStyle(
                         fontSize: 24,
                         color: Colors.white,

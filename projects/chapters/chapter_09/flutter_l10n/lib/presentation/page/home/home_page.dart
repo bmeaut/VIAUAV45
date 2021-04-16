@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_l10n/domain/model/warrior.dart';
-import 'package:flutter_l10n/presentation/page/home/widgets/warrior_item.dart';
+import 'package:flutter_l10n/domain/model/santa.dart';
+import 'package:flutter_l10n/presentation/page/home/widgets/santa_item.dart';
 
 class HomePage extends StatelessWidget {
-  final warrior = Warrior(
-      avatar: "https://miro.medium.com/max/900/1*Kf497eBBikYQSwm3o97-VA.png",
-      name: "Dr. Jekyll and Mr. Hyde",
+  final santa = Santa(
+      name: "Santa Claus",
+      avatar: "assets/icon/santa.png",
       outfit: ["kalap", "nyaktekerészeti mellfekvenc"],
       description:
-          " A Hétszűnyű maga volt a világ királya, az ősapa mielőtt a sárkányok előjöttek volna. Hasonlóképpen a Hétszűnyű archetipikus képe azonosítható a Fehérlófiát próbák elé állító öregemberrel, akinek a tanácsára a főhős háromszor hét évig szopja anyja tejét.");
+          "Santa Claus is generally depicted as a portly, jolly, white-bearded man, often with spectacles, wearing a red coat with white fur collar and cuffs, white-fur-cuffed red trousers, red hat with white fur, and black leather belt and boots, carrying a bag full of gifts for children. He is commonly portrayed as laughing in a way that sounds like ho ho ho. ");
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "Warrior seminary",
-              style: TextStyle(fontSize: 80),
+              "Know your Santa",
+              style: TextStyle(fontSize: 40),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32),
@@ -43,12 +43,12 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 32),
             Text(
-              "Your warrior",
+              "Your santa",
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 8),
-            WarriorItem(
-              warrior: warrior,
+            SantaItem(
+              santa: santa,
             ),
           ],
         ),
