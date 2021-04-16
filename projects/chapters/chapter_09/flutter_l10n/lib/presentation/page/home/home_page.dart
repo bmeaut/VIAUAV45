@@ -4,9 +4,8 @@ import 'package:flutter_l10n/presentation/page/home/widgets/warrior_item.dart';
 
 class HomePage extends StatelessWidget {
   final warrior = Warrior(
-      avatar:
-          "https://kep.cdn.indexvas.hu/1/0/1257/12575/125753/12575381_426e421622125f05d32138017870facf_wm.jpg",
-      name: "Hétszűnyű Kapanyányi Monyók",
+      avatar: "https://miro.medium.com/max/900/1*Kf497eBBikYQSwm3o97-VA.png",
+      name: "Dr. Jekyll and Mr. Hyde",
       outfit: ["kalap", "nyaktekerészeti mellfekvenc"],
       description:
           " A Hétszűnyű maga volt a világ királya, az ősapa mielőtt a sárkányok előjöttek volna. Hasonlóképpen a Hétszűnyű archetipikus képe azonosítható a Fehérlófiát próbák elé állító öregemberrel, akinek a tanácsára a főhős háromszor hét évig szopja anyja tejét.");
