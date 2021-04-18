@@ -37,10 +37,10 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-
-  generate: true
-
   uses-material-design: true
+
+  # L10n
+  generate: true
 
   assets:
     - assets/icon/
