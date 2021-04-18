@@ -36,8 +36,8 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 4),
-            Image.network(
-              "https://faludiakademia.hu/wp-content/uploads/2020/07/flag-of-great-britain-flag-of-the-united-kingdom-english-flag.png",
+            Image.asset(
+              "assets/icon/flag/united_kingdom.png",
               height: 64,
               width: 64,
             ),

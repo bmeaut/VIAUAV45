@@ -36,8 +36,6 @@ class SantaItem extends StatelessWidget {
           Hero(
             tag: "background_${santa.name}",
             child: Container(
-              //height: MediaQuery.of(context).size.height * 0.1,
-              //width: MediaQuery.of(context).size.width * 0.6,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
