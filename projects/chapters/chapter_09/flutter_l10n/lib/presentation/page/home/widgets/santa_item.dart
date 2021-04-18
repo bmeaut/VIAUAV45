@@ -69,6 +69,5 @@ class SantaItem extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }
