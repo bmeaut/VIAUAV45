@@ -15,7 +15,7 @@ class CurrentLanguage extends StatelessWidget {
         ),
         SizedBox(height: 32),
         Text(
-          l10n.homeCurrentLanguage("English"),
+          l10n.homeCurrentLanguage("TODO"),
           style: TextStyle(
             fontSize: 16,
           ),
