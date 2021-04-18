@@ -24,22 +24,32 @@ class HomePage extends StatelessWidget {
           children: [
             Text(
               "Know your Santa",
-              style: TextStyle(fontSize: 40),
+              style: TextStyle(fontSize: 60),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Current language: "),
-                Text("English"),
+                Text(
+                  "Current language: ",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                Text(
+                  "English",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
               ],
             ),
-            SizedBox(height: 4),
+            SizedBox(height: 8),
             Image.asset(
-              "assets/icon/flag/united_kingdom.png",
-              height: 64,
-              width: 64,
+              "assets/icon/flag/usa.png",
+              height: 40,
+              width: 60,
             ),
             SizedBox(height: 32),
             Text(

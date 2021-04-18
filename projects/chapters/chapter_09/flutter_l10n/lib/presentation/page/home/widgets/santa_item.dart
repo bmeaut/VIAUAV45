@@ -39,27 +39,30 @@ class SantaItem extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                borderRadius:
-                    BorderRadius.horizontal(left: Radius.circular(16)),
+                borderRadius: BorderRadius.all(Radius.circular(16)),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(left: 16, top: 200, bottom: 8),
+                padding: const EdgeInsets.only(right: 16, top: 160, bottom: 16),
                 child: Text(
                   santa.name,
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4
+                      .copyWith(fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.end,
                 ),
               ),
             ),
           ),
           Positioned(
-            right: 8,
-            top: 4,
+            right: 16,
+            top: 32,
             child: Hero(
               tag: "image_${santa.name}",
               child: Image.asset(
                 santa.avatar,
-                height: 200,
-                width: 200,
+                height: 114,
+                width: 171,
               ),
             ),
           )
