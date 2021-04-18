@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/widgets/santa_item.dart';
 
@@ -6,12 +7,13 @@ class HomePage extends StatelessWidget {
   final santa = Santa(
       name: "Santa Claus",
       avatar: "assets/icon/santa.png",
-      outfit: ["kalap", "nyaktekerészeti mellfekvenc"],
+      outfit: ["Hat", "tie"],
       description:
           "Santa Claus is generally depicted as a portly, jolly, white-bearded man, often with spectacles, wearing a red coat with white fur collar and cuffs, white-fur-cuffed red trousers, red hat with white fur, and black leather belt and boots, carrying a bag full of gifts for children. He is commonly portrayed as laughing in a way that sounds like ho ho ho. ");
 
   @override
   Widget build(BuildContext context) {
+    final l10n = L10n.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("HomePage"),
@@ -23,7 +25,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "Know your Santa",
+              l10n.homeTitle,
               style: TextStyle(fontSize: 60),
               textAlign: TextAlign.center,
             ),
