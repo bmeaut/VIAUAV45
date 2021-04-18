@@ -5,19 +5,12 @@ import 'package:flutter_l10n/presentation/page/home/widgets/santa_item.dart';
 import '../../../common_imports.dart';
 
 class HomePage extends StatelessWidget {
-  final santa = Santa(
-      name: "Santa Claus",
-      avatar: "assets/icon/santa.png",
-      outfit: ["Hat", "tie"],
-      description:
-          "Santa Claus is generally depicted as a portly, jolly, white-bearded man, often with spectacles, wearing a red coat with white fur collar and cuffs, white-fur-cuffed red trousers, red hat with white fur, and black leather belt and boots, carrying a bag full of gifts for children. He is commonly portrayed as laughing in a way that sounds like ho ho ho. ");
-
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("HomePage"),
+        title: Text(l10n.homeAppbarTitle),
       ),
       body: Container(
         width: double.infinity,
@@ -31,22 +24,11 @@ class HomePage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Current language: ",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-                Text(
-                  "English",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ],
+            Text(
+              l10n.homeCurrentLanguage("English"),
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
             SizedBox(height: 8),
             Image.asset(
@@ -56,12 +38,16 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 32),
             Text(
-              "Your santa",
+              l10n.homeYourSanta,
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 8),
             SantaItem(
-              santa: santa,
+              santa: Santa(
+                  name: l10n.santaName,
+                  avatar: "assets/icon/santa.png",
+                  outfit: [l10n.santaHat, l10n.santaTie],
+                  description: l10n.santaDescription),
             ),
           ],
         ),
