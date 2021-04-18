@@ -11,7 +11,10 @@ class HomePage extends StatelessWidget {
     final l10n = L10n.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.homeAppbarTitle),
+        title: Semantics(
+          child: Text(l10n.homeAppbarTitle),
+          label: "This is the HomePage.",
+        ),
       ),
       body: Container(
         width: double.infinity,
