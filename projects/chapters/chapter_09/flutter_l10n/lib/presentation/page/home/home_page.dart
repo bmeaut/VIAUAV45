@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/widgets/santa_item.dart';
+
+import '../../../common_imports.dart';
 
 class HomePage extends StatelessWidget {
   final santa = Santa(
