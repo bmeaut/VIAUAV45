@@ -27,6 +27,7 @@ dependencies:
   # L10n
   flutter_localizations:
     sdk: flutter
+  intl: ^0.17.0
 
   # UI
   cupertino_icons: ^1.0.2
@@ -36,6 +37,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+
+  generate: true
 
   uses-material-design: true
 
