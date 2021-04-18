@@ -24,6 +24,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # L10n
+  flutter_localizations:
+    sdk: flutter
+
   # UI
   cupertino_icons: ^1.0.2
 
