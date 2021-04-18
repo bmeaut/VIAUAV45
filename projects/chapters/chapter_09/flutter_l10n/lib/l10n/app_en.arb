@@ -1,0 +1,7 @@
+{
+  "homeTitle": "Know your Santa",
+  "@homeTitle": {
+    "description": "Page title.",
+    "context": "HomePage"
+  }
+}
