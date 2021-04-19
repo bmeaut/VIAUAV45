@@ -9,15 +9,26 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Semantics(
-          child: Text(l10n.homeAppbarTitle),
-          label: "This is the HomePage.",
-        ),
+
+    final appBar = AppBar(
+      title: Semantics(
+        child: Text(l10n.homeAppbarTitle),
+        label: "This is the HomePage.",
       ),
+    );
+
+    final mediaQuery = MediaQuery.of(context);
+    final currentScreenHeight = mediaQuery.size.height -
+        appBar.preferredSize.height -
+        mediaQuery.padding.top;
+
+    //mediaQuery.orientation == Orientation.portrait
+
+    return Scaffold(
+      appBar: appBar,
       body: Container(
         width: double.infinity,
+        height: currentScreenHeight,
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
