@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SantaItem extends StatelessWidget {
   final Santa santa;
@@ -39,11 +40,11 @@ class SantaItem extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: BorderRadius.all(Radius.circular(16.r)),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.only(
-                    end: 16, top: 160, bottom: 16),
+                padding: EdgeInsetsDirectional.only(
+                    end: 16.w, top: 160.h, bottom: 16.h),
                 child: Text(
                   santa.name,
                   style: Theme.of(context)
@@ -56,14 +57,14 @@ class SantaItem extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 16,
-            top: 32,
+            right: 16.w,
+            top: 32.h,
             child: Hero(
               tag: "image_${santa.name}",
               child: Image.asset(
                 santa.avatar,
-                height: 114,
-                width: 171,
+                height: 114.h,
+                width: 171.w,
               ),
             ),
           )
