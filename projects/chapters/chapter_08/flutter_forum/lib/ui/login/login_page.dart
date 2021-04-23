@@ -42,7 +42,6 @@ class _LoginPageState extends State<LoginPage> {
     final password = _passwordController.text;
     final analytics = Provider.of<FirebaseAnalytics>(context, listen: false);
 
-    // TODO Implement Firebase user registration
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
@@ -61,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacementNamed(context, "/posts");
     } on Exception catch (e) {
       print("User registration/login failed: ${e.toString()}");
-      analytics.logEvent(name: "registrationFailed");
+      analytics.logEvent(name: "registration_failed");
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Registration failed, please try again!"))
       );
