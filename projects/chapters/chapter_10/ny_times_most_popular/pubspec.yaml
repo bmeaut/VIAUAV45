@@ -30,9 +30,9 @@ dependencies:
   get_it: ^6.1.1
   json_annotation: ^4.0.1
   cached_network_image: ^3.0.0
-  chopper: ^4.0.0-nullsafety.1
-  moor: ^4.2.1
-  sqlite3_flutter_libs: ^0.4.1
+  dio: ^4.0.0
+  retrofit: 2.0.0-beta1
+  floor: ^1.0.1
 
   path_provider: ^2.0.1
   path:
@@ -47,8 +47,9 @@ dev_dependencies:
     sdk: flutter
   build_runner:
   json_serializable: ^4.1.1
-  moor_generator: ^4.2.2
-  chopper_generator: ^4.0.0-nullsafety.1
+  floor_generator: ^1.0.0
+  retrofit_generator: 2.0.0-beta3
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

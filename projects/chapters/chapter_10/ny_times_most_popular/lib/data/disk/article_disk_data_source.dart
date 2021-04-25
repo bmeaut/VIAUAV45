@@ -1,5 +1,5 @@
 import 'package:ny_times_most_popular/data/disk/article_dao.dart';
-import 'package:ny_times_most_popular/data/disk/model/moor_article.dart';
+import 'package:ny_times_most_popular/data/disk/model/floor_article.dart';
 import 'package:ny_times_most_popular/domain/model/article.dart';
 
 class ArticleDiskDataSource {
@@ -37,7 +37,7 @@ class ArticleDiskDataSource {
   }
 }
 
-extension on MoorArticleData {
+extension on FloorArticle {
   Article toDomainModel() {
     return Article(
       id: this.id,
@@ -52,8 +52,8 @@ extension on MoorArticleData {
 }
 
 extension on Article {
-  MoorArticleData toDatabaseModel() {
-    return MoorArticleData(
+  FloorArticle toDatabaseModel() {
+    return FloorArticle(
       id: this.id,
       url: this.url,
       byLine: this.byLine,

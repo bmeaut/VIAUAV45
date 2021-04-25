@@ -74,15 +74,17 @@ class ArticleDetails extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () async {
                         final url = article.url;
-                        if (await canLaunch(url)) {
-                          await launch(url, forceWebView: true);
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text("Could not launch ${article.url}"),
-                            ),
-                          );
-                        }
+                        await launch(url, forceWebView: true);
+                        // This should be working, but it doesn't.
+                        // if (await canLaunch(url)) {
+                        //   await launch(url);
+                        // } else {
+                        //   ScaffoldMessenger.of(context).showSnackBar(
+                        //     SnackBar(
+                        //       content: Text("Could not launch ${article.url}"),
+                        //     ),
+                        //   );
+                        // }
                       },
                       child: Text(
                         "OPEN IN BROWSER",

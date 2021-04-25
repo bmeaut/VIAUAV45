@@ -11,9 +11,9 @@ class ArticleNetworkDataSource {
   Future<List<Article>?> getArticles() async {
     final networkResponse = await _nytApi.getArticles();
 
-    if (!networkResponse.isSuccessful) return null;
+    if (networkResponse.response.statusCode != 200) return null;
 
-    final networkArticles = networkResponse.body!.results;
+    final networkArticles = networkResponse.data.results;
 
     return networkArticles.map((article) => article.toDomainModel()).toList();
   }

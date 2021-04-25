@@ -9,29 +9,42 @@ void main() {
   runApp(NytApp());
 }
 
-const LIST_PAGE = "/articles";
 const DETAIL_PAGE = "/details";
 
 class NytApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NYT Most Popular',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: ArticleListPage(),
-      onGenerateRoute: (settings) {
-        final name = settings.name ?? "";
-        if (name.startsWith(DETAIL_PAGE)) {
-          return MaterialPageRoute(
-            builder: (context) {
-              return ArticleDetails(settings.arguments as int);
+    return FutureBuilder(
+      future: injector.allReady(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return MaterialApp(
+            title: 'NYT Most Popular',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+            ),
+            home: ArticleListPage(),
+            onGenerateRoute: (settings) {
+              final name = settings.name ?? "";
+              if (name.startsWith(DETAIL_PAGE)) {
+                return MaterialPageRoute(
+                  builder: (context) {
+                    return ArticleDetails(settings.arguments as int);
+                  },
+                );
+              }
+              return null;
             },
           );
         }
-        return null;
+
+        return Container(
+          color: Colors.white,
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
       },
     );
   }
