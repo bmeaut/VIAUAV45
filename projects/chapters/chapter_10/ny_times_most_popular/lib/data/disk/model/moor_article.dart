@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:moor/ffi.dart';
 import 'package:moor/moor.dart';
-import 'package:ny_times_most_popular/data/disk/article_dao.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:ny_times_most_popular/data/disk/moor_article_dao.dart';
 import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
 
 part 'moor_article.g.dart';
 
@@ -32,7 +32,7 @@ LazyDatabase _openConnection() {
   });
 }
 
-@UseMoor(tables: [MoorArticle], daos: [ArticleDao])
+@UseMoor(tables: [MoorArticle], daos: [MoorArticleDao])
 class NytMostPopularDatabase extends _$NytMostPopularDatabase {
   NytMostPopularDatabase() : super(_openConnection());
 

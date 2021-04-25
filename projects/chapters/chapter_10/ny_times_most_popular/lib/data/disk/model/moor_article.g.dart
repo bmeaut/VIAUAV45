@@ -427,7 +427,8 @@ abstract class _$NytMostPopularDatabase extends GeneratedDatabase {
   _$NytMostPopularDatabase(QueryExecutor e)
       : super(SqlTypeSystem.defaultInstance, e);
   late final $MoorArticleTable moorArticle = $MoorArticleTable(this);
-  late final ArticleDao articleDao = ArticleDao(this as NytMostPopularDatabase);
+  late final MoorArticleDao moorArticleDao =
+      MoorArticleDao(this as NytMostPopularDatabase);
   @override
   Iterable<TableInfo> get allTables => allSchemaEntities.whereType<TableInfo>();
   @override

@@ -1,8 +1,7 @@
-import 'package:ny_times_most_popular/data/network/model/network_article.dart';
-import 'package:ny_times_most_popular/domain/model/article.dart';
 import 'package:collection/collection.dart';
-
-import 'nyt_api.dart';
+import 'package:ny_times_most_popular/data/network/model/network_article.dart';
+import 'package:ny_times_most_popular/data/network/nyt_api.dart';
+import 'package:ny_times_most_popular/domain/model/article.dart';
 
 class ArticleNetworkDataSource {
   final NytApi _nytApi;

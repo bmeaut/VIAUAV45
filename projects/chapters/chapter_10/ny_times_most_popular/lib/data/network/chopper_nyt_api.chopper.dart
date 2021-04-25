@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'nyt_api.dart';
+part of 'chopper_nyt_api.dart';
 
 // **************************************************************************
 // ChopperGenerator
 // **************************************************************************
 
 // ignore_for_file: always_put_control_body_on_new_line, always_specify_types, prefer_const_declarations
-class _$NytApi extends NytApi {
-  _$NytApi([ChopperClient? client]) {
+class _$ChopperNytApi extends ChopperNytApi {
+  _$ChopperNytApi([ChopperClient? client]) {
     if (client == null) return;
     this.client = client;
   }
 
   @override
-  final definitionType = NytApi;
+  final definitionType = ChopperNytApi;
 
   @override
   Future<Response<NetworkReply>> getArticles() {

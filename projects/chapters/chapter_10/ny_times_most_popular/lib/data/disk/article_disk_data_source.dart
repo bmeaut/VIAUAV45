@@ -20,7 +20,7 @@ class ArticleDiskDataSource {
 
   Future<Article?> getArticle(int id) async {
     try {
-      final articleFromDb = await _articleDao.findArticle(id);
+      final articleFromDb = await _articleDao.getArticle(id);
       return articleFromDb?.toDomainModel();
     } catch (err) {
       return null;

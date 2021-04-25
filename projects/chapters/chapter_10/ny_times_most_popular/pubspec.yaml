@@ -27,7 +27,9 @@ dependencies:
   bloc: ^7.0.0
   flutter_bloc: ^7.0.0
   provider: ^5.0.0
+  get_it: ^6.1.1
   json_annotation: ^4.0.1
+  cached_network_image: ^3.0.0
   chopper: ^4.0.0-nullsafety.1
   moor: ^4.2.1
   sqlite3_flutter_libs: ^0.4.1

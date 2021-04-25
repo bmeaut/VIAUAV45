@@ -1,8 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ny_times_most_popular/di/article_details_scope.dart';
-import 'package:ny_times_most_popular/ui/details/article_details_event.dart';
 import 'package:ny_times_most_popular/di/di_utils.dart';
+import 'package:ny_times_most_popular/ui/details/article_details_event.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'article_details_bloc.dart';
@@ -15,15 +15,17 @@ class ArticleDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ArticleDetailsScope(
-      injectionTarget: BlocBuilder<ArticleDetailsBloc, ArticleDetailsState>(
+    return BlocProvider(
+      create: (context) => injector<ArticleDetailsBloc>(),
+      child: BlocBuilder<ArticleDetailsBloc, ArticleDetailsState>(
         builder: (context, state) {
           if (state is Loading) {
-            context
-                .getBloc<ArticleDetailsBloc>()
+            BlocProvider.of<ArticleDetailsBloc>(context)
                 .add(LoadArticleEvent(articleId));
             return ArticleDetailsLoading();
-          } else if (state is ContentReady) {
+          }
+
+          if (state is ContentReady) {
             final article = state.article;
             return Scaffold(
               appBar: AppBar(
@@ -35,12 +37,13 @@ class ArticleDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     article.largeUrl != null
-                        ? Image.network(
-                            article.largeUrl!,
+                        ? CachedNetworkImage(
+                            imageUrl: article.largeUrl!,
+                            height: 200,
                           )
                         : Icon(
                             Icons.image,
-                            size: 100,
+                            size: 200,
                           ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
@@ -59,8 +62,11 @@ class ArticleDetails extends StatelessWidget {
                             Icons.calendar_today,
                             size: 15,
                           ),
-                          Text(
-                            article.publishedDate,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Text(
+                              article.publishedDate,
+                            ),
                           ),
                         ],
                       ),
@@ -90,7 +96,7 @@ class ArticleDetails extends StatelessWidget {
 
           return Center(
             child: Text(
-              "Something went wrong while retrieving Article",
+              "Something went wrong while retrieving Article with id $articleId",
             ),
           );
         },
