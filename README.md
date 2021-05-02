@@ -10,6 +10,7 @@
 - [Chapter 5: Advanced widgets, navigation, animation](./material/05.md)
 - [Chapter 6: HTTP communication](./material/06.md)
 - [Chapter 8: Backend as a Service (BaaS), Firebase, FlutterFire](./material/08.md)
+- [Chapter 10: App architecture](./material/10.md)
 - [Chapter 11: Platform Channels and testing](./material/11.md)
 
 ## Requirements
