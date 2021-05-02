@@ -25,7 +25,6 @@ import Flutter
   }
 
   private func getPlatformSpecificData(result: FlutterResult) {
-      result("30")
+      result(30)
     }
-
 }

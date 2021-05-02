@@ -52,10 +52,10 @@ class _MyHomePageState extends State<MyHomePage> {
     const platformChannel = const MethodChannel("hu.bme.aut.flutter/data");
 
     try {
-      final String result =
+      final int result =
           await platformChannel.invokeMethod('getPlatformSpecificData');
       setState(() {
-        _platformSpecificData = result;
+        _platformSpecificData = "$result in Celsius";
       });
     } on PlatformException catch (error) {
       setState(() {
