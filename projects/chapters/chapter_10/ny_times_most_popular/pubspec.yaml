@@ -45,6 +45,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mockito: ^5.0.7
+
   build_runner:
   json_serializable: ^4.1.1
   floor_generator: ^1.0.0
