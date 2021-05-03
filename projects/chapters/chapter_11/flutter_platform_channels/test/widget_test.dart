@@ -14,7 +14,8 @@ void main() {
     await tester.pumpWidget(MyApp());
 
     // Verifications.
-    expect(find.text("Flutter Platform Channels demo"), findsOneWidget);
+    expect(
+        find.text("Flutter Platform Channels demo - updated"), findsOneWidget);
     expect(find.text('0'), findsNothing);
   });
 }

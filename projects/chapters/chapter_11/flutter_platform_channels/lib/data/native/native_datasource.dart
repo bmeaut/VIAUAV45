@@ -16,13 +16,11 @@ class NativeDataSourceImpl extends NativeDataSource {
     try {
       final int currentTemp = await methodChannel.invokeMethod(Channel.getTemp);
       if (currentTemp == null) {
-        throw Exception("temp is missing");
+        throw PlatformException(message: 'temp is missing', code: "");
       }
       return currentTemp;
-    } on PlatformException catch (e) {
-      throw PlatformException(message: "temp is missing");
     } catch (e) {
-      throw Exception("temp is missing");
+      throw PlatformException(message: 'temp is missing', code: "");
     }
   }
 }

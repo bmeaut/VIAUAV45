@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_platform_channels/domain/repository/repository.dart';
 
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
@@ -18,16 +17,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   @override
   Stream<HomeState> mapEventToState(HomeEvent event) async* {
     if (event is HomeEventGetTemperature) {
-      yield* _mapLoadTemperatureToState();
+      yield HomeStateLoading();
+      yield await _mapLoadTemperatureToState();
     }
   }
 
-  Stream<HomeState> _mapLoadTemperatureToState() async* {
+  Future<HomeState> _mapLoadTemperatureToState() async {
     try {
       final int result = await repository.getTemperature();
-      yield HomeStateLoaded(temperature: result);
+      return HomeStateLoaded(temperature: result);
     } catch (e) {
-      yield HomeStateError();
+      return HomeStateError();
     }
   }
 }
