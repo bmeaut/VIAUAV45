@@ -36,6 +36,7 @@ void main() {
       final int expectedResult = 10;
       when(mockRepository.getTemperature())
           .thenAnswer((_) async => expectedResult);
+
       // Act
       bloc.add((HomeEventGetTemperature()));
 

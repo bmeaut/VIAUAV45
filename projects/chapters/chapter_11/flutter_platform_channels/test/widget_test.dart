@@ -59,8 +59,7 @@ void main() {
 /*
     expect(
         find.text("Flutter Platform Channels demo - updated"), findsOneWidget);*/
-/*
-    final loadingProgressBar = find.byType(CircularProgressIndicator);
-    expect(loadingProgressBar, findsOneWidget);*/
+    final loadingProgressBar = find.byKey(CircularProgressIndicator);
+    expect(loadingProgressBar, findsOneWidget);
   });
 }

@@ -46,65 +46,65 @@ void main() {
         // Assert
         expect(result, expectedResult);
       });
+    });
 
-      group('error scenarios', () {
-        test(
-            'return data error when native fails to return temperature and it returns with null',
-            () async {
-          // Arrange
-          const int response = null;
-          const String expectedError = 'temp is missing';
-          when(methodChannel.invokeMethod(Channel.getTemp))
-              .thenAnswer((_) async => response);
+    group('error scenarios', () {
+      test(
+          'return data error when native fails to return temperature and it returns with null',
+          () async {
+        // Arrange
+        const int response = null;
+        const String expectedError = 'temp is missing';
+        when(methodChannel.invokeMethod(Channel.getTemp))
+            .thenAnswer((_) async => response);
 
-          // Act
-          // Assert
-          expect(
-            () => nativeDataSource.getTemperature(),
-            throwsA(
-              predicate(
-                  (e) => e is PlatformException && e.message == expectedError),
-            ),
-          );
-        });
+        // Act
+        // Assert
+        expect(
+          () => nativeDataSource.getTemperature(),
+          throwsA(
+            predicate(
+                (e) => e is PlatformException && e.message == expectedError),
+          ),
+        );
+      });
 
-        test(
-            'return data error when native fails to return temperature and it throws PlatformException',
-            () async {
-          // Arrange
-          const String expectedError = 'temp is missing';
-          when(methodChannel.invokeMethod(Channel.getTemp))
-              .thenThrow(PlatformException(message: expectedError, code: ""));
+      test(
+          'return data error when native fails to return temperature and it throws PlatformException',
+          () async {
+        // Arrange
+        const String expectedError = 'temp is missing';
+        when(methodChannel.invokeMethod(Channel.getTemp))
+            .thenThrow(PlatformException(message: expectedError, code: ""));
 
-          // Act
-          // Assert
-          expect(
-            () => nativeDataSource.getTemperature(),
-            throwsA(
-              predicate(
-                  (e) => e is PlatformException && e.message == expectedError),
-            ),
-          );
-        });
+        // Act
+        // Assert
+        expect(
+          () => nativeDataSource.getTemperature(),
+          throwsA(
+            predicate(
+                (e) => e is PlatformException && e.message == expectedError),
+          ),
+        );
+      });
 
-        test(
-            'return data error when native fails to return temperature and it throws a default exception',
-            () async {
-          // Arrange
-          const String expectedError = 'temp is missing';
-          when(methodChannel.invokeMethod(Channel.getTemp))
-              .thenThrow(MissingPluginException());
+      test(
+          'return data error when native fails to return temperature and it throws a default exception',
+          () async {
+        // Arrange
+        const String expectedError = 'temp is missing';
+        when(methodChannel.invokeMethod(Channel.getTemp))
+            .thenThrow(MissingPluginException());
 
-          // Act
-          // Assert
-          expect(
-            () => nativeDataSource.getTemperature(),
-            throwsA(
-              predicate(
-                  (e) => e is PlatformException && e.message == expectedError),
-            ),
-          );
-        });
+        // Act
+        // Assert
+        expect(
+          () => nativeDataSource.getTemperature(),
+          throwsA(
+            predicate(
+                (e) => e is PlatformException && e.message == expectedError),
+          ),
+        );
       });
     });
   });
