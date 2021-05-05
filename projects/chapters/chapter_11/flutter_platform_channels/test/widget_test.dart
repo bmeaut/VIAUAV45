@@ -46,20 +46,4 @@ void main() {
         find.text("Flutter Platform Channels demo - updated"), findsOneWidget);
     expect(find.text('0'), findsNothing);
   });
-
-  testWidgets('MyHomePage starts in Loading state',
-      (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MaterialApp(
-      home: BlocProvider(
-        create: (_) => homeBlock,
-        child: MyHomePage(),
-      ),
-    ));
-/*
-    expect(
-        find.text("Flutter Platform Channels demo - updated"), findsOneWidget);*/
-    final loadingProgressBar = find.byKey(CircularProgressIndicator);
-    expect(loadingProgressBar, findsOneWidget);
-  });
 }
