@@ -18,6 +18,7 @@ class TodoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      key: ObjectKey(todo),
       onTap: () => onTap(todo),
       child: Row(
         children: [

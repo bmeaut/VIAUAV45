@@ -10,10 +10,6 @@ void main() async {
 
   final dataSource = DataSource(
     MemoryTodoRepository(),
-    // FloorTodoRepository()
-    // MoorTodoRepository()
-    // SembastTodoRepository()
-    // HiveTodoRepository()
   );
 
   await dataSource.init();
