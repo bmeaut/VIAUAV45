@@ -5,6 +5,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
+import 'package:uuid/uuid.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,7 @@ class ImageDownloaderPage extends StatefulWidget {
 
 class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
   static const IMAGES_DIR = 'images';
+  final Uuid uuidGenerator = Uuid();
   late Future<List<File>> _imageFiles;
 
   ScrollController? _scrollController;
@@ -59,7 +61,7 @@ class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
     final imagesDir = await _getImagesDirectory();
     final filePath = path.join(
       imagesDir.path,
-      "${DateTime.now().toIso8601String()}.jpg",
+      "${uuidGenerator.v4().toString()}.jpg",
     );
     final file = File(filePath);
     await file.writeAsBytes(response.bodyBytes);
