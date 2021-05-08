@@ -10,6 +10,8 @@
 - [Chapter 5: Advanced widgets, navigation, animation](./material/05.md)
 - [Chapter 6: HTTP communication](./material/06.md)
 
+- [Chapter 9: Accessibility and responsive UI support](./material/09.md)
+
 ## Requirements
 
  - Test, 40 points, minimum 40%
