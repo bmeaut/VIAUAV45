@@ -34,16 +34,20 @@ class _TodoListPageState extends State<TodoListPage> {
     super.initState();
   }
 
-  void onPopupMenuItemClicked(String value) async {
-    final prefs = await _prefs;
-    final hideDoneTodos = !(prefs.getBool(HIDE_DONE_TODOS_KEY) ?? false);
-    refreshTodos(() {
-      _hideDoneTodos = prefs
-          .setBool(HIDE_DONE_TODOS_KEY, hideDoneTodos)
-          .then((bool success) {
-        return hideDoneTodos;
+  void onPopupMenuItemClicked(String selectedItemValue) async {
+    if (selectedItemValue == HIDE_DONE_TODOS_KEY) {
+      final prefs = await _prefs;
+      final hideDoneTodos = !(prefs.getBool(selectedItemValue) ?? false);
+      refreshTodos(() {
+        _hideDoneTodos = prefs.setBool(selectedItemValue, hideDoneTodos).then(
+          (bool success) {
+            return hideDoneTodos;
+          },
+        );
       });
-    });
+    } else {
+      // Do nothing
+    }
   }
 
   void onDoneChanged(Todo todo, bool isDone) async {

@@ -8,13 +8,7 @@ import 'ui/list/todo_list.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final dataSource = DataSource(
-    MemoryTodoRepository(),
-    // FloorTodoRepository()
-    // MoorTodoRepository()
-    // SembastTodoRepository()
-    // HiveTodoRepository()
-  );
+  final dataSource = DataSource(MemoryTodoRepository());
 
   await dataSource.init();
 

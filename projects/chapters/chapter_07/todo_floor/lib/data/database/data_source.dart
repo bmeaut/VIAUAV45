@@ -16,33 +16,29 @@ class DataSource {
 
   Future<List<Todo>> getAllTodos() async {
     final todos = await database.getAllTodos();
-    return todos
-        .map(
-          (floorTodo) => floorTodo.toTodo(),
-        )
-        .toList();
+    return todos.map((floorTodo) => floorTodo.toDomainModel()).toList();
   }
 
   Future<Todo?> getTodo(int id) async {
     final floorTodo = await database.getTodo(id);
-    return floorTodo?.toTodo();
+    return floorTodo?.toDomainModel();
   }
 
   Future<void> upsertTodo(Todo todo) async {
-    return database.upsertTodo(todo.toFloorTodo());
+    return database.upsertTodo(todo.toDbModel());
   }
 
   Future<void> deleteTodo(Todo todo) async {
-    return database.deleteTodo(todo.toFloorTodo());
+    return database.deleteTodo(todo.toDbModel());
   }
 
   Future<void> setTodoDone(Todo todo, bool isDone) async {
-    return database.upsertTodo(todo.toFloorTodo()..isDone = isDone ? 1 : 0);
+    return database.upsertTodo(todo.toDbModel()..isDone = isDone ? 1 : 0);
   }
 }
 
 extension TodoToFloorTodo on Todo {
-  FloorTodo toFloorTodo() {
+  FloorTodo toDbModel() {
     return FloorTodo(
         id: this.id,
         title: this.title,
@@ -54,7 +50,7 @@ extension TodoToFloorTodo on Todo {
 }
 
 extension FloorTodoToTodo on FloorTodo {
-  Todo toTodo() {
+  Todo toDomainModel() {
     TodoPriority priority;
     switch (this.priority) {
       case 0:
