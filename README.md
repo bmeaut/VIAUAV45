@@ -12,6 +12,7 @@
 - [Chapter 7: Persistent data storage](./material/07.md)
 
 - [Chapter 9: Accessibility and responsive UI support](./material/09.md)
+- [Chapter 11: Platform Channels and testing](./material/11.md)
 
 ## Requirements
 

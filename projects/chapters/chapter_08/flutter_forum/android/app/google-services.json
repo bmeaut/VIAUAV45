@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "461505167816",
+    "project_id": "flutterforum-test",
+    "storage_bucket": "flutterforum-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461505167816:android:ddd15471d0d476592b00fd",
+        "android_client_info": {
+          "package_name": "hu.bme.aut.flutter_forum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461505167816-4mdtsqc0p4n9mittfqhlenb3vongsk9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hu.bme.aut.flutter_forum",
+            "certificate_hash": "db0f9082ce2196ea39b17aa1376a9e5f4c833489"
+          }
+        },
+        {
+          "client_id": "461505167816-3h949a6t4epnekj5uevpkpbkoblm6f1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD26vX1Mo587XKYc656JxQKHVjNCaR_27o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461505167816-3h949a6t4epnekj5uevpkpbkoblm6f1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
