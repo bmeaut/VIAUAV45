@@ -9,8 +9,8 @@
 - [Chapter 4: Asynchronous operations, State handling](./material/04.md)
 - [Chapter 5: Advanced widgets, navigation, animation](./material/05.md)
 - [Chapter 6: HTTP communication](./material/06.md)
-
 - [Chapter 9: Accessibility and responsive UI support](./material/09.md)
+- [Chapter 11: Platform Channels and testing](./material/11.md)
 
 ## Requirements
 
