@@ -40,3 +40,7 @@
 ## Resources
 [Teams link](https://teams.microsoft.com/l/team/19%3a7d35dc7404c84ca1a1e022b39feac8ac%40thread.tacv2/conversations?groupId=102fff3a-4812-4499-92cb-dc5c3b847c1f&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
 
+## Extra materials recommended for reading and research
+
+- [Flutter Complete Reference](https://fluttercompletereference.com/) - Alberto Miola
+
