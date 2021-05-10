@@ -44,3 +44,23 @@
 
 - [Flutter Complete Reference](https://fluttercompletereference.com/) - Alberto Miola
 
+## The Flutter community
+
+Most software platforms have an online community where people can share and discuss everything related to the topic, and Flutter is no exception.
+
+Here are some places where you can meet fellow developers, or get the latest news on Flutter.
+
+### Twitter
+
+Twitter has become one of the most prominent platforms for online developer communities as you have great control over who you want to see content from.
+
+Here are some accounts to follow (but there are many more!):
+
+- [FlutterDev](https://twitter.com/FlutterDev)
+- [Flutter Daily](https://twitter.com/flutteriodaily)
+- [Felix Angelov](https://twitter.com/felangelov) - the author of the bloc libraries!
+- [Matej Rešetár](https://twitter.com/resocoder) - AKA Reso Coder
+
+### Reddit
+
+// TODO
