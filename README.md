@@ -3,21 +3,21 @@
 
 ## Chapters
 
-- [Chapter 1: Introduction](./material/01.md)
-- [Chapter 2: Flutter basics](./material/02.md)
-- [Chapter 3: Essential Flutter Widgets](./material/03.md)
-- [Chapter 4: Asynchronous operations, State handling](./material/04.md)
-- [Chapter 5: Advanced widgets, navigation, animation](./material/05.md)
-- [Chapter 6: HTTP communication](./material/06.md)
-- [Chapter 7: Persistent data storage](./material/07.md)
+- [Chapter 1: Introduction (NOT updated for 2022/22/1)](./material/01.md)
+- [Chapter 2: Flutter basics (NOT updated for 2022/22/1)](./material/02.md)
+- [Chapter 3: Essential Flutter Widgets (NOT updated for 2022/22/1)](./material/03.md)
+- [Chapter 4: Asynchronous operations, State handling (NOT updated for 2022/22/1)](./material/04.md)
+- [Chapter 5: Advanced widgets, navigation, animation (NOT updated for 2022/22/1)](./material/05.md)
+- [Chapter 6: HTTP communication (NOT updated for 2022/22/1)](./material/06.md)
+- [Chapter 7: Persistent data storage (NOT updated for 2022/22/1)](./material/07.md)
 
-- [Chapter 9: Accessibility and responsive UI support](./material/09.md)
-- [Chapter 11: Platform Channels and testing](./material/11.md)
+- [Chapter 9: Accessibility and responsive UI support (NOT updated for 2022/22/1)](./material/09.md)
+- [Chapter 11: Platform Channels and testing (NOT updated for 2022/22/1)](./material/11.md)
 
 ## Requirements
 
  - Test, 40 points, minimum 40%
-    - Last week of the term, at the time of the lecture, on Moodle (May 10th, 12:15 - 14:00).
+    - Last week of the term, at the time of the lecture, on Moodle (TBA - To Be Announced).
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
     - The test will consist of the following:
