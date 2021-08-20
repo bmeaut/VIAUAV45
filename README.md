@@ -3,6 +3,9 @@
 
 ## Chapters
 
+
+### Not yet updated for 2022/22/1
+
 - [Chapter 1: Introduction](./material/01.md)
 - [Chapter 2: Flutter basics](./material/02.md)
 - [Chapter 3: Essential Flutter Widgets](./material/03.md)
@@ -17,7 +20,7 @@
 ## Requirements
 
  - Test, 40 points, minimum 40%
-    - Last week of the term, at the time of the lecture, on Moodle (May 10th, 12:15 - 14:00).
+    - Last week of the term, at the time of the lecture, on Moodle (TBA - To Be Announced).
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
     - The test will consist of the following:
