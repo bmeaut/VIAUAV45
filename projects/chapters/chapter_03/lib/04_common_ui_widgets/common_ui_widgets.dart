@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: EssentialWidgetsDemoPage(title: 'Flutter Essential Widgets Demo'),
+      home: const EssentialWidgetsDemoPage(title: 'Flutter Essential Widgets Demo'),
     );
   }
 }
 
 class EssentialWidgetsDemoPage extends StatefulWidget {
-  EssentialWidgetsDemoPage({Key? key, this.title}) : super(key: key);
+  const EssentialWidgetsDemoPage({Key? key, this.title}) : super(key: key);
 
   final String? title;
 
@@ -37,10 +37,10 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
         title: Text(widget.title!),
       ),
       body: Stack(
-        children: <Widget>[
+        children: [
           Container(
-            margin: EdgeInsets.all(16),
-            padding: EdgeInsets.all(16),
+            margin: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 border: Border.all(
@@ -60,7 +60,7 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
+                    children: const [
                       Icon(
                         Icons.android,
                         color: Colors.greenAccent,
@@ -100,21 +100,21 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
                           child: CircularProgressIndicator(
                             value: loadingProgress.expectedTotalBytes != null
                                 ? loadingProgress.cumulativeBytesLoaded /
-                                    loadingProgress.expectedTotalBytes!
+                                loadingProgress.expectedTotalBytes!
                                 : null,
                           ),
                         );
                       },
-                      headers: {"Authorization": "Bearer 0123456789"},
+                      headers: const {"Authorization": "Bearer 0123456789"},
                     ),
                   ),
-                  Text(
+                  const Text(
                     'You have pushed the button this many times:',
                   ),
                   Text(
                     '$_counter',
                     // style: Theme.of(context).textTheme.headline4,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.red,
                       fontSize: 32,
                       fontStyle: FontStyle.italic,
@@ -143,7 +143,7 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(
+        child: const Icon(
           CupertinoIcons.add_circled,
           color: Colors.greenAccent,
         ),

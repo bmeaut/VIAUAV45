@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
 
 void main() {
-  runApp(CupertinoTabsDemoApp());
+  runApp(const CupertinoTabsDemoApp());
 }
 
 class CupertinoTabsDemoApp extends StatelessWidget {
+  const CupertinoTabsDemoApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
       title: "Cupertino Tabs Demo",
-      theme: CupertinoThemeData(),
+      theme: const CupertinoThemeData(),
       debugShowCheckedModeBanner: false,
       home: CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
@@ -33,22 +35,28 @@ class CupertinoTabsDemoApp extends StatelessWidget {
           switch (index) {
             case 0:
               returnValue = CupertinoTabView(builder: (context) {
-                return CupertinoPageScaffold(
-                  child: Center(child: Text("Products"),),
+                return const CupertinoPageScaffold(
+                  child: Center(
+                    child: Text("Products"),
+                  ),
                 );
               });
               break;
             case 1:
               returnValue = CupertinoTabView(builder: (context) {
-                return CupertinoPageScaffold(
-                  child: Center(child: Text("Search"),),
+                return const CupertinoPageScaffold(
+                  child: Center(
+                    child: Text("Search"),
+                  ),
                 );
               });
               break;
             case 2:
               returnValue = CupertinoTabView(builder: (context) {
-                return CupertinoPageScaffold(
-                  child: Center(child: Text("Cart"),),
+                return const CupertinoPageScaffold(
+                  child: Center(
+                    child: Text("Cart"),
+                  ),
                 );
               });
               break;
