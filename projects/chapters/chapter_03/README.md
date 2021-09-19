@@ -1,4 +1,4 @@
-# Chapter 03: Essential Flutter Widgets - Starter Project
+# Chapter 03: Essential Flutter Widgets - Complete project
 
 Complete demo project for Chapter 03.
 

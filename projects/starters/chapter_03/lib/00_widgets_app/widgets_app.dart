@@ -37,66 +37,11 @@ class WidgetsAppDemoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 255, 255, 255),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 24.0),
-            child: Text(
-              "The Main Menu of a\nLegendary Game",
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: GestureDetector(
-              child: const Text(
-                "New Game",
-                textAlign: TextAlign.center,
-              ),
-              onTap: () {
-                showGeneralDialog(
-                  context: context,
-                  pageBuilder: (BuildContext context,
-                      Animation<double> animation,
-                      Animation<double> secondaryAnimation) {
-                    return Center(
-                      child: Container(
-                        width: 200,
-                        height: 200,
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        child: const SizedBox(
-                          width: 200,
-                          height: 200,
-                          child: Center(
-                            child: Text("New Game clicked"),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
-              "Load Game",
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
-              "Exit",
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ],
+    return const Text(
+      "WidgetsApp Demo",
+      style: TextStyle(
+        color: Color.fromARGB(255, 0, 0, 0),
       ),
-    );
+    ); // TODO 0.1 Container + Column
   }
 }
