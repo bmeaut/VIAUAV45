@@ -9,22 +9,6 @@ class MaterialDemoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        // primaryColor: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          leading: const Text("Leading widget"),
-          title: const Text("App title"),
-          actions: const [
-            Text("Action1"),
-            Text("Action2")
-          ],
-        ),
-      ),
-    );
+    return const MaterialApp(); // TODO 1.1 MaterialApp
   }
 }
