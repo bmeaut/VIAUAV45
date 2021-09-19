@@ -26,7 +26,7 @@ class WidgetsAppDemo extends StatelessWidget {
       // If we use multiple pages, we have to define exactly how navigation should happen between them.
       onGenerateRoute: generateRoutes,
       textStyle: const TextStyle(
-        color: Color.fromARGB(255, 0, 0, 0), // TODO 0.1 Container + Column
+        color: Color.fromARGB(255, 0, 0, 0),
       ),
     );
   }
@@ -40,7 +40,7 @@ class WidgetsAppDemoPage extends StatelessWidget {
     return const Text(
       "WidgetsApp Demo",
       style: TextStyle(
-        color: Color.fromARGB(255, 0, 0, 0),
+        color: Color.fromARGB(255, 255, 255, 255),
       ),
     ); // TODO 0.1 Container + Column
   }
