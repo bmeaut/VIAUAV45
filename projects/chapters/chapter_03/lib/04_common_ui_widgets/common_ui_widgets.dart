@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const EssentialWidgetsDemoApp());
 }
 
-class MyApp extends StatelessWidget {
+class EssentialWidgetsDemoApp extends StatelessWidget {
+  const EssentialWidgetsDemoApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,22 +21,28 @@ class MyApp extends StatelessWidget {
 }
 
 class EssentialWidgetsDemoPage extends StatefulWidget {
-  const EssentialWidgetsDemoPage({Key? key, this.title}) : super(key: key);
+  const EssentialWidgetsDemoPage({Key? key, required this.title}) : super(key: key);
 
-  final String? title;
+  final String title;
 
   @override
-  _EssentialWidgetsDemoPageState createState() => _EssentialWidgetsDemoPageState();
+  State<EssentialWidgetsDemoPage> createState() => _EssentialWidgetsDemoPageState();
 }
 
 class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
   int _counter = 0;
 
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title!),
+        title: Text(widget.title),
       ),
       body: Stack(
         children: [
@@ -55,7 +63,7 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
+                children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,11 +157,5 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
         ),
       ),
     );
-  }
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
   }
 }
