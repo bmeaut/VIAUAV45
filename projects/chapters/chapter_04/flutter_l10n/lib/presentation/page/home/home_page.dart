@@ -8,7 +8,7 @@ import '../../../common_imports.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final l10n = L10n.of(context);
+    final L10n l10n = L10n.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Semantics(
