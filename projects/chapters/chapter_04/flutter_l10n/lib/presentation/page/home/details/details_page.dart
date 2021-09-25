@@ -5,8 +5,8 @@ class DetailPage extends StatefulWidget {
   final Santa santa;
 
   const DetailPage({
-    Key key,
-    @required this.santa,
+    Key? key,
+    required this.santa,
   }) : super(key: key);
 
   @override
@@ -15,7 +15,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -65,7 +65,10 @@ class _DetailPageState extends State<DetailPage>
                   builder: (context, widget) => Transform.translate(
                     transformHitTests: false,
                     offset: Offset.lerp(
-                        Offset(0.0, 200.0), Offset.zero, _controller.value),
+                      Offset(0.0, 200.0),
+                      Offset.zero,
+                      _controller.value,
+                    )!,
                     child: widget,
                   ),
                   child: Padding(

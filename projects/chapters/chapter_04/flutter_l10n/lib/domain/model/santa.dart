@@ -5,9 +5,9 @@ class Santa {
   final String description;
 
   Santa({
-    this.avatar,
-    this.name,
-    this.outfit,
-    this.description,
+    required this.avatar,
+    required this.name,
+    required this.outfit,
+    required this.description,
   });
 }

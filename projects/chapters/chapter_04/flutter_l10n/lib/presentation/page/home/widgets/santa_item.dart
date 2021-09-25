@@ -6,8 +6,8 @@ class SantaItem extends StatelessWidget {
   final Santa santa;
 
   const SantaItem({
-    Key key,
-    @required this.santa,
+    Key? key,
+    required this.santa,
   }) : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class SantaItem extends StatelessWidget {
                 Animation<double> secondaryAnimation) {
               return AnimatedBuilder(
                   animation: animation,
-                  builder: (BuildContext context, Widget child) {
+                  builder: (_, Widget? child) {
                     return Opacity(
                       opacity: animation.value,
                       child: DetailPage(santa: santa),
@@ -48,7 +48,7 @@ class SantaItem extends StatelessWidget {
                   santa.name,
                   style: Theme.of(context)
                       .textTheme
-                      .headline4
+                      .headline4!
                       .copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.end,
                 ),
