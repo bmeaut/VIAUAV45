@@ -6,6 +6,8 @@ import 'package:flutter_l10n/presentation/page/home/widgets/santa_card.dart';
 import '../../../common_imports.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context)!;
@@ -19,17 +21,17 @@ class HomePage extends StatelessWidget {
       ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CurrentLanguage(),
-            SizedBox(height: 32),
+            const CurrentLanguage(),
+            const SizedBox(height: 32),
             Text(
               l10n.homeYourSanta,
               style: Theme.of(context).textTheme.headline4,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             SantaCard(
               santa: Santa(
                   name: l10n.santaName,

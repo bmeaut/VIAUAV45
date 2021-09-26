@@ -15,7 +15,7 @@ class SantaCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context).push(
-          PageRouteBuilder<Null>(
+          PageRouteBuilder<void>(
             pageBuilder: (BuildContext context, Animation<double> animation,
                 Animation<double> secondaryAnimation) {
               return AnimatedBuilder(
@@ -27,7 +27,7 @@ class SantaCard extends StatelessWidget {
                     );
                   });
             },
-            transitionDuration: Duration(milliseconds: 400),
+            transitionDuration: const Duration(milliseconds: 400),
           ),
         );
       },
@@ -39,7 +39,7 @@ class SantaCard extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
               ),
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(

@@ -13,9 +13,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
+        centerTitle: true,
 
         /// TODO: 10 - Use the localized home title string
-        title: const Text('Know your Santa'),
+        title: const Text('Home Page'),
       ),
       body: Container(
         width: double.infinity,
