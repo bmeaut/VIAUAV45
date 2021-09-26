@@ -1,0 +1,43 @@
+name: flutter_l10n
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #TODO: 1 - Add flutter_localizations dependency.
+  ## L10n
+  #flutter_localizations:
+  #  sdk: flutter
+
+  #TODO: 3 - Add intl dependency.
+  #intl: ^0.17.0
+
+  # UI
+  cupertino_icons: ^1.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.4
+
+flutter:
+  uses-material-design: true
+
+  #TODO: 4 - Specify the generate flag under the flutter: section.
+  #generate: true
+
+  #TODO: 5 - Create l10n.yaml configuration file in the root package.
+  #TODO: 6 - Add arb files with only one localized string resource
+
+  assets:
+    - assets/icon/
+    - assets/icon/flag/

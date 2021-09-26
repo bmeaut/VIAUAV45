@@ -4,6 +4,8 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'presentation/page/home/home_page.dart';
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
