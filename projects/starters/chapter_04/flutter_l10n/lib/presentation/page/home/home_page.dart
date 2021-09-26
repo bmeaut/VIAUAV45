@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Semantics(
-          child: Text('HomePage'),
+          child: Text('Know your Santa'),
           label: "This is the HomePage.",
         ),
       ),
