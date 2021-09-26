@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hu.bme.aut.flutter.flutter_l10n">
    <application
-        android:label="flutter_l10n"
+        android:label="l10n starter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
