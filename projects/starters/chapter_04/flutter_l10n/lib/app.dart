@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+//import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'presentation/page/home/home_page.dart';
 
@@ -24,6 +24,9 @@ class App extends StatelessWidget {
         const Locale('en', ''), // English, no country code
         const Locale('hu', ''), // Hungarian, no country code
       ],*/
+
+      /// TODO: 7 - Import L10n class and use its shorter localizationsDelegates and supportedLocales properties of L10n class.
+      /// TODO: 8 - Optional we could export the import of l10n generated class.
     );
   }
 }

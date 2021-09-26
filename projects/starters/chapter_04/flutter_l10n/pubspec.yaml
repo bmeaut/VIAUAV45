@@ -45,6 +45,9 @@ flutter:
   #TODO: 4 - Specify the generate flag under the flutter: section.
   #generate: true
 
+  #TODO: 5 - Create l10n.yaml configuration file in the root package.
+  #TODO: 6 - Add arb files with only one localized string resource
+
   assets:
     - assets/icon/
     - assets/icon/flag/
