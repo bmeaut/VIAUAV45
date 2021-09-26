@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 8),
-            SantaItem(
+            SantaCard(
               santa: Santa(
                   name: l10n.santaName,
                   avatar: "assets/icon/santa.png",
