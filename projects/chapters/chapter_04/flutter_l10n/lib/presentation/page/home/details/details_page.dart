@@ -47,7 +47,6 @@ class _DetailPageState extends State<DetailPage>
             backgroundColor: Theme.of(context).primaryColor,
             elevation: 0,
             title: Text(widget.santa.name),
-            leading: const CloseButton(),
           ),
           body: SingleChildScrollView(
             child: Column(
