@@ -10,11 +10,6 @@ class CurrentLanguage extends StatelessWidget {
     final l10n = L10n.of(context)!;
     return Column(
       children: [
-        Text(
-          l10n.homeTitle,
-          style: const TextStyle(fontSize: 60),
-          textAlign: TextAlign.center,
-        ),
         const SizedBox(height: 32),
         Text(
           l10n.homeCurrentLanguage("TODO"),

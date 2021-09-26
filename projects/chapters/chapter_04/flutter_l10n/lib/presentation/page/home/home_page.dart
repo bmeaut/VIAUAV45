@@ -25,6 +25,11 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(
+              l10n.homeTitle,
+              style: const TextStyle(fontSize: 60),
+              textAlign: TextAlign.center,
+            ),
             const CurrentLanguage(),
             const SizedBox(height: 32),
             Text(

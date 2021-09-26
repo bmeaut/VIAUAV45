@@ -24,6 +24,11 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const Text(
+              'Know your Santa',
+              style: TextStyle(fontSize: 60),
+              textAlign: TextAlign.center,
+            ),
             const CurrentLanguage(),
             const SizedBox(height: 32),
             Text(
