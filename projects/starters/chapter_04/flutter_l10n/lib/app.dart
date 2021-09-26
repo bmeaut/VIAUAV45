@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.red,
       ),
-      home: HomePage(),
+      home: const HomePage(),
 
       /// TODO: 2 - Add delegates and supported locales to App.
       /* localizationsDelegates: [
