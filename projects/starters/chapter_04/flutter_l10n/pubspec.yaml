@@ -17,7 +17,7 @@ dependencies:
   #flutter_localizations:
   #  sdk: flutter
 
-  #TODO: 3 - Add flutter_localizations dependency.
+  #TODO: 3 - Add intl dependency.
   #intl: ^0.17.0
 
   # UI
