@@ -3,17 +3,14 @@ import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/widgets/current_language.dart';
 import 'package:flutter_l10n/presentation/page/home/widgets/santa_card.dart';
 
-import '../../../common_imports.dart';
-
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final l10n = L10n.of(context)!;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Semantics(
-          child: Text(l10n.homeAppbarTitle),
+          child: Text('HomePage'),
           label: "This is the HomePage.",
         ),
       ),
@@ -23,19 +20,19 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CurrentLanguage(),
-            SizedBox(height: 32),
+            const CurrentLanguage(),
+            const SizedBox(height: 32),
             Text(
-              l10n.homeYourSanta,
+              'Your santa',
               style: Theme.of(context).textTheme.headline4,
             ),
-            SizedBox(height: 8),
-            SantaItem(
+            const SizedBox(height: 8),
+            SantaCard(
               santa: Santa(
-                  name: l10n.santaName,
+                  name: "Santa Claus",
                   avatar: "assets/icon/santa.png",
-                  outfit: [l10n.santaHat, l10n.santaTie],
-                  description: l10n.santaDescription),
+                  outfit: ["Hat", "Tie"],
+                  description: "santaDescription"),
             ),
           ],
         ),

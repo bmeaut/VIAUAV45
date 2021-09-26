@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
 
-class SantaItem extends StatelessWidget {
+class SantaCard extends StatelessWidget {
   final Santa santa;
 
-  const SantaItem({
+  const SantaCard({
     Key? key,
     required this.santa,
   }) : super(key: key);
