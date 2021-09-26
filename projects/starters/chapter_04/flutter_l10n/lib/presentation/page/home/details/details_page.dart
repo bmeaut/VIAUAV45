@@ -19,8 +19,8 @@ class _DetailPageState extends State<DetailPage>
 
   @override
   void initState() {
-    _controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
     _controller.forward();
     super.initState();
   }
@@ -47,7 +47,7 @@ class _DetailPageState extends State<DetailPage>
             backgroundColor: Theme.of(context).primaryColor,
             elevation: 0,
             title: Text(widget.santa.name),
-            leading: CloseButton(),
+            leading: const CloseButton(),
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -65,17 +65,17 @@ class _DetailPageState extends State<DetailPage>
                   builder: (context, widget) => Transform.translate(
                     transformHitTests: false,
                     offset: Offset.lerp(
-                      Offset(0.0, 200.0),
+                      const Offset(0.0, 200.0),
                       Offset.zero,
                       _controller.value,
                     )!,
                     child: widget,
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text(
                       widget.santa.description,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 24,
                         color: Colors.white,
                         fontWeight: FontWeight.w400,

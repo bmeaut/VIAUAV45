@@ -4,6 +4,8 @@ import 'package:flutter_l10n/presentation/page/home/widgets/current_language.dar
 import 'package:flutter_l10n/presentation/page/home/widgets/santa_card.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     /// TODO: 9 - Use the l10n anywhere in the widget tree. show the localized home title string
@@ -13,11 +15,11 @@ class HomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
 
         /// TODO: 10 - Use the localized home title string
-        title: Text('Know your Santa'),
+        title: const Text('Know your Santa'),
       ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

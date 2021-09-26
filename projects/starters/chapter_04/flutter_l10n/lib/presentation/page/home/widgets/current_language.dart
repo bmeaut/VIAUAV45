@@ -7,13 +7,13 @@ class CurrentLanguage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Know your Santa',
           style: TextStyle(fontSize: 60),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 32),
-        Text(
+        const Text(
           "Current language: TODO",
           style: TextStyle(
             fontSize: 16,
