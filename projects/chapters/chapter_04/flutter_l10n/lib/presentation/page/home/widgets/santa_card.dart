@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
 
+import '../../../../common_imports.dart';
+
 class SantaCard extends StatelessWidget {
   final Santa santa;
 
@@ -55,8 +57,9 @@ class SantaCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            right: 16,
+          Positioned.directional(
+            textDirection: Directionality.of(context),
+            end: 16,
             top: 32,
             child: Hero(
               tag: "image_${santa.name}",
