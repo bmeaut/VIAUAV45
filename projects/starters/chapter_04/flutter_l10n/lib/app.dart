@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'presentation/page/home/home_page.dart';
 
@@ -12,6 +13,17 @@ class App extends StatelessWidget {
         primaryColor: Colors.red,
       ),
       home: HomePage(),
+
+      /// TODO: 2 - Add delegates and supported locales to App.
+      /* localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', ''), // English, no country code
+        const Locale('hu', ''), // Hungarian, no country code
+      ],*/
     );
   }
 }

@@ -24,10 +24,13 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # L10n
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.17.0
+  #TODO: 1 - Add flutter_localizations dependency.
+  ## L10n
+  #flutter_localizations:
+  #  sdk: flutter
+
+  #TODO: 3 - Add flutter_localizations dependency.
+  #intl: ^0.17.0
 
   # UI
   cupertino_icons: ^1.0.2
@@ -39,8 +42,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # L10n
-  generate: true
+  #TODO: 4 - Specify the generate flag under the flutter: section.
+  #generate: true
 
   assets:
     - assets/icon/
