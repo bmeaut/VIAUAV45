@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="04_common_ui_widgets" type="FlutterRunConfigurationType" factoryName="Flutter">
-    <option name="filePath" value="$PROJECT_DIR$/lib/04_comon_ui_widgets/common_ui_widgets.dart" />
-    <method v="2" />
-  </configuration>
-</component>
