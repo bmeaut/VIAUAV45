@@ -7,9 +7,9 @@
 - [Chapter 2: Flutter basics](./material/02.md)
 - [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 4: Accessibility and responsive UI support](material/04.md)
+- [Chapter 5: Asynchronous operations, State handling Part I.](material/05.md)
 
 ### Not yet updated for 2021/22/1
-- [Chapter 5: Asynchronous operations, State handling Part I.](material/05.md)
 - [Chapter 6: State handling Part II.](material/05.md)
 - [Chapter 7: Advanced widgets, navigation, animation](material/07.md)
 - [Chapter 8: HTTP communication](material/08.md)
