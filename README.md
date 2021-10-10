@@ -8,6 +8,7 @@
 - [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 4: Accessibility and responsive UI support](material/04.md)
 - [Chapter 5: Asynchronous operations, State handling Part I.](material/05.md)
+- [Chapter 6: State handling Part II.](material/06.md)
 
 ### Not yet updated for 2021/22/1
 - [Chapter 6: State handling Part II.](material/05.md)
