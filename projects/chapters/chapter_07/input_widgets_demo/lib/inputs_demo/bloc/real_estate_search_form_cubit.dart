@@ -48,7 +48,7 @@ class FormState extends Equatable {
   final double maxPriceValue;
   final DateTime soonestMovingInDate;
 
-  FormState(
+  const FormState(
     this.isNewlyBuiltChecked,
     this.isShowingDetailedSearch,
     this.propertySearchType,
@@ -57,12 +57,12 @@ class FormState extends Equatable {
     this.soonestMovingInDate,
   );
 
-  FormState.initial({
+  const FormState.initial({
     this.isNewlyBuiltChecked = false,
     this.isShowingDetailedSearch = false,
     this.propertySearchType = PropertySearchType.forSale,
-    this.minPriceValue = MIN_PRICE,
-    this.maxPriceValue = MAX_PRICE,
+    this.minPriceValue = minPrice,
+    this.maxPriceValue = maxPrice,
     required this.soonestMovingInDate,
   });
 

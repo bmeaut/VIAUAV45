@@ -5,10 +5,12 @@ import 'package:input_widgets_demo/inputs_demo/bloc/real_estate_search_form_cubi
 import '../../../util.dart';
 
 class RadioGroup extends StatelessWidget {
+  const RadioGroup({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<RealEstateSearchFormCubit>().state;
-    final selectedSearchType = state.propertySearchType;
+    final selectedSearchType = context.watch<RealEstateSearchFormCubit>()
+        .state.propertySearchType;
     return Column(
       children: [
         Row(
@@ -17,10 +19,11 @@ class RadioGroup extends StatelessWidget {
               value: PropertySearchType.forSale,
               groupValue: selectedSearchType,
               onChanged: (value) {
-                context.read<RealEstateSearchFormCubit>().setPropertySearchType(PropertySearchType.forSale);
+                context.read<RealEstateSearchFormCubit>()
+                    .setPropertySearchType(PropertySearchType.forSale);
               },
             ),
-            Text("For sale"),
+            const Text("For sale"),
           ],
         ),
         Row(
@@ -29,10 +32,11 @@ class RadioGroup extends StatelessWidget {
               value: PropertySearchType.forRent,
               groupValue: selectedSearchType,
               onChanged: (value) {
-                context.read<RealEstateSearchFormCubit>().setPropertySearchType(PropertySearchType.forRent);
+                context.read<RealEstateSearchFormCubit>()
+                    .setPropertySearchType(PropertySearchType.forRent);
               },
             ),
-            Text("For rent"),
+            const Text("For rent"),
           ],
         ),
       ],

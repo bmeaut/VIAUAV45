@@ -5,6 +5,8 @@ import 'package:input_widgets_demo/inputs_demo/bloc/real_estate_search_form_cubi
 import '../../../util.dart';
 
 class SliderRow extends StatelessWidget {
+  const SliderRow({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final state = context.watch<RealEstateSearchFormCubit>().state;
@@ -13,12 +15,12 @@ class SliderRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Text("${MIN_PRICE.round()} MFt"),
+        Text("${minPrice.round()} MFt"),
         Expanded(
           child: RangeSlider(
             values: RangeValues(minPriceValue, maxPriceValue),
-            min: MIN_PRICE,
-            max: MAX_PRICE,
+            min: minPrice,
+            max: maxPrice,
             divisions: 30,
             labels: RangeLabels(
               "${minPriceValue.round().toString()} MFt",
@@ -32,7 +34,7 @@ class SliderRow extends StatelessWidget {
             },
           ),
         ),
-        Text("${MAX_PRICE.round()} MFt"),
+        Text("${maxPrice.round()} MFt"),
       ],
     );
   }
