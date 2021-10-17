@@ -8,23 +8,23 @@ class ParameterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Parameter page")),
+      appBar: AppBar(title: const Text("Parameter page")),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.android,
                 color: Colors.lightGreenAccent,
                 size: 120,
               ),
-              SizedBox(height: 16),
-              Text("This is the parameter page"),
+              const SizedBox(height: 16),
+              const Text("This is the parameter page"),
               Text("Parameter value: $parameter"),
               ElevatedButton(
-                child: Text("Back"),
+                child: const Text("Back"),
                 onPressed: (){
                   Navigator.of(context).pop();
                 },

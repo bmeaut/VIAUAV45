@@ -1,6 +1,6 @@
 # navigation_imperative
 
-Imperative Navigation Demo
+Imperative Navigation Demo using Navigator 1.0
 
 ## Getting Started
 
