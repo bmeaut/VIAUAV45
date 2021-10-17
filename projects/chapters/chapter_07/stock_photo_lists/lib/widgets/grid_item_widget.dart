@@ -28,13 +28,10 @@ class GridItemWidget extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushNamed(
                     context,
-                    MaterialPageRoute(
-                      builder: (_) => DetailedPage(
-                        photo: item,
-                      ),
-                    ),
+                    "/details",
+                    arguments: item,
                   );
                 },
               ),

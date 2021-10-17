@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import '../data/photo_data_store.dart';
 
 class DetailedPage extends StatelessWidget {
-  final StockPhoto photo;
 
-  const DetailedPage({Key? key, required this.photo}) : super(key: key);
+  const DetailedPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final photo = ModalRoute.of(context)!.settings.arguments as StockPhoto;
     return Scaffold(
       appBar: AppBar(
         title: Text(photo.title),
@@ -27,7 +27,7 @@ class DetailedPage extends StatelessWidget {
                   if (loading == null) {
                     return child;
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
@@ -39,7 +39,7 @@ class DetailedPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               photo.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
               ),
@@ -49,7 +49,7 @@ class DetailedPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               photo.description,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
               ),
             ),
