@@ -9,10 +9,9 @@
 - [Chapter 4: Accessibility and responsive UI support](material/04.md)
 - [Chapter 5: Asynchronous operations, State handling Part I.](material/05.md)
 - [Chapter 6: State handling Part II.](material/06.md)
+- [Chapter 7: Advanced widgets, navigation, animation](material/07.md)
 
 ### Not yet updated for 2021/22/1
-- [Chapter 6: State handling Part II.](material/05.md)
-- [Chapter 7: Advanced widgets, navigation, animation](material/07.md)
 - [Chapter 8: HTTP communication](material/08.md)
 - [Chapter 9: Persistent data storage](material/09.md)
 - [Chapter 10: Backend as a Service (BaaS), Firebase, FlutterFire](material/10.md)
