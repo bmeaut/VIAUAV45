@@ -186,3 +186,143 @@ void showSoonestMovingInDatePicker(BuildContext context, DateTime initialDate) a
   }
 ```
 
+# 7.1 Add routes to FirstPage and SecondPage
+
+```dart
+routes: {
+        "/firstpage": (context) => const FirstPage(),
+        "/secondpage": (context) => const SecondPage(),
+      },
+```
+
+# 7.2 Add unknown route handling
+
+```dart
+onUnknownRoute: (route) {
+        return MaterialPageRoute(
+          builder: (_) =>
+              ParameterPage(
+                parameter: route.toString(),
+              ),
+        );
+      },
+```
+
+# 7.3 Add WillPopScope
+
+```dart
+return WillPopScope(
+      onWillPop: () async {
+        var result = await showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text("Are you sure?"),
+              content: const Text("Do you really want to quit?"),
+              actions: [
+                TextButton(
+                  child: const Text("No"),
+                  onPressed: () => Navigator.pop(context, false),
+                ),
+                TextButton(
+                  child: const Text("Yes"),
+                  onPressed: () => Navigator.pop(context, true),
+                ),
+              ],
+            );
+          },
+        );
+        return result ?? false;
+      },
+      child:
+```
+
+# 7.3 maybePop
+
+```dart
+var handledPop = await Navigator.maybePop(context);
+                if (!handledPop) {
+                  SystemNavigator.pop();
+                }
+```
+
+# 7.4 Named navigation to "/firstpage"
+
+```dart
+Navigator.pushNamed(
+                  context,
+                  "/firstpage",
+                );
+```
+
+# 7.5 Named navigation to "/secondpage"
+
+```dart
+Navigator.pushNamed(
+                  context,
+                  "/secondpage",
+                );
+```
+
+# 7.6 Named navigation to "/parameterpage" with parameter
+
+```dart
+Navigator.pushNamed(
+                  context,
+                  "/parameterpage",
+                  arguments: "Hello",
+                );
+```
+
+# 7.7 Anonymous navigation to SecondPage
+
+```dart
+Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SecondPage(),
+                    ),
+                  );
+```
+
+# 7.8 Implement onGenerateRoute
+
+```dart
+onGenerateRoute: (route) {
+        switch (route.name) {
+          case "/parameterpage":
+            return MaterialPageRoute(
+              settings: const RouteSettings(name: "/parameterpage"),
+              builder: (context) => ParameterPage(
+                // TODO 7.9 Add RouteSettings  
+                parameter: route.arguments.toString(),
+              ),
+            );
+        }
+        // TODO 7.10 Route URL param handling
+        return null;
+      },
+```
+
+# 7.9 Add RouteSettings
+
+```dart
+settings: const RouteSettings(name: "/parameterpage"),
+```
+
+# 7.10 Route URL param handling
+
+```dart
+if (route.name?.contains("/parameterpage/") ?? false) {
+          final routeName = route.name!;
+          final arg =
+              routeName.substring(routeName.lastIndexOf("/")+1, routeName.length);
+          return MaterialPageRoute(
+            settings: RouteSettings(name: "/parameterpage/$arg"),
+            builder: (context) => ParameterPage(
+              parameter: Uri.decodeFull(arg),
+            ),
+          );
+        }
+```
+
