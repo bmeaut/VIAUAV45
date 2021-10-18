@@ -7,6 +7,8 @@ import '../widgets/list_item_widget.dart';
 import '../data/photo_data_store.dart';
 
 class ListPage extends StatefulWidget {
+  const ListPage({Key? key}) : super(key: key);
+
   @override
   _ListPageState createState() => _ListPageState();
 }
@@ -24,10 +26,10 @@ class _ListPageState extends State<ListPage> {
           });
         },
         child: CustomScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           slivers: [
             SliverAppBar(
-              title: Text("Flexible list view"),
+              title: const Text("Flexible list view"),
               expandedHeight: 240,
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.network(
@@ -40,7 +42,7 @@ class _ListPageState extends State<ListPage> {
               pinned: true,
             ),
             SliverPadding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               sliver: SliverList(
                 delegate: SliverChildListDelegate([
                   ...Iterable.generate(
@@ -60,7 +62,7 @@ class _ListPageState extends State<ListPage> {
                 var item = StockPhoto.fromId(index + startingIndex);
                 return GridItemWidget(item: item);
               }, childCount: 10),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 4,
                 mainAxisSpacing: 4,

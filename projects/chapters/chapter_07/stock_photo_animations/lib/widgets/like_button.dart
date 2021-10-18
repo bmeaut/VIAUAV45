@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LikeButton extends StatefulWidget {
+  const LikeButton({Key? key}) : super(key: key);
+
   @override
   _LikeButtonState createState() => _LikeButtonState();
 }

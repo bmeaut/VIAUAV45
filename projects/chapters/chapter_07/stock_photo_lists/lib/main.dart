@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:stock_photo_lists/pages/detailed_page.dart';
 
 import 'pages/list_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const ListAndGridApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class ListAndGridApp extends StatelessWidget {
+  const ListAndGridApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ListPage(),
+      home: const ListPage(),
+      routes: {
+        "/details": (context) => const DetailedPage(),
+      },
     );
   }
 }

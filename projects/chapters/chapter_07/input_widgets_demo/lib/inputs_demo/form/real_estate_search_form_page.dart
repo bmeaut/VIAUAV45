@@ -9,7 +9,8 @@ import 'widgets/slider_row.dart';
 import 'widgets/switch_row.dart';
 
 class RealEstateSearchFormPage extends StatefulWidget {
-  RealEstateSearchFormPage({Key? key, required this.title}) : super(key: key);
+  const RealEstateSearchFormPage({Key? key, required this.title})
+      : super(key: key);
 
   final String title;
 
@@ -35,30 +36,31 @@ class _RealEstateSearchFormPageState extends State<RealEstateSearchFormPage> {
               borderRadius: BorderRadius.circular(8),
               color: Colors.black12,
             ),
-            padding: EdgeInsets.all(16),
-            margin: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
+            margin: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Search query",
                   textAlign: TextAlign.start,
                 ),
                 TextField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: "City, Street, etc.",
                   ),
                   controller: queryTextController,
                 ),
-                CheckboxRow(),
-                RadioGroup(),
-                SliderRow(),
-                SwitchRow(),
-                /* A row that acts as a date chooser, opening a DatePicker when a button is clicked
+                const CheckboxRow(),
+                const RadioGroup(),
+                const SliderRow(),
+                const SwitchRow(),
+                /*
+                * A row that acts as a date chooser, opening a DatePicker when a button is clicked
                 * and that displays the selected date as the soonest moving in date.
                 * This row must only be displayed when the switch above is ON.
                 */
-                DateChooser(),
+                const DateChooser(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -72,8 +74,8 @@ class _RealEstateSearchFormPageState extends State<RealEstateSearchFormPage> {
                             ),
                           );
                         },
-                        icon: Icon(Icons.search),
-                        label: Text("SEARCH"),
+                        icon: const Icon(Icons.search),
+                        label: const Text("SEARCH"),
                       ),
                     ),
                   ],

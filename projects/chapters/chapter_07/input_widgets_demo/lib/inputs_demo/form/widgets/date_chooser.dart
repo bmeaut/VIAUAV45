@@ -5,6 +5,8 @@ import 'package:input_widgets_demo/inputs_demo/bloc/real_estate_search_form_cubi
 import '../../../util.dart';
 
 class DateChooser extends StatefulWidget {
+  const DateChooser({Key? key}) : super(key: key);
+
   @override
   _DateChooserState createState() => _DateChooserState();
 }
@@ -19,13 +21,13 @@ class _DateChooserState extends State<DateChooser> {
     if (isShowingDetailedSearch) {
       return Row(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(right: 4),
             child: Text("Soonest moving in date:"),
           ),
           Text(getFormattedDate(soonestMovingInDate)),
           TextButton(
-            child: Text("SELECT DATE"),
+            child: const Text("SELECT"),
             onPressed: () => showSoonestMovingInDatePicker(
               context,
               soonestMovingInDate,

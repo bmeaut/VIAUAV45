@@ -3,37 +3,32 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 
 class SecondPage extends StatelessWidget {
-  SecondPage({Key? key}): super(key: key);
+  const SecondPage({Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Second page")),
+      appBar: AppBar(title: const Text("Second page")),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(
+              const FlutterLogo(
                 size: 120,
               ),
-              SizedBox(height: 16),
-              Text("This is the second page"),
+              const SizedBox(height: 16),
+              const Text("This is the second page"),
               ElevatedButton(
-                child: Text("Navigate to the same page"),
+                child: const Text("Navigate to the same page"),
                 onPressed: () {
-                  globalNavigatorHolderKey.currentState!.replaceTopPage(SecondPage());
+                  globalNavigatorHolderKey.currentState!
+                      .replaceTopPage(const SecondPage());
                 },
               ),
               ElevatedButton(
-                child: Text("Back"),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ElevatedButton(
-                child: Text("Back"),
+                child: const Text("Back"),
                 onPressed: () {
                   Navigator.pop(context);
                 },

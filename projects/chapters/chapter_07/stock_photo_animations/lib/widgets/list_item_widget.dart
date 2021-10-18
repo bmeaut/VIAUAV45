@@ -32,7 +32,7 @@ class _ListItemWidgetState extends State<ListItemWidget> {
           widget.item.description,
           maxLines: 1,
         ),
-        trailing: LikeButton(),
+        trailing: const LikeButton(),
         onTap: () {
           Navigator.push(
             context,
@@ -52,7 +52,7 @@ class AnimatedRotation extends ImplicitlyAnimatedWidget {
   final double angle;
   final Widget child;
 
-  AnimatedRotation({
+  const AnimatedRotation({
     required this.angle,
     required this.child,
     required Duration duration,

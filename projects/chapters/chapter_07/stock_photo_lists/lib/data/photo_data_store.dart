@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
 class StockPhoto extends Equatable {
-  static List<StockPhoto?> _cache = [];
+  static final List<StockPhoto?> _cache = [];
 
   factory StockPhoto.fromId(int id){
     while(_cache.length <= id){
@@ -22,10 +22,10 @@ class StockPhoto extends Equatable {
   final double rating;
 
   StockPhoto._generate(this.id)
-      : this.url = "https://picsum.photos/600/400?$id",
-        this.title = lorem(paragraphs: 1, words: 2),
-        this.description = lorem(paragraphs: 2, words: 40),
-        this.rating = Random().nextDouble() * 5;
+      : url = "https://picsum.photos/600/400?$id",
+        title = lorem(paragraphs: 1, words: 2),
+        description = lorem(paragraphs: 2, words: 40),
+        rating = Random().nextDouble() * 5;
 
   @override
   List<Object?> get props => [

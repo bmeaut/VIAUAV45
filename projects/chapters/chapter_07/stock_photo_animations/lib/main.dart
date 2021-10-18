@@ -3,12 +3,13 @@ import 'pages/list_page.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
-  runApp(MyApp());
+  runApp(const ListAndGridAnimatedApp());
   timeDilation = 5.0;
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class ListAndGridAnimatedApp extends StatelessWidget {
+  const ListAndGridAnimatedApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ListPage(),
+      home: const ListPage(),
     );
   }
 }

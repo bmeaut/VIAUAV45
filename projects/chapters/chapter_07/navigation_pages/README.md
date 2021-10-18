@@ -1,6 +1,6 @@
 # navigation_pages
 
-Page-based Navigation Demo
+Page-based Navigation Demo using Navigation 2.0
 
 ## Getting Started
 
