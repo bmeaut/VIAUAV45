@@ -10,7 +10,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'ow_service.g.dart';
 
-const _openWeatherApiKey = "4ad7108150b61ce9a438c0f0545affac";
+const _openWeatherApiKey = "e6932dac2b4ba21c31ba22d19f4ecc56";
 const _baseUrl = "api.openweathermap.org";
 
 @RestApi(baseUrl: "https://$_baseUrl/data/2.5/")

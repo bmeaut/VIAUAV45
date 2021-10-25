@@ -5,7 +5,7 @@ part 'ow_json_models.g.dart';
 @JsonSerializable()
 class OWCitiesFindResponse{
   final String message;
-  final String cod;
+  final dynamic cod;
   final num count;
   final List<OWCityWeatherInformation> list;
 
