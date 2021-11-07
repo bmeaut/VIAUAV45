@@ -8,10 +8,12 @@ import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const ImageDownloaderApp());
 }
 
-class MyApp extends StatelessWidget {
+class ImageDownloaderApp extends StatelessWidget {
+  const ImageDownloaderApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,13 +22,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ImageDownloaderPage(title: 'Image Downloader Home Page'),
+      home: const ImageDownloaderPage(title: 'Image Downloader Home Page'),
     );
   }
 }
 
 class ImageDownloaderPage extends StatefulWidget {
-  ImageDownloaderPage({Key? key, required this.title}) : super(key: key);
+  const ImageDownloaderPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -35,8 +37,8 @@ class ImageDownloaderPage extends StatefulWidget {
 }
 
 class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
-  static const IMAGES_DIR = 'images';
-  final Uuid uuidGenerator = Uuid();
+  static const imagesDir = 'images';
+  final Uuid uuidGenerator = const Uuid();
   late Future<List<File>> _imageFiles;
 
   ScrollController? _scrollController;
@@ -53,7 +55,7 @@ class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
 
   Future<Directory> _getImagesDirectory() async {
     final directory = await getApplicationDocumentsDirectory();
-    return Directory(path.join(directory.path, IMAGES_DIR)).create();
+    return Directory(path.join(directory.path, imagesDir)).create();
   }
 
   Future<void> _downloadNewImage() async {
@@ -99,7 +101,7 @@ class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
       ),
       body: FutureBuilder<List<File>>(
           future: _imageFiles,
-          initialData: [],
+          initialData: const [],
           builder: (context, snapshot) {
             SchedulerBinding.instance?.addPostFrameCallback((_) {
               _scrollToEnd();
@@ -109,21 +111,21 @@ class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
               return GridView.builder(
                 controller: _scrollController,
                 itemCount: imageFiles!.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 itemBuilder: (context, index) {
                   return Image.file(imageFiles[index]);
                 },
               );
             }
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: _downloadNewImage,
         tooltip: 'Download image',
-        child: Icon(Icons.file_download),
+        child: const Icon(Icons.file_download),
       ),
     );
   }
