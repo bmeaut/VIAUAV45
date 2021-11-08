@@ -1,5 +1,5 @@
 name: awesome_todo_app
-description: An app showcasing persistence handling in Flutter with Floor.
+description: A starter app for showcasing persistence handling in Flutter.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
