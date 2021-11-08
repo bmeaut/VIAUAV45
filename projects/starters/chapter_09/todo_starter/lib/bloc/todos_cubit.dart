@@ -14,9 +14,7 @@ class TodosCubit extends Cubit<TodosState> {
 
   final DataSource _dataSource;
 
-  TodosCubit(
-    this._dataSource,
-  ) : super(const Loading()) {
+  TodosCubit(this._dataSource,) : super(const Loading()) {
     getTodos();
   }
 
@@ -34,12 +32,10 @@ class TodosCubit extends Cubit<TodosState> {
     _emitAllTodos();
   }
 
-  Future<void> createTodo(
-    String title,
-    String description,
-    TodoPriority priority,
-    DateTime dueDate,
-  ) async {
+  Future<void> createTodo(String title,
+      String description,
+      TodoPriority priority,
+      DateTime dueDate,) async {
     await _dataSource.upsertTodo(
       Todo(
         title: title,
@@ -59,7 +55,9 @@ class TodosCubit extends Cubit<TodosState> {
 
   Future<void> _emitAllTodos() async {
     final allTodos = await _dataSource.getAllTodos();
-    TodosLoaded(todos: allTodos, hideDoneTodos: false);
+    emit(
+        TodosLoaded(todos: allTodos, hideDoneTodos: false)
+    );
     // TODO 1.1 _emitAllTodos()
   }
 }
@@ -74,7 +72,8 @@ class Loading implements TodosState {
 
 @immutable
 @CopyWith()
-class TodosLoaded extends Equatable implements TodosState {
+class TodosLoaded extends Equatable
+    implements TodosState {
   final List<Todo> todos;
   final bool hideDoneTodos;
 
@@ -84,7 +83,8 @@ class TodosLoaded extends Equatable implements TodosState {
   });
 
   @override
-  List<Object> get props => [
+  List<Object> get props =>
+      [
         todos,
         hideDoneTodos,
       ];
