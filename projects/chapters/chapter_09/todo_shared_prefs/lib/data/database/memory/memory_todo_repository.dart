@@ -8,16 +8,16 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
   final List<Todo> todos = [
     Todo(
       id: 0,
-      title: "Update GitHub repo",
-      dueDate: DateTime(2021, 3, 29),
+      title: "Prepare for Flutter lecture",
+      dueDate: DateTime(2021, 11, 07),
       isDone: true,
-      description: "git pull",
+      description: "Check Teams, have a laptop to code on",
       priority: TodoPriority.NORMAL,
     ),
     Todo(
       id: 1,
       title: "Write Flutter homework",
-      dueDate: DateTime(2021, 5, 1),
+      dueDate: DateTime(2021, 12, 10),
       isDone: true,
       description: "Simple multiplatform app",
       priority: TodoPriority.NORMAL,
@@ -25,7 +25,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
     Todo(
       id: 2,
       title: "Have fun learning! :)",
-      dueDate: DateTime(2021, 3, 29),
+      dueDate: DateTime(2021, 11, 08),
       isDone: false,
       description: "Don't forget to ask questions!",
       priority: TodoPriority.HIGH,
@@ -44,7 +44,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
 
   @override
   Future<List<Todo>> getAllTodos() {
-    return Future.value(todos);
+    return Future.value(todos.toList());
   }
 
   @override
@@ -57,20 +57,22 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
   @override
   Future<void> upsertTodo(Todo todo) async {
     return Future(() {
+      Todo resultTodo = todo;
       final index = todos.indexWhere((element) => element.id == todo.id);
       if (index == -1) {
         if (todo.id == 0 || todo.id == null) {
           if(todos.isEmpty) {
-            todo.id = 0;
+            resultTodo = resultTodo.copyWith(id: 0);
           } else {
-            todo.id =
-                todos.map((element) => element.id!).toList().reduce(max) + 1;
+            resultTodo = resultTodo.copyWith(
+                id: todos.map((element) => element.id!).toList().reduce(max) + 1,
+            );
           }
         }
-        todos.add(todo);
+        todos.add(resultTodo);
         return;
       } else {
-        todos[index] = todo;
+        todos[index] = resultTodo;
       }
     });
   }

@@ -5,7 +5,7 @@ import 'database/data_source.dart';
 class DataSourceProvider extends InheritedWidget {
   final DataSource dataSource;
 
-  DataSourceProvider({Key? key, required this.dataSource, required Widget child})
+  const DataSourceProvider({Key? key, required this.dataSource, required Widget child})
       : super(key: key, child: child);
 
   //region InheritedWidget implementation
@@ -14,6 +14,6 @@ class DataSourceProvider extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(DataSourceProvider old) => false;
+  bool updateShouldNotify(DataSourceProvider oldWidget) => false;
   //endregion
 }

@@ -1,170 +1,106 @@
+import 'package:awesome_todo_app/bloc/todos_cubit.dart';
 import 'package:awesome_todo_app/data/database/data_source.dart';
+import 'package:awesome_todo_app/data/datasource_provider.dart';
 import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/ui/details/todo_details.dart';
 import 'package:awesome_todo_app/ui/list/todo_list_item.dart';
 import 'package:awesome_todo_app/ui/newtodo/add_todo.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TodoListPage extends StatefulWidget {
-  final DataSource dataSource;
-
-  TodoListPage({Key? key, required this.dataSource}) : super(key: key);
+  const TodoListPage({Key? key}) : super(key: key);
 
   @override
-  _TodoListPageState createState() => _TodoListPageState(dataSource);
+  _TodoListPageState createState() => _TodoListPageState();
 }
 
 class _TodoListPageState extends State<TodoListPage> {
-  DataSource _todosDataSource;
-  late Future<List<Todo>> _todosFuture;
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-
-  static const HIDE_DONE_TODOS_KEY = "HIDE_DONE_TODOS";
-  late Future<bool> _hideDoneTodos;
-
-  _TodoListPageState(this._todosDataSource);
-
-  @override
-  void initState() {
-    _todosFuture = _todosDataSource.getAllTodos();
-    _hideDoneTodos = _prefs.then((prefs) {
-      return prefs.getBool(HIDE_DONE_TODOS_KEY) ?? false;
-    });
-    super.initState();
-  }
-
-  void onPopupMenuItemClicked(String selectedItemValue) async {
-    if (selectedItemValue == HIDE_DONE_TODOS_KEY) {
-      final prefs = await _prefs;
-      final hideDoneTodos = !(prefs.getBool(selectedItemValue) ?? false);
-      refreshTodos(() {
-        _hideDoneTodos = prefs.setBool(selectedItemValue, hideDoneTodos).then(
-          (bool success) {
-            return hideDoneTodos;
-          },
-        );
-      });
-    } else {
-      // Do nothing
-    }
-  }
-
-  void onDoneChanged(Todo todo, bool isDone) async {
-    await _todosDataSource.setTodoDone(todo, isDone);
-    refreshTodos();
-  }
-
-  void onDeletePressed(Todo todo) async {
-    await _todosDataSource.deleteTodo(todo);
-    refreshTodos();
-  }
-
-  void refreshTodos([Function? beforeRefresh]) {
-    if (mounted) {
-      setState(() {
-        if (beforeRefresh != null) beforeRefresh();
-        _todosFuture = _todosDataSource.getAllTodos();
-      });
-    }
-  }
+  _TodoListPageState();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Todo List"),
-        actions: [
-          PopupMenuButton(
-            onSelected: onPopupMenuItemClicked,
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem(
-                  value: HIDE_DONE_TODOS_KEY,
-                  child: Row(
-                    children: [
-                      Text("Hide done todos"),
-                      FutureBuilder<bool>(
-                        future: _hideDoneTodos,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasError ||
-                              snapshot.connectionState ==
-                                  ConnectionState.waiting) {
-                            return Checkbox(
-                              tristate: true,
-                              value: null,
-                              onChanged: null,
-                            );
-                          } else {
-                            return Checkbox(
-                              value: snapshot.data,
-                              onChanged: null,
-                            );
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                )
-              ];
-            },
-          ),
-        ],
-      ),
-      body: FutureBuilder<dynamic>(
-          future: Future.wait<dynamic>([_todosFuture, _hideDoneTodos]),
-          builder: (context, asyncSnapshot) {
-            if (asyncSnapshot.hasError) {
-              return Center(
-                child: Text(
-                    "Oh no, something went wrong while loading the Todo list. :( reason: ${asyncSnapshot.error}"),
+    return BlocProvider<TodosCubit>(
+      create: (context) {
+        return TodosCubit(
+          context.read<DataSource>(),
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Todo List"),
+          actions: [
+            BlocBuilder<TodosCubit, TodosState>(
+              builder: (context, state) {
+                if (state is Loading) {
+                  return Container();
+                } else if (state is TodosLoaded) {
+                  return PopupMenuButton<String>(
+                    onSelected: (_) {
+                      final cubit = context.read<TodosCubit>();
+                      cubit.setDoneTodoVisibility(!state.hideDoneTodos);
+                    },
+                    itemBuilder: (context) {
+                      return [
+                        PopupMenuItem(
+                          value: TodosCubit.HIDE_DONE_TODOS_KEY,
+                          child: Row(
+                            children: [
+                              if (state.hideDoneTodos) ...{
+                                const Text("Show done todos"),
+                              } else ...{
+                                const Text("Hide done todos"),
+                              }
+                            ],
+                          ),
+                        ),
+                      ];
+                    },
+                  );
+                } else {
+                  return Container();
+                }
+              },
+            ),
+          ],
+        ),
+        body: BlocBuilder<TodosCubit, TodosState>(
+          builder: (context, state) {
+            if (state is Loading) {
+              return const Center(
+                child: CircularProgressIndicator(),
               );
-            }
-
-            if (asyncSnapshot.hasData) {
-              List<Todo> items = (asyncSnapshot.data[0] as List<Todo>).toList();
+            } else if (state is TodosLoaded) {
+              List<Todo> items = state.todos;
               int itemCount = items.length;
-              bool hideDoneTodos = asyncSnapshot.data[1] as bool;
-
-              if (hideDoneTodos) {
-                items.removeWhere((element) => element.isDone);
-                itemCount = items.length;
-              }
 
               return ListView.builder(
                 itemCount: itemCount,
                 itemBuilder: (context, index) {
                   return TodoListItem(
+                    ObjectKey(items[index]),
                     items[index],
-                    onTap: (todo) {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>
-                              TodoDetails(_todosDataSource, todo.id!)));
-                    },
-                    onDoneChanged: (todo, isDone) =>
-                        onDoneChanged(todo, isDone),
-                    onDeletePressed: (todo) => onDeletePressed(todo),
                   );
                 },
               );
+            } else {
+              return Container();
             }
-
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context)
-              .push(
+          },
+        ),
+        floatingActionButton: BlocBuilder<TodosCubit, TodosState>(
+          builder: (context, state) => FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
                 MaterialPageRoute(
-                  builder: (_) => AddTodoPage(_todosDataSource),
+                  builder: (_) => const AddTodoPage(),
                 ),
-              )
-              .then((value) => refreshTodos());
-        },
-        tooltip: 'New Todo',
-        child: Icon(Icons.add),
+              ).then((_) => context.read<TodosCubit>().getTodos());
+            },
+            tooltip: 'New Todo',
+            child: const Icon(Icons.add),
+          ),
+        ),
       ),
     );
   }
