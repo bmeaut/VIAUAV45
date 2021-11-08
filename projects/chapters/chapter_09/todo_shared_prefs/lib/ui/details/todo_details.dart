@@ -1,6 +1,5 @@
 import 'package:awesome_todo_app/bloc/todo_details_cubit.dart';
 import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
 import 'package:awesome_todo_app/ui/list/todo_list_item.dart';
 import 'package:awesome_todo_app/util.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +11,12 @@ class TodoDetails extends StatefulWidget {
   const TodoDetails(this.todoId, {Key? key}) : super(key: key);
 
   @override
-  _TodoDetailsState createState() => _TodoDetailsState(todoId);
+  _TodoDetailsState createState() => _TodoDetailsState();
 }
 
 class _TodoDetailsState extends State<TodoDetails> {
-  final int todoId;
 
-  _TodoDetailsState(this.todoId);
+  _TodoDetailsState();
 
   @override
   void initState() {
@@ -30,7 +28,7 @@ class _TodoDetailsState extends State<TodoDetails> {
     return BlocProvider<TodoDetailsCubit>(
       create: (context) => TodoDetailsCubit(
         context.read<DataSource>(),
-        todoId,
+        widget.todoId,
       ),
       child: Scaffold(
         appBar: AppBar(

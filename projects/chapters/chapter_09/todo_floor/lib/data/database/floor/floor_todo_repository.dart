@@ -21,8 +21,13 @@ class FloorTodoRepository implements TodoRepository<FloorTodo> {
   }
 
   @override
-  Future<FloorTodo?> getTodo(int id) {
-    return todoDao.getTodo(id);
+  Future<FloorTodo> getTodo(int id) async {
+    final todo = await todoDao.getTodo(id);
+    if(todo == null) {
+      throw Exception("Invalid TODO ID");
+    } else {
+      return todo;
+    }
   }
 
   @override

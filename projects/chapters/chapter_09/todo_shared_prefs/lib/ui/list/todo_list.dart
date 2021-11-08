@@ -1,6 +1,5 @@
 import 'package:awesome_todo_app/bloc/todos_cubit.dart';
 import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/data/datasource_provider.dart';
 import 'package:awesome_todo_app/domain/model/todo.dart';
 import 'package:awesome_todo_app/ui/list/todo_list_item.dart';
 import 'package:awesome_todo_app/ui/newtodo/add_todo.dart';
