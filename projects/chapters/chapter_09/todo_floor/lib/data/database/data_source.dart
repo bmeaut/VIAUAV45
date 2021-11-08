@@ -1,8 +1,8 @@
-import 'package:awesome_todo_app/data/database/floor/floor_todo.dart';
 import 'package:awesome_todo_app/domain/model/todo_priority.dart';
-import 'package:awesome_todo_app/util.dart';
 
 import '../../domain/model/todo.dart';
+import '../../util.dart';
+import 'floor/floor_todo.dart';
 import 'todo_repository.dart';
 
 class DataSource {
@@ -19,9 +19,9 @@ class DataSource {
     return todos.map((floorTodo) => floorTodo.toDomainModel()).toList();
   }
 
-  Future<Todo?> getTodo(int id) async {
+  Future<Todo> getTodo(int id) async {
     final floorTodo = await database.getTodo(id);
-    return floorTodo?.toDomainModel();
+    return floorTodo.toDomainModel();
   }
 
   Future<void> upsertTodo(Todo todo) async {
@@ -40,12 +40,12 @@ class DataSource {
 extension TodoToFloorTodo on Todo {
   FloorTodo toDbModel() {
     return FloorTodo(
-        id: this.id,
-        title: this.title,
-        description: this.description,
-        priority: this.priority.index,
-        isDone: this.isDone ? 1 : 0,
-        dueDate: getFormattedDate(this.dueDate));
+        id: id,
+        title: title,
+        description: description,
+        priority: priority.index,
+        isDone: isDone ? 1 : 0,
+        dueDate: getFormattedDate(dueDate));
   }
 }
 
@@ -67,11 +67,11 @@ extension FloorTodoToTodo on FloorTodo {
             "Invalid Todo priority encountered while mapping database object to domain object");
     }
     return Todo(
-        id: this.id,
-        title: this.title,
-        description: this.description,
+        id: id,
+        title: title,
+        description: description,
         priority: priority,
-        isDone: this.isDone == 1 ? true : false,
-        dueDate: parseDate(this.dueDate));
+        isDone: isDone == 1 ? true : false,
+        dueDate: parseDate(dueDate));
   }
 }

@@ -1,25 +1,27 @@
+import 'package:awesome_todo_app/bloc/todos_cubit.dart';
 import 'package:awesome_todo_app/domain/model/todo.dart';
 import 'package:awesome_todo_app/domain/model/todo_priority.dart';
+import 'package:awesome_todo_app/ui/details/todo_details.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 
 class TodoListItem extends StatelessWidget {
   final Todo todo;
-  final Function(Todo todo) onTap;
-  final Function(Todo todo, bool isDone) onDoneChanged;
-  final Function(Todo todo) onDeletePressed;
 
-  TodoListItem(
-    this.todo, {
-    required this.onTap,
-    required this.onDoneChanged,
-    required this.onDeletePressed,
-  });
+  const TodoListItem(
+    Key key,
+    this.todo,
+  ) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<TodosCubit>();
     return InkWell(
       key: ObjectKey(todo),
-      onTap: () => onTap(todo),
+      onTap: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => TodoDetails(todo.id!)));
+      },
       child: Row(
         children: [
           Padding(
@@ -28,7 +30,9 @@ class TodoListItem extends StatelessWidget {
           ),
           Checkbox(
             value: todo.isDone,
-            onChanged: (isDone) => onDoneChanged(todo, isDone!),
+            onChanged: (isDone) {
+              cubit.upsertTodo(todo.copyWith(isDone: isDone));
+            },
           ),
           Expanded(
             child: Padding(
@@ -42,11 +46,13 @@ class TodoListItem extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.delete,
               color: Colors.grey,
             ),
-            onPressed: () => onDeletePressed(todo),
+            onPressed: () {
+              cubit.deleteTodo(todo);
+            },
           ),
         ],
       ),
@@ -57,7 +63,7 @@ class TodoListItem extends StatelessWidget {
 class TodoPriorityIndicator extends StatelessWidget {
   final TodoPriority priority;
 
-  TodoPriorityIndicator(this.priority);
+  const TodoPriorityIndicator(this.priority, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,11 +85,11 @@ class TodoPriorityIndicator extends StatelessWidget {
         );
     }
 
-    return Container(
+    return SizedBox(
       width: 16,
       height: 16,
       child: Material(
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         color: indicatorColor,
         elevation: 4,
       ),

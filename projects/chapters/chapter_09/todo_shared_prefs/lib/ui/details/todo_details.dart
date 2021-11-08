@@ -1,83 +1,76 @@
+import 'package:awesome_todo_app/bloc/todo_details_cubit.dart';
 import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
 import 'package:awesome_todo_app/ui/list/todo_list_item.dart';
 import 'package:awesome_todo_app/util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TodoDetails extends StatefulWidget {
-  final DataSource dataSource;
   final int todoId;
 
-  TodoDetails(this.dataSource, this.todoId);
+  const TodoDetails(this.todoId, {Key? key}) : super(key: key);
 
   @override
-  _TodoDetailsState createState() => _TodoDetailsState(dataSource, todoId);
+  _TodoDetailsState createState() => _TodoDetailsState();
 }
 
 class _TodoDetailsState extends State<TodoDetails> {
-  final DataSource dataSource;
-  final int todoId;
 
-  Future<Todo>? todoFuture;
-
-  _TodoDetailsState(this.dataSource, this.todoId);
+  _TodoDetailsState();
 
   @override
   void initState() {
-    todoFuture = dataSource.getTodo(todoId);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Todo Details"),
+    return BlocProvider<TodoDetailsCubit>(
+      create: (context) => TodoDetailsCubit(
+        context.read<DataSource>(),
+        widget.todoId,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FutureBuilder<Todo>(
-          future: todoFuture,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Center(
-                child: Text("The requested todo cannot be found."),
-              );
-            }
-
-            if (snapshot.hasData) {
-              final todo = snapshot.data!;
-              return Column(
-                children: [
-                  Row(
-                    children: [
-                      TodoPriorityIndicator(todo.priority),
-                      Checkbox(
-                        value: todo.isDone,
-                        onChanged: null,
-                      ),
-                      TodoDataRow(
-                        rowTitle: "",
-                        rowData: todo.title,
-                      ),
-                    ],
-                  ),
-                  TodoDataRow(
-                    rowTitle: "Description",
-                    rowData: todo.description,
-                  ),
-                  TodoDataRow(
-                    rowTitle: "Due date",
-                    rowData: getFormattedDate(todo.dueDate),
-                  ),
-                ],
-              );
-            }
-
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Todo Details"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: BlocBuilder<TodoDetailsCubit, TodoState>(
+            builder: (context, state) {
+              if(state is Loading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if(state is TodoLoaded) {
+                final todo = state.todo;
+                return Column(
+                  children: [
+                    Row(
+                      children: [
+                        TodoPriorityIndicator(todo.priority),
+                        Checkbox(
+                          value: todo.isDone,
+                          onChanged: null,
+                        ),
+                        Text(todo.title),
+                      ],
+                    ),
+                    TodoDataRow(
+                      rowTitle: "Description",
+                      rowData: todo.description,
+                    ),
+                    TodoDataRow(
+                      rowTitle: "Due date",
+                      rowData: getFormattedDate(todo.dueDate),
+                    ),
+                  ],
+                );
+              } else {
+                return Container();
+              }
+            },
+          ),
         ),
       ),
     );

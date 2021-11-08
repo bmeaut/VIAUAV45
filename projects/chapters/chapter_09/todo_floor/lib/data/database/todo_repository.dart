@@ -3,7 +3,7 @@ abstract class TodoRepository<T> {
 
   Future<List<T>> getAllTodos();
 
-  Future<T?> getTodo(int id);
+  Future<T> getTodo(int id);
 
   Future<void> upsertTodo(T todo);
 
