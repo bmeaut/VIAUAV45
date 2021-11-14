@@ -15,60 +15,69 @@ class PostItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        post.title,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(post.author),
-                      ),
-                      Conditional.single(
-                        context: context,
-                        conditionBuilder: (context) => post.body != null,
-                        widgetBuilder: (context) {
-                          return Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text(post.body!),
-                          );
-                        },
-                        fallbackBuilder: (context) => Container(),
-                      ),
-                    ],
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          post.title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Text(post.author),
+                        ),
+                        Conditional.single(
+                          context: context,
+                          conditionBuilder: (context) => post.body != null,
+                          widgetBuilder: (context) {
+                            return Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                post.body!,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            );
+                          },
+                          fallbackBuilder: (context) => Container(),
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(post.time.format())
+                  Text(
+                    post.time.format(),
+                    overflow: TextOverflow.ellipsis,
+                  )
                 ],
               ),
-              Conditional.single(
-                context: context,
-                conditionBuilder: (context) => post.imageUrl != null,
-                widgetBuilder: (context) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 4.0),
-                    child: Center(
-                      child: Image.network(
-                        post.imageUrl!,
-                        height: 150,
-                      ),
+            ),
+            Conditional.single(
+              context: context,
+              conditionBuilder: (context) => post.imageUrl != null,
+              widgetBuilder: (context) {
+                return Padding(
+                  padding: const EdgeInsets.only(top: 4.0),
+                  child: Center(
+                    child: Image.network(
+                      post.imageUrl!,
+                      height: 150,
                     ),
-                  );
-                },
-                fallbackBuilder: (context) => Container(),
-              ),
-            ],
-          ),
+                  ),
+                );
+              },
+              fallbackBuilder: (context) => Container(),
+            ),
+          ],
         ),
       ),
     );
