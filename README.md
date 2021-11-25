@@ -12,10 +12,10 @@
 - [Chapter 7: Advanced widgets, navigation, animation](material/07.md)
 - [Chapter 8: HTTP communication](material/08.md)
 - [Chapter 9: Persistent data storage](material/09.md)
-
-### Not yet updated for 2021/22/1
 - [Chapter 10: Backend as a Service (BaaS), Firebase, FlutterFire](material/10.md)
 - [Chapter 11: Platform Channels and testing](./material/11.md)
+
+### Not yet updated for 2021/22/1
 - [Chapter 12: App architecture](./material/12.md)
 
 ### The previous order of 2020/21/2
