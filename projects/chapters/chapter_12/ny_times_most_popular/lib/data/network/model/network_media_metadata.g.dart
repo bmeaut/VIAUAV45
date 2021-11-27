@@ -6,14 +6,14 @@ part of 'network_media_metadata.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NetworkMediaMetadata _$NetworkMediaMetadataFromJson(Map<String, dynamic> json) {
-  return NetworkMediaMetadata(
-    json['url'] as String,
-    json['format'] as String,
-    json['width'] as int,
-    json['height'] as int,
-  );
-}
+NetworkMediaMetadata _$NetworkMediaMetadataFromJson(
+        Map<String, dynamic> json) =>
+    NetworkMediaMetadata(
+      json['url'] as String,
+      json['format'] as String,
+      json['width'] as int,
+      json['height'] as int,
+    );
 
 Map<String, dynamic> _$NetworkMediaMetadataToJson(
         NetworkMediaMetadata instance) =>
