@@ -13,14 +13,14 @@ class ArticleDetailsBloc
   ) : super(Loading()) {
     on<LoadArticleEvent>(
       (event, emit) async {
-        print("Fetching Article from DB with id: ${event.id}");
+        print("${this.runtimeType.toString()}: Fetching Article from DB with id: ${event.id}");
         final article = await _articleInteractor.getArticleById(event.id);
 
         if (article != null) {
-          print("Article fetched, sending ContentReady state with Article");
+          print("${this.runtimeType.toString()}: Article fetched, sending ContentReady state with Article");
           emit(ContentReady(article: article));
         } else {
-          print("Article with ID ${event.id} was not found!");
+          print("${this.runtimeType.toString()}: Article with ID ${event.id} was not found!");
           emit(Error());
         }
       },

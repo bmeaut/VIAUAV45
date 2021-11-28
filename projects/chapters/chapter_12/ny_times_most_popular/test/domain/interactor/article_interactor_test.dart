@@ -1,30 +1,38 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:ny_times_most_popular/data/disk/article_disk_data_source.dart';
 import 'package:ny_times_most_popular/data/network/article_network_data_source.dart';
 import 'package:ny_times_most_popular/domain/interactor/article_interactor.dart';
 import 'package:ny_times_most_popular/domain/model/article.dart';
 
-import '../../di/di_test_utils.dart';
+import 'article_interactor_test.mocks.dart';
 
+@GenerateMocks([
+  ArticleDiskDataSource,
+  ArticleNetworkDataSource,
+])
 void main() {
   late ArticleDiskDataSource mockDiskDataSource;
   late ArticleNetworkDataSource mockNetworkDataSource;
   late ArticleInteractor interactor;
 
   setUp(() {
-    mockDiskDataSource = initArticleDiskDataSource();
-    mockNetworkDataSource = initArticleNetworkDataSource();
+    mockDiskDataSource = MockArticleDiskDataSource();
+    mockNetworkDataSource = MockArticleNetworkDataSource();
 
-    interactor = initArticleInteractor();
+    interactor = ArticleInteractor(
+      mockDiskDataSource,
+      mockNetworkDataSource,
+    );
   });
 
   group('getArticles', () {
     group('happy scenarios', () {
-      test('Downloading articles from the disk data source successfully',
+      test('Fetching articles from the disk data source successfully',
           () async {
         // Arrange
-        final List<Article>? expectedResult = _mockArticles();
+        final List<Article> expectedResult = _mockArticles();
         when(mockDiskDataSource.getAllArticles())
             .thenAnswer((_) async => expectedResult);
 
@@ -37,10 +45,11 @@ void main() {
     });
 
     group('error scenarios', () {
-      test('Return empty list when disk data source fails', () async {
+      test('Return null when disk data source cannot fetch articles', () async {
         // Arrange
         final expectedResult = [];
-        when(mockDiskDataSource.getAllArticles()).thenThrow(Exception());
+        when(mockDiskDataSource.getAllArticles())
+            .thenAnswer((_) async => null);
 
         // Act
         final result = await interactor.getArticles();
@@ -77,7 +86,7 @@ void main() {
   });
 }
 
-List<Article>? _mockArticles() {
+List<Article> _mockArticles() {
   return [_mockArticle()];
 }
 

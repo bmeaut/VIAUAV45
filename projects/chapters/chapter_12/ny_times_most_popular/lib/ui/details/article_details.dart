@@ -31,66 +31,68 @@ class ArticleDetails extends StatelessWidget {
               appBar: AppBar(
                 title: Text("Article details"),
               ),
-              body: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    article.largeUrl != null
-                        ? CachedNetworkImage(
-                            imageUrl: article.largeUrl!,
-                            height: 200,
-                          )
-                        : Icon(
-                            Icons.image,
-                            size: 200,
-                          ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(article.title),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(article.byLine),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.calendar_today,
-                            size: 15,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
-                            child: Text(
-                              article.publishedDate,
+              body: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      article.largeUrl != null
+                          ? CachedNetworkImage(
+                              imageUrl: article.largeUrl!,
+                              height: 200,
+                            )
+                          : Icon(
+                              Icons.image,
+                              size: 200,
                             ),
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(article.title),
                       ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () async {
-                        final url = article.url;
-                        await launch(url, forceWebView: true);
-                        // This should be working, but it doesn't.
-                        // if (await canLaunch(url)) {
-                        //   await launch(url);
-                        // } else {
-                        //   ScaffoldMessenger.of(context).showSnackBar(
-                        //     SnackBar(
-                        //       content: Text("Could not launch ${article.url}"),
-                        //     ),
-                        //   );
-                        // }
-                      },
-                      child: Text(
-                        "OPEN IN BROWSER",
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(article.byLine),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Icon(
+                              Icons.calendar_today,
+                              size: 15,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 4.0),
+                              child: Text(
+                                article.publishedDate,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () async {
+                          final url = article.url;
+                          await launch(url, forceWebView: true);
+                          // This should be working, but it doesn't.
+                          // if (await canLaunch(url)) {
+                          //   await launch(url);
+                          // } else {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     SnackBar(
+                          //       content: Text("Could not launch ${article.url}"),
+                          //     ),
+                          //   );
+                          // }
+                        },
+                        child: Text(
+                          "OPEN IN BROWSER",
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
