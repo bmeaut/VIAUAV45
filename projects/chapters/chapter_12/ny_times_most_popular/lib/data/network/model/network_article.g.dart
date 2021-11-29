@@ -6,18 +6,17 @@ part of 'network_article.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NetworkArticle _$NetworkArticleFromJson(Map<String, dynamic> json) {
-  return NetworkArticle(
-    json['id'] as int,
-    json['url'] as String,
-    json['byline'] as String,
-    json['title'] as String,
-    json['published_date'] as String,
-    (json['media'] as List<dynamic>)
-        .map((e) => NetworkMedia.fromJson(e as Map<String, dynamic>))
-        .toList(),
-  );
-}
+NetworkArticle _$NetworkArticleFromJson(Map<String, dynamic> json) =>
+    NetworkArticle(
+      json['id'] as int,
+      json['url'] as String,
+      json['byline'] as String,
+      json['title'] as String,
+      json['published_date'] as String,
+      (json['media'] as List<dynamic>)
+          .map((e) => NetworkMedia.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$NetworkArticleToJson(NetworkArticle instance) =>
     <String, dynamic>{
