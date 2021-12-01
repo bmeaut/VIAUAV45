@@ -44,7 +44,7 @@
       - 1 programming task (10 points)
         - A simple layout must be re-created with Flutter
         - Does not have to be syntactically correct, pseudo-code is fine
-    - No tools are allowed during the test
+        - Feel free to use an IDE like Android Studio or DartPad for solving this (but only this!) task
   - Homework, 60 points, minimum 40%
     - Detailed requirements, deadlines, and suggested topics can be found [here](./material/homework.md)
 
