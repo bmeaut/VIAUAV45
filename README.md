@@ -1,5 +1,5 @@
 
-# Flutter-based Software Development
+# Flutter-based Software Development (VIAUAV45)
 
 ## Chapters
 
@@ -14,11 +14,10 @@
 - [Chapter 9: Persistent data storage](material/09.md)
 - [Chapter 10: Backend as a Service (BaaS), Firebase, FlutterFire](material/10.md)
 - [Chapter 11: Platform Channels and testing](./material/11.md)
-
-### Not yet updated for 2021/22/1
 - [Chapter 12: App architecture](./material/12.md)
 
 ### The previous order of 2020/21/2
+
 - [Chapter 4: Asynchronous operations, State handling](material/05.md)
 - [Chapter 5: Advanced widgets, navigation, animation](material/07.md)
 - [Chapter 6: HTTP communication](material/08.md)
@@ -27,9 +26,10 @@
 - [Chapter 9: Accessibility and responsive UI support](material/04.md)
 - [Chapter 10: App architecture](./material/12.md)
 - [Chapter 11: Platform Channels and testing](./material/11.md)
+
 ## Requirements
 
- - Test, 40 points, minimum 40%
+ - Test, 40 points, minimum 40% (16 points)
     - Last week of the term, at the time of the lecture, on Moodle (dec 6. 12:15-14:00).
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
@@ -46,11 +46,26 @@
       - 1 programming task (10 points)
         - A simple layout must be re-created with Flutter
         - Does not have to be syntactically correct, pseudo-code is fine
-    - No tools are allowed during the test
-  - Homework, 60 points, minimum 40%
+        - Feel free to use an IDE like Android Studio or DartPad for solving this (but only this!) task
+  - Homework, 60 points, minimum 40% (24 points)
     - Detailed requirements, deadlines, and suggested topics can be found [here](./material/homework.md)
 
+Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
+
+### Grading
+
+The grade at the end of the semester will be calculated by **(Test points + Homework points)** (assuming that the minimum points are met **for each requirement**) using the table below:
+
+|Points|Grade|
+|:-----:|:-----:|
+|85-100|5|
+|70-84|4|
+|55-69|3|
+|40-54|2|
+|0-39|1|
+
 ## Resources
+
 [Teams link](https://teams.microsoft.com/l/team/19%3acdWH8xFc2z2htYha7t1BBfAiluHgbEY1usSQwKDM3uE1%40thread.tacv2/conversations?groupId=2d46ea04-7191-4b59-83c2-eb30d34e2d11&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
 
 ## Extra materials recommended for reading and research
