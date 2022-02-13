@@ -51,7 +51,7 @@
     - Detailed requirements, deadlines, and suggested topics can be found [here](./material/homework.md)
 
 ## Resources
-[Teams link](https://teams.microsoft.com/l/team/19%3alMUDp7jmOLXyHzeFbePnYfNlMtBqtgp6_IzJ2RJw5To1%40thread.tacv2/conversations?groupId=49fdca2f-f533-408c-b072-35ffb641a312&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
+[Teams link](https://teams.microsoft.com/l/team/19%3acdWH8xFc2z2htYha7t1BBfAiluHgbEY1usSQwKDM3uE1%40thread.tacv2/conversations?groupId=2d46ea04-7191-4b59-83c2-eb30d34e2d11&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
 
 ## Extra materials recommended for reading and research
 
@@ -73,7 +73,3 @@ Here are some accounts to follow (but there are many more!):
 - [Flutter Daily](https://twitter.com/flutteriodaily)
 - [Felix Angelov](https://twitter.com/felangelov) - the author of the bloc libraries!
 - [Matej Rešetár](https://twitter.com/resocoder) - AKA Reso Coder
-
-### Reddit
-
-// TODO
