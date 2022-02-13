@@ -16,17 +16,6 @@
 - [Chapter 11: Platform Channels and testing](./material/11.md)
 - [Chapter 12: App architecture](./material/12.md)
 
-### The previous order of 2020/21/2
-
-- [Chapter 4: Asynchronous operations, State handling](material/05.md)
-- [Chapter 5: Advanced widgets, navigation, animation](material/07.md)
-- [Chapter 6: HTTP communication](material/08.md)
-- [Chapter 7: Persistent data storage](material/09.md)
-- [Chapter 8: Backend as a Service (BaaS), Firebase, FlutterFire](material/10.md)
-- [Chapter 9: Accessibility and responsive UI support](material/04.md)
-- [Chapter 10: App architecture](./material/12.md)
-- [Chapter 11: Platform Channels and testing](./material/11.md)
-
 ## Requirements
 
  - Test, 40 points, minimum 40% (16 points)
