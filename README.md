@@ -19,7 +19,7 @@
 ## Requirements
 
  - Test, 40 points, minimum 40% (16 points)
-    - Last week of the term, at the time of the lecture, on Moodle (dec 6. 12:15-14:00).
+    - Last week of the term, at the time of the lecture (máj 16. 12:15-14:00).
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
     - The test will consist of the following:
