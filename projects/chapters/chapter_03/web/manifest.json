@@ -1,11 +1,11 @@
 {
-    "name": "starters",
-    "short_name": "starters",
+    "name": "chapter_03",
+    "short_name": "chapter_03",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Starter project for Chapter 03.",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
