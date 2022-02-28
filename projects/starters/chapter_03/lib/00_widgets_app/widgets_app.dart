@@ -37,10 +37,12 @@ class WidgetsAppDemoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "WidgetsApp Demo",
-      style: TextStyle(
-        color: Color.fromARGB(255, 255, 255, 255),
+    return const SafeArea(
+      child: Text(
+        "WidgetsApp Demo",
+        style: TextStyle(
+          color: Color.fromARGB(255, 255, 255, 255),
+        ),
       ),
     ); // TODO 0.1 Container + Column
   }
