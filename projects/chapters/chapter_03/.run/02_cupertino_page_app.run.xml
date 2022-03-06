@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="02_cupertino_page_app" type="FlutterRunConfigurationType" factoryName="Flutter">
+    <option name="filePath" value="$PROJECT_DIR$/lib/02_cupertino_page_app/cupertino_page_app.dart" />
+    <method v="2" />
+  </configuration>
+</component>
