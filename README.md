@@ -1,6 +1,14 @@
 
 # Flutter-based Software Development (VIAUAV45)
 
+# Contents of this document
+- [Chapters](#chapters)
+- [Requirements](#requirements)
+  - [Test](#test-40-points-minimum-40-16-points)
+  - [Homework](#homework-60-points-minimum-40-24-points)
+- [Grading](#grading)
+- [Resources](#resources)
+
 ## Chapters
 
 - [Chapter 1: Introduction](./material/01.md)
@@ -18,7 +26,7 @@
 
 ## Requirements
 
- - Test, 40 points, minimum 40% (16 points)
+ - ### Test, 40 points, minimum 40% (16 points)
     - Last week of the term, at the time of the lecture (máj 16. 12:15-14:00).
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
@@ -36,7 +44,7 @@
         - A simple layout must be re-created with Flutter
         - Does not have to be syntactically correct, pseudo-code is fine
         - Feel free to use an IDE like Android Studio or DartPad for solving this (but only this!) task
-  - Homework, 60 points, minimum 40% (24 points)
+  - ### Homework, 60 points, minimum 40% (24 points)
     - Detailed requirements, deadlines, and suggested topics can be found [here](./material/homework.md)
 
 Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
