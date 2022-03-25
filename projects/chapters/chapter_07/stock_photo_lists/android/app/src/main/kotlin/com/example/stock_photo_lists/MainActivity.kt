@@ -1,4 +1,4 @@
-package hu.bme.aut.flutter.stock_photo_lists
+package com.example.stock_photo_lists
 
 import io.flutter.embedding.android.FlutterActivity
 
