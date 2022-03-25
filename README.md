@@ -1,7 +1,7 @@
 
 # Flutter-based Software Development (VIAUAV45)
 
-# Contents of this document
+## Contents of this document
 - [Chapters](#chapters)
 - [Requirements](#requirements)
   - [Test](#test-40-points-minimum-40-16-points)
