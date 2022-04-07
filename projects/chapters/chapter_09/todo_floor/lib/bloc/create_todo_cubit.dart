@@ -46,22 +46,21 @@ class CreateTodoCubit extends Cubit<CreateTodoState> {
 @immutable
 @CopyWith()
 class CreateTodoState extends Equatable {
-  late final Todo todo;
+  final Todo todo;
 
-  CreateTodoState({
+  const CreateTodoState({
     required this.todo,
   });
 
-  CreateTodoState.initial() {
-    todo = Todo(
-      id: null,
-      title: "",
-      dueDate: DateTime.now(),
-      isDone: false,
-      description: "",
-      priority: TodoPriority.NORMAL,
-    );
-  }
+  CreateTodoState.initial()
+      : todo = Todo(
+          id: null,
+          title: "",
+          dueDate: DateTime.now(),
+          isDone: false,
+          description: "",
+          priority: TodoPriority.NORMAL,
+        );
 
   @override
   List<Object> get props => [
