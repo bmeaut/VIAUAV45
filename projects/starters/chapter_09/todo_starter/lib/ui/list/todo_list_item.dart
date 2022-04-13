@@ -3,7 +3,7 @@ import 'package:awesome_todo_app/domain/model/todo.dart';
 import 'package:awesome_todo_app/domain/model/todo_priority.dart';
 import 'package:awesome_todo_app/ui/details/todo_details.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/src/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TodoListItem extends StatelessWidget {
   final Todo todo;

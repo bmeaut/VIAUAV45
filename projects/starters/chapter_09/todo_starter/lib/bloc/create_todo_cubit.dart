@@ -5,7 +5,6 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 part 'create_todo_cubit.g.dart';
 
@@ -47,22 +46,21 @@ class CreateTodoCubit extends Cubit<CreateTodoState> {
 @immutable
 @CopyWith()
 class CreateTodoState extends Equatable {
-  late final Todo todo;
+  final Todo todo;
 
-  CreateTodoState({
+  const CreateTodoState({
     required this.todo,
   });
 
-  CreateTodoState.initial() {
-    todo = Todo(
-      id: null,
-      title: "",
-      dueDate: DateTime.now(),
-      isDone: false,
-      description: "",
-      priority: TodoPriority.NORMAL,
-    );
-  }
+  CreateTodoState.initial()
+      : todo = Todo(
+          id: null,
+          title: "",
+          dueDate: DateTime.now(),
+          isDone: false,
+          description: "",
+          priority: TodoPriority.NORMAL,
+        );
 
   @override
   List<Object> get props => [

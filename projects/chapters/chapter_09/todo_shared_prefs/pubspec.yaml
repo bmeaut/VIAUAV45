@@ -31,12 +31,12 @@ dependencies:
     sdk: flutter
   intl: ^0.17.0
 
-  shared_preferences: ^2.0.8
-  path_provider: ^2.0.6
-  flutter_bloc: ^7.3.0
-  provider: 6.0.1
+  shared_preferences: ^2.0.13
+  path_provider: ^2.0.9
+  flutter_bloc: ^8.0.1
+  provider: 6.0.2
   equatable: ^2.0.3
-  copy_with_extension: ^2.0.2
+  copy_with_extension: ^4.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -46,7 +46,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.0.0
-  copy_with_extension_gen: ^2.0.2
+  copy_with_extension_gen: ^4.0.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
