@@ -1,15 +1,9 @@
-import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:flutter_forum/domain/model/post.dart';
-import 'package:flutter_forum/ui/createpost/create_post_page.dart';
 import 'package:flutter_forum/ui/drawer/drawer.dart';
-import 'package:flutter_forum/ui/login/login_page.dart';
 import 'package:flutter_forum/ui/posts/post_item.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +37,8 @@ class _PostsPageState extends State<PostsPage> {
 
           final items = List.from(
             snapshot.data!.docs
-                .map((post) => Post.fromJson(post.data() as Map<String, dynamic>))
+                .map((post) =>
+                    Post.fromJson(post.data() as Map<String, dynamic>))
                 .toList(),
           );
 
