@@ -26,7 +26,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
   final _imagePicker = ImagePicker();
 
   Future<void> _pickImage() async {
-    final pickedFile = await _imagePicker.getImage(source: ImageSource.camera);
+    final pickedFile = await _imagePicker.pickImage(source: ImageSource.camera);
 
     setState(() {
       if (pickedFile != null) {
