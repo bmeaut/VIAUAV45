@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_forum/domain/model/post.dart';
 import 'package:image_picker/image_picker.dart';
@@ -22,11 +23,12 @@ class _CreatePostPageState extends State<CreatePostPage> {
   final posts = FirebaseFirestore.instance.collection("posts");
 
   Future<File>? _imageFuture;
-  File? selectedImage;
+  File? _selectedImage;
+  String? _imageUrl;
   final _imagePicker = ImagePicker();
 
   Future<void> _pickImage() async {
-    final pickedFile = await _imagePicker.getImage(source: ImageSource.camera);
+    final pickedFile = await _imagePicker.pickImage(source: ImageSource.camera);
 
     setState(() {
       if (pickedFile != null) {
@@ -38,18 +40,17 @@ class _CreatePostPageState extends State<CreatePostPage> {
   }
 
   Future<void> _submitPost(BuildContext context) async {
-    String imageUrl;
-    if (selectedImage != null) {
+    if (_selectedImage != null) {
       final storageRef = FirebaseStorage.instance.ref();
       final imageName = UriData.fromString(
         "${Uuid().v4()}.jpg",
         encoding: Encoding.getByName("UTF-8"),
       );
       final newImageRef = storageRef.child("images/$imageName");
-      await newImageRef.putFile(selectedImage!);
-      imageUrl = await newImageRef.getDownloadURL();
+      await newImageRef.putFile(_selectedImage!);
+      _imageUrl = await newImageRef.getDownloadURL();
 
-      return uploadPost(context, imageUrl);
+      return uploadPost(context, _imageUrl);
     } else {
       return uploadPost(context);
     }
@@ -96,13 +97,14 @@ class _CreatePostPageState extends State<CreatePostPage> {
               future: _imageFuture,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  selectedImage = snapshot.data!;
+                  _selectedImage = snapshot.data!;
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       width: 100,
                       height: 100,
-                      child: Image.file(selectedImage!),
+                      child:
+                          !kIsWeb ? Image.file(_selectedImage!) : Container(),
                     ),
                   );
                 }

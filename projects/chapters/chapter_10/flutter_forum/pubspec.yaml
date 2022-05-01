@@ -23,20 +23,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^1.10.0
-  firebase_auth: ^3.2.0
-  cloud_firestore: ^3.1.0
-  firebase_storage: ^10.1.0
-  firebase_crashlytics: ^2.3.0
+  firebase_core: ^1.15.0
+  firebase_auth: ^3.3.15
+  cloud_firestore: ^3.1.13
+  firebase_storage: ^10.2.13
+  firebase_crashlytics: ^2.6.3
   firebase_analytics: ^8.3.4
 
-  provider: ^6.0.1
-  image_picker: ^0.8.4+4
+  provider: ^6.0.2
+  image_picker: ^0.8.5
   path_provider:
   path:
   flutter_conditional_rendering: ^2.0.0
-  json_annotation: ^4.0.1
-  uuid: ^3.0.5
+  json_annotation: ^4.4.0
+  uuid: ^3.0.6
   intl: ^0.17.0
 
 
@@ -47,8 +47,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.1.5
-  json_serializable: ^4.1.0
+  build_runner: ^2.1.10
+  json_serializable: ^6.1.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
