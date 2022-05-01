@@ -42,7 +42,9 @@ class _PostsPageState extends State<PostsPage> {
           }
 
           final items = List.from(
-            snapshot.data!.docs.map((e) => Post.fromJson(e.data())).toList(),
+            snapshot.data!.docs
+                .map((post) => Post.fromJson(post.data() as Map<String, dynamic>))
+                .toList(),
           );
 
           if (items.isEmpty) {

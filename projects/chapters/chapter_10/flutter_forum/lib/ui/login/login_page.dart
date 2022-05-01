@@ -21,8 +21,8 @@ class _LoginPageState extends State<LoginPage> {
     final analytics = Provider.of<FirebaseAnalytics>(context, listen: false);
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email, password: password);
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
 
       print("Logging in...");
 
@@ -32,8 +32,7 @@ class _LoginPageState extends State<LoginPage> {
     } on Exception catch (e) {
       print("Login failed: ${e.toString()}");
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Login failed, please try again!"))
-      );
+          SnackBar(content: Text("Login failed, please try again!")));
     }
   }
 
@@ -52,8 +51,8 @@ class _LoginPageState extends State<LoginPage> {
 
       print("User registration successful! Logging in...");
 
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email, password: password);
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
 
       analytics.logLogin();
 
@@ -62,8 +61,7 @@ class _LoginPageState extends State<LoginPage> {
       print("User registration/login failed: ${e.toString()}");
       analytics.logEvent(name: "registration_failed");
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Registration failed, please try again!"))
-      );
+          SnackBar(content: Text("Registration failed, please try again!")));
     }
   }
 

@@ -17,15 +17,15 @@ class ArticleInteractor {
   }
 
   Future<void> refreshArticles() async {
-    debugPrint("Downloading articles from the network");
+    debugPrint("${this.runtimeType.toString()}: Downloading articles from the network");
     final articles = await _articleNetworkDataSource.getArticles();
 
-    debugPrint("Saving downloaded articles to disk");
+    debugPrint("${this.runtimeType.toString()}: Saving downloaded articles to disk");
     await _articleDiskDataSource.saveArticles(articles ?? []);
   }
 
   Future<Article?> getArticleById(int id) async{
-    print("Getting article $id from disk");
+    print("${this.runtimeType.toString()}: Getting article by id: $id from disk");
     return await _articleDiskDataSource.getArticle(id);
   }
 }

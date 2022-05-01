@@ -1,4 +1,6 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:ny_times_most_popular/domain/interactor/article_interactor.dart';
 import 'package:ny_times_most_popular/domain/model/article.dart';
@@ -6,50 +8,49 @@ import 'package:ny_times_most_popular/ui/details/article_details_bloc.dart';
 import 'package:ny_times_most_popular/ui/details/article_details_event.dart';
 import 'package:ny_times_most_popular/ui/details/article_details_state.dart';
 
-import '../../di/di_test_utils.dart';
+import 'article_details_bloc_test.mocks.dart';
 
+@GenerateMocks([
+  ArticleInteractor,
+])
 void main() {
-  late ArticleDetailsBloc bloc;
+  late ArticleDetailsBloc articleDetailsBloc;
   late ArticleInteractor mockInteractor;
 
   setUp(() {
-    mockInteractor = initArticleInteractor();
+    mockInteractor = MockArticleInteractor();
 
-    bloc = ArticleDetailsBloc(
+    articleDetailsBloc = ArticleDetailsBloc(
       mockInteractor,
     );
   });
 
   tearDown(() {
-    bloc.close();
+    articleDetailsBloc.close();
   });
 
   group("Happy Cases", () {
-    test('when screen started', () {
+    test('When the article details screen is started', () {
       // Assert
-      expect(bloc.state, equals(Loading()));
+      expect(articleDetailsBloc.state, equals(Loading()));
     });
-  });
 
-  test('when LoadArticleEvent starts and it loads with success', () {
-    // Arrange
     final mockedArticle = _mockArticle();
     final mockedId = mockedArticle.id;
-    when(mockInteractor.getArticleById(mockedId))
-        .thenAnswer((_) async => mockedArticle);
 
-    // Act
-    bloc.add(LoadArticleEvent(mockedId));
-
-    // Assert
-    expectLater(
-      bloc,
-      emitsInOrder(
-        [
-          Loading(),
-          ContentReady(article: mockedArticle),
-        ],
-      ),
+    blocTest(
+      "when LoadArticleEvent is launched the screen is loaded successfully",
+      build: () => articleDetailsBloc,
+      setUp: () => {
+        when(mockInteractor.getArticleById(mockedId))
+            .thenAnswer((_) async => mockedArticle)
+      },
+      act: (bloc) => {
+        articleDetailsBloc.add(LoadArticleEvent(mockedId)),
+      },
+      expect: () => [
+        ContentReady(article: mockedArticle),
+      ],
     );
   });
 }
