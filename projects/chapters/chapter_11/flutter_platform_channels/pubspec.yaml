@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.4
 
   #State
-  flutter_bloc: ^6.1.0
+  flutter_bloc: ^7.1.0
   equatable: ^2.0.3
 
 dev_dependencies:
@@ -27,6 +27,8 @@ dev_dependencies:
   mockito: ^5.1.0
   integration_test:
     sdk: flutter
+  bloc_test: ^8.1.0
+
 
   # Other useful packages
   network_image_mock: ^2.1.0
