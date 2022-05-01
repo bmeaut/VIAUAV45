@@ -11,7 +11,7 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({
     @required this.repository,
-  }) : super(HomeStateLoading());
+  }) : super(HomeStateInitial());
   final Repository repository;
 
   @override
