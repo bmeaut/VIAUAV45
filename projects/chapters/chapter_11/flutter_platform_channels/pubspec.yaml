@@ -12,10 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  shared_preferences: ^2.0.13
+  cupertino_icons: ^1.0.4
+
   #State
   flutter_bloc: ^6.1.0
   equatable: ^2.0.3
-  cupertino_icons: ^1.0.4
 
 dev_dependencies:
   #TEST
@@ -23,6 +25,11 @@ dev_dependencies:
     sdk: flutter
   test: any
   mockito: ^5.1.0
+  integration_test:
+    sdk: flutter
+
+  # Other useful packages
+  network_image_mock: ^2.1.0
 
 
 flutter:
