@@ -28,7 +28,7 @@ The homework is a mandatory requirement to pass the course. 60% of the course gr
 
 ## Format of the homework submission & deadlines
 
- - A specification of the application must be submitted in **.pdf** format by the end of the **8th week (2021.04.10. 23:59)** on Moodle.
+ - A specification of the application must be submitted in **.pdf** format by the end of the **8th week (2022.04.10. 23:59)** on Moodle.
  - The specification must
    - be no longer than 1 page
    - contain the list of all the features what you're planning to implement in the app
@@ -41,8 +41,8 @@ The homework is a mandatory requirement to pass the course. 60% of the course gr
        - The video must contain a demonstration of the working features of the app and a short walkthrough on the codebase.
          - A video demonstrating only the working app and no walkthrough or commentaire is not acceptable. 
        - The video can also be provided as a link in a text file or in a comment on Moodle in the assingment.
- - The completed project must be submitted by the end of the term, **2022.05.20. 23:59** - not including the "póthét".
- - The homework can be submitted up to one week later - **until the end of "póthét", 2022.05.27. 23:59** - for a compulsory fee.
+ - The completed project must be submitted by the end of the term, **2022.05.22. 23:59** - not including the "póthét".
+ - The homework can be submitted up to one week later - **until the end of "póthét", 2022.05.29. 23:59** - for a compulsory fee.
 
 ## Useful tools and links for recording the video
 
