@@ -49,6 +49,8 @@
 
 Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
 
+TODO add "pótZH" info
+
 ### Grading
 
 The grade at the end of the semester will be calculated by **(Test points + Homework points)** (assuming that the minimum points are met **for each requirement**) using the table below:
