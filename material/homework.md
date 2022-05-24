@@ -9,7 +9,7 @@ The homework is a mandatory requirement to pass the course. 60% of the course gr
   - Android
   - iOS
   - Web (responsive UI is a plus, but not mandatory)
-  - Windows/macOS/Linux (only in beta stage, choose at your own risk)
+  - Desktop (Windows/macOS/Linux)
 - The application must use a state management library (such as `provider` or `flutter_bloc`)
 - Supporting at least 2 languages is a plus, but not mandatory
 - Here are some strongly advised examples for app complexity:
