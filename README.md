@@ -12,6 +12,10 @@
 ## Chapters
 
 - [Chapter 1: Introduction](./material/01.md)
+
+## Chapters (Not yet updated)
+
+- [Chapter 1: Introduction](./material/01.md)
 - [Chapter 2: Flutter basics](./material/02.md)
 - [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 4: Accessibility and responsive UI support](material/04.md)
@@ -27,29 +31,14 @@
 ## Requirements
 
  - ### Test, 40 points, minimum 40% (16 points)
-    - Last week of the term, at the time of the lecture (May 16. 12:15-14:00).
+    - Last week of the term, at the time of the lecture (Dec 05. 12:15-14:00).
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
-    - The test will consist of the following:
-      - 10 multiple choice questions (1 point each)
-        - Wrong choices have negative points assigned to them
-        - The result of a question cannot be negative
-      - 5 short essay questions (2 points each)
-        - Short answers, 4-5 sentences top will typically be enough.
-      - 1 error search task (10 points)
-        - The code with errors will be provided as an image
-        - 1 error found counts as 1 point
-        - Not every error has to be found for the maximum points (there will be more than 10 errors in the code)
-      - 1 programming task (10 points)
-        - A simple layout must be re-created with Flutter
-        - Does not have to be syntactically correct, pseudo-code is fine
-        - Feel free to use an IDE like Android Studio or DartPad for solving this (but only this!) task
   - ### Homework, 60 points, minimum 40% (24 points)
-    - Detailed requirements, deadlines, and suggested topics can be found [here](./material/homework.md)
+    - Detailed requirements, deadlines, and suggested topics will be published at a later date.
 
 Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
 
-TODO add "pótZH" info
 
 ### Grading
 
@@ -65,7 +54,7 @@ The grade at the end of the semester will be calculated by **(Test points + Home
 
 ## Resources
 
-[Teams link](https://teams.microsoft.com/l/team/19%3acdWH8xFc2z2htYha7t1BBfAiluHgbEY1usSQwKDM3uE1%40thread.tacv2/conversations?groupId=2d46ea04-7191-4b59-83c2-eb30d34e2d11&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
+[Teams link](https://teams.microsoft.com/l/team/19%3a0D_i3EsvrAdoTF8CD34DfYrG_QWLLpfRxDfoZCsYb8w1%40thread.tacv2/conversations?groupId=931b03c9-c709-4dc6-83cd-78af43ea19b8&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
 
 ## Extra materials recommended for reading and research
 
