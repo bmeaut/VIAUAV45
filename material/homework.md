@@ -1,3 +1,6 @@
+# Not yet updated for the 2022/23/1 term!
+
+The informations here are only for reference. We plan on changes for this term, stay tuned for more information!
 
 # Homework
 
