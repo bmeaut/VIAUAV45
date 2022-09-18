@@ -12,7 +12,7 @@ class CurrentLanguage extends StatelessWidget {
       children: [
         const SizedBox(height: 32),
         Text(
-          l10n.homeCurrentLanguage("TODO"),
+          l10n.homeCurrentLanguage(l10n.localeName),
           style: const TextStyle(fontSize: 16),
         ),
         const SizedBox(height: 8),

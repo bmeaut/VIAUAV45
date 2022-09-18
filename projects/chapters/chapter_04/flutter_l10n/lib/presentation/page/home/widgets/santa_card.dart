@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
 
-import '../../../../common_imports.dart';
-
 class SantaCard extends StatelessWidget {
   final Santa santa;
 
@@ -45,7 +43,10 @@ class SantaCard extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(
-                    end: 16, top: 160, bottom: 16),
+                  end: 16,
+                  top: 160,
+                  bottom: 16,
+                ),
                 child: Text(
                   santa.name,
                   style: Theme.of(context)
