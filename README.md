@@ -13,11 +13,11 @@
 
 - [Chapter 1: Introduction](./material/01.md)
 - [Chapter 2: Flutter basics](./material/02.md) - ❗ONLINE❗
+- [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 4: Accessibility and responsive UI support](material/04.md) - ❗ONLINE❗
 
 ## Chapters (Not yet updated)
 
-- [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 5: Asynchronous operations, State handling Part I.](material/05.md)
 - [Chapter 6: State handling Part II.](material/06.md)
 - [Chapter 7: Advanced widgets, navigation, animation](material/07.md)
