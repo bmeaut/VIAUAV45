@@ -20,7 +20,9 @@ class _DetailPageState extends State<DetailPage>
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
     _controller.forward();
     super.initState();
   }

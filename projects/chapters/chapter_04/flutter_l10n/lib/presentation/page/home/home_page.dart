@@ -15,8 +15,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Semantics(
-          child: Text(l10n.homeAppbarTitle),
           label: "This is the HomePage.",
+          child: Text(l10n.homeAppbarTitle),
         ),
       ),
       body: Container(
@@ -39,10 +39,11 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 8),
             SantaCard(
               santa: Santa(
-                  name: l10n.santaName,
-                  avatar: "assets/icon/santa.png",
-                  outfit: [l10n.santaHat, l10n.santaTie],
-                  description: l10n.santaDescription),
+                name: l10n.santaName,
+                avatar: "assets/icon/santa.png",
+                outfit: [l10n.santaHat, l10n.santaTie],
+                description: l10n.santaDescription,
+              ),
             ),
           ],
         ),
