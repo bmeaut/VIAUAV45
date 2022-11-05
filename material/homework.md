@@ -102,4 +102,4 @@ A kiértékelés automatizálásához szükséges még egy segéd fájl kitölt�
  - Választott állapotkezelési megoldás (`bloc` vagy `provider`)
  - Opcionális: Szöveges értékelés az automatizált házi feladatról
 
-Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni.
+Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége péntek (december 9)**.
