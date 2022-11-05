@@ -5,7 +5,7 @@ A házi feladat kötelező része a tárgynak. Összesen 60 pontot lehet szerezn
 Két módon lehetséges a teljesítése:
 
 ## Házi Feladat verseny
-A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a sváci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mskoytysxxdkmmpsqumi/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmaznák is:
+A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a svájci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mskoytysxxdkmmpsqumi/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmaznák is:
 
 -   A harmadik helyezett **20.000 Ft** értékű MediaMarkt kupont kap.
 -   A második helyezett **30.000 Ft** értékű MediaMarkt kupont kap.
