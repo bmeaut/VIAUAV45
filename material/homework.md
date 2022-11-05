@@ -1,56 +1,105 @@
-# Not yet updated for the 2022/23/1 term!
 
-The informations here are only for reference. We plan on changes for this term, stay tuned for more information!
+# Házi feladat
 
-# Homework
+A házi feladat kötelező része a tárgynak. Összesen 60 pontot lehet szerezni.
+Két módon lehetséges a teljesítése:
 
-The homework is a mandatory requirement to pass the course. 60% of the course grade comes from the result of the homework.
+## Házi Feladat verseny
+A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a sváci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mskoytysxxdkmmpsqumi/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmaznák is:
 
-## Application requirements
+-   A harmadik helyezett **20.000 Ft** értékű MediaMarkt kupont kap.
+-   A második helyezett **30.000 Ft** értékű MediaMarkt kupont kap.
+-   Az első helyezett **50.000 Ft** értékű MediaMarkt kupont kap.
 
-- The application must be written in Dart, using Flutter, and must support at least two different platforms with the same codebase:
-  - Android
-  - iOS
-  - Web (responsive UI is a plus, but not mandatory)
-  - Desktop (Windows/macOS/Linux)
-- The application must use a state management library (such as `provider` or `flutter_bloc`)
-- Supporting at least 2 languages is a plus, but not mandatory
-- Here are some strongly advised examples for app complexity:
-    - Communicate with a public API
-       - [A list of public APIs]([https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis))
-       - One list page and one details page
-       - Sorting based on some property OR searching based on some property
-     - Simple game with basic Firebase integration
-       - Based on widgets or the [`flame`](https://pub.dev/packages/flame) library
-       - Firebase usage examples in a game (minimum of 1 integration is required):
-         - User authentication, storing player scores, storing level data, storing images, etc.
-     - Your own idea
-       - Must be approved by one of the lecturers beforehand!
+A szépen elkészített alkalmazások pedig akár egy jövőbeli állásinterjún is jól tudnak mutatni.
 
-> ⚠️WARNING⚠️: We don't recommend copying and pasting a whole project (e.g. from a tutorial) and handing it in as homework. You can use tutorials and follow approaches presented in them of course, just try to come up with your own code as well. You can safely use examples from this course, provided that you come up with your own solutions too.
+Konkrét témaötleteket az alábbi linken találtok: [https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true](https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true "https://docs.google.com/document/d/1ra0rvqvrhobpckclpvoh_yxnq2yvysvt/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true"). 
+A sablon feladatokhoz készültek dizájntervek is, melyek az alábbi linken érhetőek el: [https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus")
+Ha itt valamelyik feladat megtetszik (a feladatok alapvetően nehézségi sorrendben vannak), akkor írjatok nekem, illetve közvetlen a cégnek az alábbi email címen: karoly.angyal@kadasolutions.ch. A céggel fogjátok tudni megbeszélni, hogy milyen részletességgel kell az alkalmazást elkészíteni.
+Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben való részvételhez a **határidő a 13. hét péntek, tehát december 2**. Ha nem készülnétek el erre a határidőre az alkalmazással, akkor a tárgy értékeléséhez a **póthét végéig (december 18)** kell beadni a projektet.
 
-## Format of the homework submission & deadlines
+### Értékelés
+A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a házi feladatra. Akiknek nem sikerül a verseny határidejére beadniuk a feladatot, de a póthét végére elkészülnek vele, azok legrosszabb esetben is **jelest (51)** kapnak az alkalmazásra (de a hibamentes megoldásért továbbra is a maximális pont jár).
 
- - A specification of the application must be submitted in **.pdf** format by the end of the **8th week (2022.04.10. 23:59)** on Moodle.
- - The specification must
-   - be no longer than 1 page
-   - contain the list of all the features what you're planning to implement in the app
- - The uploaded specification will be checked by the lecturers and may require clarification afterwards.
- - The homework must be submitted in the following format:
-   - An archive file (zip, rar, 7zip, etc.) containig
-     -  the project (run `flutter clean` beforehand), and
-     -  and a short video demonstrating the completed application and the code.
-       - The video must be around 5 minutes long, but should not exceeed 10 minutes.
-       - The video must contain a demonstration of the working features of the app and a short walkthrough on the codebase.
-         - A video demonstrating only the working app and no walkthrough or commentaire is not acceptable. 
-       - The video can also be provided as a link in a text file or in a comment on Moodle in the assingment.
- - The completed project must be submitted by the end of the term, **2022.05.22. 23:59** - not including the "póthét".
- - The homework can be submitted up to one week later - **until the end of "póthét", 2022.05.29. 23:59** - for a compulsory fee.
+## Specifikált alkalmazás
 
-## Useful tools and links for recording the video
+A másik lehetőségben egy megadott alkalmazást kell elkészítenetek. Ehhez egy kiinduló projektből kell egy, az alább megadott alkalmazást elkészítenetek. Az ellenőrzés tesztek segítségével fog megtörténni, mely része a kiinduló projektnek, így ti is nyomon tudjátok követni, hogy hány pontot kapnátok az aktuális állapotában.
+[A kiinduló projektet innen tudjátok letölteni](https://drive.google.com/file/d/1-JueWoz3YxU4Iw82Dr-1o67uzidS2mh7/view?usp=share_link)
 
-- [OBS](https://obsproject.com/) + emulator/simulator/browser window/desktop window
-- On Android:
-  - [scrcpy](https://github.com/Genymobile/scrcpy)
-  - [Vysor](https://www.vysor.io/)
-  - Built-in screen recording on a physical Android device
+### Az alkalmazás
+
+A feladatban egy egyszerű, felhasználok megtekintését megvalósító alkalmazást kell elkészítenetek. Két fő oldalból fog állni: egy bejelentkező, illetve egy listázó felületből. Az alkalmazásban a **dio** könyvtárat kell használni a hálózati kérések indításáért, ezeket azonban egy **Interceptoron** alapuló megoldással még a Dart kódból lekezelésre kerülnek, tehát nincs szükség egy külső szerverre való csatlakozáshoz. A projektben az állapotkezelésnél választhattok a **provider** vagy **bloc** alapú megoldások között. **Elég egy állapotkezelési megoldással elkészíteni az alkalmazást.**
+
+### Fő lépések
+
+Mivel a kiértékelés a tesztek alapján történik, fontos, hogy azok sikeresen le tudjanak futni. Ehhez szükséges betartani pár alapvető szabályt:
+
+- A `main.dart` fájlban található `DO NOT MODIFY` kommenttel ellátott függvényeket, illetve paramétereket nem szabad módosítani. A `configureDependencies()` metódusba vehettek fel tetszőleges függőséget a `get_it` könyvtárhoz, illetve a **MaterialApp** egyéb paramétereit módosíthatjátok.
+- Minden, a projektben mellékelt osztálynál **TILOS** az osztálynevek, megadott függvények vagy mezők módosítása.
+- **bloc** esetében nem érdemes új állapotokat felvenni, mert azok a tesztelés során hibához vezethetnek.
+- Bármelyik állapotkezelési megoldást választva az ahhoz szükséges `Provider` osztályt (`ChangeNotifierProvider` vagy `BlocProvider`) az adott oldal **elé** vegyük fel. Ezt úgy tudjuk a legkönyebben elérni, ha a **MaterialApp**-on belül az oldal létrehozásánál wrappeljük az oldalt a megfelelő widgettel.
+- Új fájlokat, osztályokat nyugodtan fel lehet venni.
+- A projekt során szükséges lesz használni a `Dio`, illetve a `SharedPreferences` osztályokat. Ezeket a kód tetszőleges helyéről a `GetIt.I<Dio>()` és `GetIt.I<SharedPreferences>()` hívásokkal tudjuk elérni. **TILOS** ezeket az objektumokat magunknak létrehozni.
+
+A `Dio` objetkum úgy lett konfigurálva, hogy minden kommunikációt kiírjon a konzolba, így könnyen tudjuk ellenőrizni, hogy milyen kérések indulnak el, illetve milyen válaszokat kapunk.
+
+Ha kiválasztottuk az állapotkezelési megoldást, amit használni szeretnénk, akkor elég csak az adott mappára (**lib/ui/bloc** vagy **lib/ui/provider**) fókuszálni.
+
+### Specifikáció
+
+A fő irányelv, hogy az alkalmazásnak teljesítenie kell a teszteket **Értékelés** fejezetben leírt módon. Ha eltérés található a szöveges specifikáció és a tesztek között, akkor ezt kérlek jelezzétek, illetve a tesztek élveznek elsőbbséget. Az alkalmazás készítése során nyugodtan lehet a teszteket is vizsgálni, de ne csak ezek alapján készüljön el az.
+
+#### Login oldal
+Az alkalmazás egy bejelentkezési felülettel kell induljon. Itt található egy email és egy jelszó beviteli mező, egy 'Jegyezz meg' checkbox, illetve egy bejelentkezési gomb. Ezek mellett az oldal tetszőlegesen egyedivé tehető.
+A bejelentkezés gomb megnyomására az alábbi folyamatnak kell megtörténnie:
+
+ 1. Ellenőrizzük, hogy érvényesek-e a beírt értékek. Az email mezőnek megfelelő formátumban kell lennie, a jelszónak pedig legalább 6 karakter hosszúnak kell lennie (ezek ellenőrzésére használható például a  `validators` könyvtár). Ha valamelyik nem felel meg, akkor az adott mező alá ki kell írni egy hibaüzenetet (`InputDecoration.errorText`). Ha megváltozik a mező tartalma, akkor a hibaüzenetet egyből törölni kell.
+ 2. Ha érvényesek a mezők, el kell indítani a bejelentkezési folyamatot. **provider** esetében a `login()` metódust kell meghívni, illetve az ezáltal visszaadott Future eredményét megfelelően lekezelni. **bloc** esetében egy `LoginSubmitEvent` eseményt kell elküldeni a BLoC felé. Ezeknek csak akkor legyen hatása, ha még nem lett elindítva bejelentkezési folyamat.
+ 3. A bejelentkezés során töltőállapotba kell jutni. **provider** esetén ezt az `isLoading` változó jelzi, míg **bloc**-nál a `LoginLoading` állapotot kell kiadni. Töltőállapotban minden bemeneti mezőt le kell tiltani (szöveges mezők esetén az `enabled` változó, a checkbox és gomb esetén pedig a megfelelő callback paramétereket `null` értékre állításával).
+ 4. Ha a hálózati kérés hibával zárul (pl. hibás felhasználónév/jelszót ad meg a felhasználó), akkor a hiba szövegét egy Snackbar-ban kell megjeleníteni. Ehhez **provider** esetén a `login()` metódusban egy `LoginException` hibát dobjunk, amit az login oldalon el tudunk kapni (ekkor a `login()` által visszaadott `Future` hibával fog végződni). **bloc** esetében egy `LoginError` állapotot küldjünk ki, amit egy **BlocListener** vagy **BlocConsumer** segítségével tudunk megfigyelni és lekezelni.
+ 5. Ha sikeres a kérés, akkor kapni fogunk egy tokent, amivel tudjuk magunkat azonosítani a szerver felé. Ha a felhasználó bepipálta a 'Jegyezz meg' checkboxot, akkor ezt a tokent mentsük el tetszőleges kulccsal a `SharedPreferences` objektumunkba. Erre a tokenre a későbbiekben még szükség lesz.
+ 6. Sikeres kérés esetén lépjünk át a lista oldalra. Ehhez nevesített útvonalat használjunk, a `/list` útvonalra navigáljunk át. **provider** esetében ezt a `login()` által visszaadott Future hiba nélküli lefutásával tudjuk detektálni, míg **bloc** esetén egy `LoginSuccess` állapotot kell kiküldeni.
+ 7. Végül ne felejtsük el a töltőállapotot megszüntetni az `isLoading` hamisra állításával, vagy a `LoginForm` állapot elküldésével.
+
+A bejelentkezéshez a **Dio** objektumon egy `POST` kérést kell indítani a `/login` útvonalra. A kérés body részében (`data` változó) egy **Map** objektumot kell küldeni, melyben az *email* kulccsal a felhasználó által beírt email címet, a *password* kulccsal pedig a jelszót küldjük.
+**!!!FONTOS!!!** A tesztek sikeres működése érdekében a kérésben mindenképp egy Map objektumot kell átadni, nem működik, hogy egy JSON sorosítható objektumot küldünk át. Ha külön osztályt hozunk létre a kommunikáció elősegítéséhez, akkor manuálisan hívjuk meg a `toJson()` metódust az objektumon, mellyel egy Map objektumot fogunk megkapni. **!!!FONTOS!!!**
+
+A beépített *Interceptor* csak akkor fogja elfogadni a kérést, ha az email cím *login@gmail.com*, a jelszó pedig *password*. Ekkor egy Map objektumot kapunk vissza, amiben a *token* kulccsal találjuk meg a tokent. Egyéb esetben hibával végződik a kérés, a válaszban pedig egy Map-et találunk, melyben *message* kulccsal találjuk meg a hibaüzenetet, amit meg kell jeleníteni.
+
+Ha a felhasználó valamikor már bejelentkezett a 'Jegyezz meg' funkcióval, akkor az alkalmazás indulásakor egyből be kell léptetni. Ehhez az oldal indulásakor (`initState()` metóduson belül) **provider** esetében mindig hívjuk meg a `tryAutoLogin()` metódust, mely igazzal tér vissza, ha sikerült a bejelentkeztetés. **bloc** esetében ugyanezet egy `LoginAutoLoginEvent` esemény kiküldésével, illetve `LoginSuccess` állapottal tudjuk elérni. Ilyenkor a `SharedPreferences` objektumon ellenőrizzük, hogy van-e mentett token, és ha igen, jelentkeztessük be a felhasználót és navigáljunk át a lista oldalra.
+
+#### Lista oldal
+
+Sikeres bejelentkezés esetén egy listázó oldalra kell elnavigálni. A navigáció során figyeljünk arra, hogy a login oldal kikerüljön a navigációs előzményekből (`pushReplacementNamed()` használatával). A lista oldal tetején egy **AppBar** legyen, mely tartalmaz egy **IconButton** gombot. Erre kattintva jelentkeztessük ki a felhasználót (navigáljunk vissza a bejelentkező oldalra, illetve töröljük a tokent mindenhonnan)! 
+Az oldal fő részén jelenítsük meg a betöltött felhasználókat egy függőlegesen tekerhető felületen. Jelenítsük meg a listában a felhasználók profilképét, illetve nevét.
+A betöltés folyamata az alábbiak alapján működjön:
+
+ 1. Az oldalra indulásakor egyből indítsuk el a töltést a `loadUsers()` meghívásával vagy `ListLoadEvent` kiküldésével.
+ 2. A kérés közben a loginhoz hasonlóan töltőállapotban legyen az oldalunk (jelenítsünk meg egy `ProgressIndicator`-t az oldalon közben).
+ 3. Hiba esetén a loginhoz hasonlóan egy Snackbar-ban jelenítsük meg a hiba okát.
+ 4. Sikeres válasz esetén **provider** esetében a `users` listában, míg **bloc** esetében egy ListLoaded állapotban adjuk vissza a betöltött felhasználókat.
+
+A felhasználói adatok betöltéséhez egy `GET` kérést kell a `/users` útvonalra küldeni. Az *Interceptor* csak akkor fog válaszolni, ha egy bejelentkezett felhasználó küldi a kérést, ehhez a headerben el kell küldeni `Authorization` kulccsal a `Bearer <LOGIN TOKEN>` sztringet. Ennek hiányában hibával válaszol a szerver.
+Sikeres kérés esetén egy felhasználói listát fogunk visszakapni, ami Map objektumokat fog tartalmazni, melyekben az *avatarUrl* kulccsal érjük el a felhasználó profilképének URL címét, illetve *name* kullcsal kapjuk a megjelenítendő felhasználó nevet. 
+
+### Értékelés
+
+A pontozást az automatizált tesztek fogják végezni. A `test` mappán belül található az összes teszt. Minden teszt tartalmaz egy rövid leírást, illetve a leírás végén lévő `[x]` jelöli, hogy hány pontot ér az adott teszt sikeres teljesítése. A tesztek a következő részekből állnak:
+
+ - `common`: Itt találhatóak az általános tesztek, melyeknek **állapotkezelési megoldástól függetlenül** teljesíteni kell. Összesen 25 pont szerezhető ezekből.
+ - `bloc` / `provider`: Itt találhatóak az állapotkezelési megoldásoktól függő tesztek. Ezek közül a választott állapotkezelési könyvtár tesztjeit kell csak futtatni. Ezekből a tesztekből is összesen 25 pont szerezhető.
+ - `screenshots`: Egy speciális teszt, mely bejárja a teljes alkalmazást, és közben összesen 8 képernyőképet készít. A sikeres futtatás 2 pontot ér, míg minden jó képernyőkép 1 pontot, összesen 10 pontért. Ahhoz, hogy elkészüljenek a képek, a tesztelés során az `--update-goldens` argumentumot meg kell adni.
+
+> A képernyőképek készítését én Windows platformon tudtam kipróbálni. Ha valakinek bármilyen problémája adódna ezzel a résszel, keress meg Teams-en.
+
+Android Studio esetében a tesztek helyesen felkonfigurálva megtalálhatóak a konfigurációk között.
+
+**!!FIGYELEM!!** A tesztek módosítása szigorúan **TILOS**. A kiértékelés során felül lesznek írva az eredeti tesztekkel, ezért ezen belül bármi nemű módosítás el fog veszni, és az eredeti kiértékelés szerint lesz a pontozás.
+
+A kiértékelés automatizálásához szükséges még egy segéd fájl kitöltése, mely a projekt gyökerében megtalálható `TEST_INFO.txt` fájlban kell megtenni. Ebben soronként a következő információkat kell beírni
+
+ - Neptun kód
+ - Választott állapotkezelési megoldás (`bloc` vagy `provider`)
+ - Opcionális: Szöveges értékelés az automatizált házi feladatról
+
+Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni.
