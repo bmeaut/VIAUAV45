@@ -4,8 +4,8 @@
 ## Contents of this document
 - [Chapters](#chapters)
 - [Requirements](#requirements)
-  - [Test](#test-40-points-minimum-40-16-points)
-  - [Homework](#homework-60-points-minimum-40-24-points)
+    - [Test](#test-40-points-minimum-40-16-points)
+    - [Homework](#homework-60-points-minimum-40-24-points)
 - [Grading](#grading)
 - [Resources](#resources)
 
@@ -13,9 +13,6 @@
 
 - [Chapter 1: Introduction](./material/01.md)
 - [Chapter 2: Flutter basics](./material/02.md) - ❗ONLINE❗
-
-## Chapters (Not yet updated)
-
 - [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 4: Accessibility and responsive UI support](material/04.md) - ❗ONLINE❗
 - [Chapter 5: Asynchronous operations, State handling Part I.](material/05.md)
@@ -24,6 +21,9 @@
 - [Chapter 8: HTTP communication](material/08.md)
 - [Chapter 9: Persistent data storage](material/09.md)
 - [Chapter 10: Backend as a Service (BaaS), Firebase, FlutterFire](material/10.md)
+
+## Chapters (Not yet updated)
+
 - [Chapter 11: Platform Channels and testing](./material/11.md) - ❗ONLINE❗
 - [Chapter 12: App architecture](./material/12.md)
 
