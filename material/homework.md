@@ -103,3 +103,26 @@ A kiértékelés automatizálásához szükséges még egy segéd fájl kitölt�
  - Opcionális: Szöveges értékelés az automatizált házi feladatról
 
 Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége péntek (december 9)**.
+
+### Beadás
+
+A beadás a Moodle felületén keresztül történik. Ide az elkészült projektet kell feltölteni becsomagolt verzióban (.zip vagy .rar kiterjesztéssel). 
+Figyeljetek rá, hogy az archívum ne legyen túl nagy méretű (nagyobb, mint 10 MB). 
+Ehhez érdemes lefuttatni a `flutter clean` utasítást a projektmappán belül az archívum létrehozása előtt.
+
+### Tippek a megoldáshoz
+
+Az automatizált tesztek miatt van pár rész, amire érdemes még odafigyelni a megoldás során, illetve pár hiba, amit nem könnyű elsőre értelmezni.
+
+- `type 'Null' is not a subtype of type '***'`: Ilyen hibákat tipikusan akkor dob a teszt, ha nem találja a mockolt objektum azt a függvényhívást, amit a kód hívna. Ilyenkor érdemes megnézni a tesztet, hogy pontosan milyen hívások vannak értelmezve a mockolt objektumon (ezeket a `when()` hívásokon belül láthatjátok). Tipikus problémát szokott okozni, hogy a lista lekérésénél az autentikációs token a Dio `get()` hívásának az options paraméterében kerül átadásra. Ez bár működő megoldás, de minden kérésben meg kellene adni, ezért inkább egy interceptort szoktak használni. A mostani projektben arra kérnélek titeket, hogy a Dio objektum options változójában lévő headert állítsátok, az itt megadott értékek minden kéréshez hozzá fognak adódni.
+- `type 'List<dynamic>' is not a subtype of type 'List<***>'`: Ilyen hibákat akkor szokott dobni, ha a hálózati kommunikáció során olyan típust feltételeztek egy gyűjteményről, amit a Dart futás közben nem lát. Figyeljetek arra, hogy például egy `.map()` hívás nem fogja mindig átkasztolni a gyűjteményt az új típusra, ilyenkor az explicit `cast()` függvényhívással tudtok olyan típusú gyűjteményt készíteni, amire szükségetek van (tehát pl. `result.map(...).cast<UserItem>.toList()`).
+- Hiányzó dependenciák: Előfordulhat, hogy bizonyos tesztek hibát dobnak arra, hogy nincsen a GetIt-be beregisztrálva objektum. Ilyenkor ellenőrizzétek, hogy minden saját osztályt a `configureCustomDependencies()` vettetek fel. Ezek mellett a `*_page_*_test` teszteknél nincsen szükség a GetIt-re a sikeres lefutáshoz. Ha mégis hibát dobna, az valószínűleg azért történik, mert az oldal létrehozásakor egyből megpróbáljátok kiolvasni valamelyik függőséget. Mivel magának az oldalnak nincsen szüksége közvetlenül az adott függőségekre, érdemes azokat azokba az eseménykezelő függvényekbe mozgatni, ahol tényleg aktuálisan szükség van rá.
+
+
+`provider` esetén kicsit bonyolultabbra sikerült az oldal betöltése utáni akció kiváltás, mint azt szerettem volna úgy, hogy az oldal is működjön, és a tesztek is lefussanak. A következő mintát kövessétek:
+
+1. Az adott oldalon definiáljatok egy aszinkron metódust (pl. `_onPageInitialization()`), amit az `initState()` első sorában meg is hívtok (de nem várjátok be).
+2. Az aszinkron metódus első utasításaként adjatok ki egy nulla idejű várakozást: `await Future.delayed(Duration.zero)`.
+3. Ezután az aszinkron metódus meghívhatja az aktuális `Provider` objektum függvényét. Itt már csak akkor várjatok be valami folyamatot, ha tényleg szükséges (tehát pl. az isLoading állítása előtt ne legyen `await`).
+
+Elnézést, hogy ez kicsit problémásabbra sikerült, sajnos a `provider` nem a legideálisabb ennek a lekezelésére. A `bloc` használata esetén nincs ilyen probléma, ott az eseményt egyből hozzá lehet adni az `initState()` hívásban a `Bloc` objektumhoz.
