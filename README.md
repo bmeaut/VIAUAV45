@@ -21,9 +21,6 @@
 - [Chapter 8: HTTP communication](material/08.md)
 - [Chapter 9: Persistent data storage](material/09.md)
 - [Chapter 10: Backend as a Service (BaaS), Firebase, FlutterFire](material/10.md)
-
-## Chapters (Not yet updated)
-
 - [Chapter 11: Platform Channels and testing](./material/11.md) - ❗ONLINE❗
 - [Chapter 12: App architecture](./material/12.md)
 
@@ -34,7 +31,7 @@
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
   - ### Homework, 60 points, minimum 40% (24 points)
-    - Detailed requirements, deadlines, and suggested topics will be published at a later date.
+    - Detailed requirements, deadlines, and suggested topics [can be found here](./material/homework.md).
 
 Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
 
