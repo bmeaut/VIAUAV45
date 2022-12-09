@@ -118,11 +118,14 @@ Az automatizált tesztek miatt van pár rész, amire érdemes még odafigyelni a
 - `type 'List<dynamic>' is not a subtype of type 'List<***>'`: Ilyen hibákat akkor szokott dobni, ha a hálózati kommunikáció során olyan típust feltételeztek egy gyűjteményről, amit a Dart futás közben nem lát. Figyeljetek arra, hogy például egy `.map()` hívás nem fogja mindig átkasztolni a gyűjteményt az új típusra, ilyenkor az explicit `cast()` függvényhívással tudtok olyan típusú gyűjteményt készíteni, amire szükségetek van (tehát pl. `result.map(...).cast<UserItem>.toList()`).
 - Hiányzó dependenciák: Előfordulhat, hogy bizonyos tesztek hibát dobnak arra, hogy nincsen a GetIt-be beregisztrálva objektum. Ilyenkor ellenőrizzétek, hogy minden saját osztályt a `configureCustomDependencies()` vettetek fel. Ezek mellett a `*_page_*_test` teszteknél nincsen szükség a GetIt-re a sikeres lefutáshoz. Ha mégis hibát dobna, az valószínűleg azért történik, mert az oldal létrehozásakor egyből megpróbáljátok kiolvasni valamelyik függőséget. Mivel magának az oldalnak nincsen szüksége közvetlenül az adott függőségekre, érdemes azokat azokba az eseménykezelő függvényekbe mozgatni, ahol tényleg aktuálisan szükség van rá.
 
-
 `provider` esetén kicsit bonyolultabbra sikerült az oldal betöltése utáni akció kiváltás, mint azt szerettem volna úgy, hogy az oldal is működjön, és a tesztek is lefussanak. A következő mintát kövessétek:
 
 1. Az adott oldalon definiáljatok egy aszinkron metódust (pl. `_onPageInitialization()`), amit az `initState()` első sorában meg is hívtok (de nem várjátok be).
-2. Az aszinkron metódus első utasításaként adjatok ki egy nulla idejű várakozást: `await Future.delayed(Duration.zero)`.
-3. Ezután az aszinkron metódus meghívhatja az aktuális `Provider` objektum függvényét. Itt már csak akkor várjatok be valami folyamatot, ha tényleg szükséges (tehát pl. az isLoading állítása előtt ne legyen `await`).
+2. Az aszinkron metódus első utasításaként a Login oldalon hívjátok meg a tryAutoLogin() metódust. Ezután, illetve a lista oldalon adjatok ki egy nulla idejű várakozást: `await Future.delayed(Duration.zero)`.
+3. Ezután az aszinkron metódus meghívhatja az aktuális `Model` objektum függvényét. Itt már csak akkor várjatok be valami folyamatot, ha tényleg szükséges (tehát pl. az isLoading állítása előtt ne legyen `await`).
 
 Elnézést, hogy ez kicsit problémásabbra sikerült, sajnos a `provider` nem a legideálisabb ennek a lekezelésére. A `bloc` használata esetén nincs ilyen probléma, ott az eseményt egyből hozzá lehet adni az `initState()` hívásban a `Bloc` objektumhoz.
+
+Pár tesztnél előjöttek problémák, amik az én megoldásomban nem voltak jelen. Ezeket az értékelés során figyelembe fogom venni:
+- A login_page_x_test.dart teszteken belül a 'LoginPage valid input calls correct function [2]' teszt hibával zárul, mert nincsen definiálva a "/list" oldal. Ebben az esetben ezt a hibát ignorálhatjátok, én el fogom fogadni a tesztet. Ha szeretnétek, hogy átmenjen a teszt, akkor a Navigator használatát egy try-catch-ben tegyétek meg, és kapjatok el minden hibát.
+- A lista oldalon nem jelenik meg elég felhasználó. Ezt is el fogom fogadni ilyen hiba esetén, de ha javítani szeretnétek, akkor a ListView.builder() helyett az alapértelmezett ListView konstruktort használjátok, ahol a children tömbben kell átadni az összes felhasználói elemet.
