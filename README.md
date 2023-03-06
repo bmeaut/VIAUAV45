@@ -27,11 +27,11 @@
 ## Requirements
 
  - ### Test, 40 points, minimum 40% (16 points)
-    - Last week of the term, at the time of the lecture (Dec 05. 12:15-14:00).
+    - Last week of the term.
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
   - ### Homework, 60 points, minimum 40% (24 points)
-    - Detailed requirements, deadlines, and suggested topics [can be found here](./material/homework.md).
+    - Detailed requirements, deadlines, and suggested topics will be published at a later date.
 
 Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
 
