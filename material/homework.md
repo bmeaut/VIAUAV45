@@ -5,7 +5,7 @@ A házi feladat kötelező része a tárgynak. Összesen 60 pontot lehet szerezn
 Két módon lehetséges a teljesítése:
 
 ## Házi Feladat verseny
-A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a svájci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mskoytysxxdkmmpsqumi/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmaznák is:
+A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a svájci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmaznák is:
 
 -   A harmadik helyezett **20.000 Ft** értékű MediaMarkt kupont kap.
 -   A második helyezett **30.000 Ft** értékű MediaMarkt kupont kap.
@@ -14,9 +14,9 @@ A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alk
 A szépen elkészített alkalmazások pedig akár egy jövőbeli állásinterjún is jól tudnak mutatni.
 
 Konkrét témaötleteket az alábbi linken találtok: [https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true](https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true "https://docs.google.com/document/d/1ra0rvqvrhobpckclpvoh_yxnq2yvysvt/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true"). 
-A sablon feladatokhoz készültek dizájntervek is, melyek az alábbi linken érhetőek el: [https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus")
+A sablon feladatokhoz készültek dizájntervek is, melyek az alábbi linken érhetőek el: [https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus"). A figma oldalon belül a bal felső menüben tudjátok kiválasztani az alkalmazást, amelyiknek a dizájnját szeretnétek nézni.
 Ha itt valamelyik feladat megtetszik (a feladatok alapvetően nehézségi sorrendben vannak), akkor írjatok nekem, illetve közvetlen a cégnek az alábbi email címen: karoly.angyal@kadasolutions.ch. A céggel fogjátok tudni megbeszélni, hogy milyen részletességgel kell az alkalmazást elkészíteni.
-Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben való részvételhez a **határidő a 13. hét péntek, tehát december 2**. Ha nem készülnétek el erre a határidőre az alkalmazással, akkor a tárgy értékeléséhez a **póthét végéig (december 18)** kell beadni a projektet.
+Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben való részvételhez a **határidő a 13. hét péntek, tehát május 26**. Ha nem készülnétek el erre a határidőre az alkalmazással, akkor a tárgy értékeléséhez a **póthét végéig (június 9)** kell beadni a projektet.
 
 ### Értékelés
 A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a házi feladatra. Akiknek nem sikerül a verseny határidejére beadniuk a feladatot, de a póthét végére elkészülnek vele, azok legrosszabb esetben is **jelest (51)** kapnak az alkalmazásra (de a hibamentes megoldásért továbbra is a maximális pont jár).
@@ -24,7 +24,7 @@ A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a ház
 ## Specifikált alkalmazás
 
 A másik lehetőségben egy megadott alkalmazást kell elkészítenetek. Ehhez egy kiinduló projektből kell egy, az alább megadott alkalmazást elkészítenetek. Az ellenőrzés tesztek segítségével fog megtörténni, mely része a kiinduló projektnek, így ti is nyomon tudjátok követni, hogy hány pontot kapnátok az aktuális állapotában.
-[A kiinduló projektet innen tudjátok letölteni](https://drive.google.com/file/d/1-JueWoz3YxU4Iw82Dr-1o67uzidS2mh7/view?usp=share_link)
+[A kiinduló projektet innen tudjátok letölteni](https://drive.google.com/file/d/17w9kg1Lce-gy2oa4hhUQBTvnQn55NT3F/view?usp=share_link)
 
 ### Az alkalmazás
 
@@ -37,9 +37,9 @@ Mivel a kiértékelés a tesztek alapján történik, fontos, hogy azok sikerese
 - A `main.dart` fájlban található `DO NOT MODIFY` kommenttel ellátott függvényeket, illetve paramétereket nem szabad módosítani. A `configureDependencies()` metódusba vehettek fel tetszőleges függőséget a `get_it` könyvtárhoz, illetve a **MaterialApp** egyéb paramétereit módosíthatjátok.
 - Minden, a projektben mellékelt osztálynál **TILOS** az osztálynevek, megadott függvények vagy mezők módosítása.
 - **bloc** esetében nem érdemes új állapotokat felvenni, mert azok a tesztelés során hibához vezethetnek.
-- Bármelyik állapotkezelési megoldást választva az ahhoz szükséges `Provider` osztályt (`ChangeNotifierProvider` vagy `BlocProvider`) az adott oldal **elé** vegyük fel. Ezt úgy tudjuk a legkönyebben elérni, ha a **MaterialApp**-on belül az oldal létrehozásánál wrappeljük az oldalt a megfelelő widgettel.
+- Bármelyik állapotkezelési megoldást választva az ahhoz szükséges `Provider` osztályt (`ChangeNotifierProvider` vagy `BlocProvider`) az adott oldal **elé** vegyük fel. Ezt úgy tudjuk a legkönyebben elérni, ha a **MaterialApp**-on belül az oldal létrehozásánál wrappeljük az oldalt a megfelelő widgettel. **TILOS** az adott oldalon belül létrehozni az adott állapotkezelést végző objektumot (ilyenkor az oldalnak a tesztek nem tudnák átadni a mockolt objektumokat).
 - Új fájlokat, osztályokat nyugodtan fel lehet venni.
-- A projekt során szükséges lesz használni a `Dio`, illetve a `SharedPreferences` osztályokat. Ezeket a kód tetszőleges helyéről a `GetIt.I<Dio>()` és `GetIt.I<SharedPreferences>()` hívásokkal tudjuk elérni. **TILOS** ezeket az objektumokat magunknak létrehozni.
+- A projekt során szükséges lesz használni a `Dio`, illetve a `SharedPreferences` osztályokat. Ezeket a kód tetszőleges helyéről a `GetIt.I<Dio>()` és `GetIt.I<SharedPreferences>()` hívásokkal tudjuk elérni. **TILOS** ezeket az objektumokat magunknak létrehozni. 
 
 A `Dio` objetkum úgy lett konfigurálva, hogy minden kommunikációt kiírjon a konzolba, így könnyen tudjuk ellenőrizni, hogy milyen kérések indulnak el, illetve milyen válaszokat kapunk.
 
@@ -47,16 +47,16 @@ Ha kiválasztottuk az állapotkezelési megoldást, amit használni szeretnénk,
 
 ### Specifikáció
 
-A fő irányelv, hogy az alkalmazásnak teljesítenie kell a teszteket **Értékelés** fejezetben leírt módon. Ha eltérés található a szöveges specifikáció és a tesztek között, akkor ezt kérlek jelezzétek, illetve a tesztek élveznek elsőbbséget. Az alkalmazás készítése során nyugodtan lehet a teszteket is vizsgálni, de ne csak ezek alapján készüljön el az.
+A fő irányelv, hogy az alkalmazásnak teljesítenie kell a teszteket **Értékelés** fejezetben leírt módon. Ha eltérés található a szöveges specifikáció és a tesztek között, akkor ezt kérlek jelezzétek, illetve a tesztek élveznek elsőbbséget. Az alkalmazás készítése során nyugodtan lehet a teszteket is vizsgálni, de ne csak ezek alapján készüljön el az. 
 
 #### Login oldal
 Az alkalmazás egy bejelentkezési felülettel kell induljon. Itt található egy email és egy jelszó beviteli mező, egy 'Jegyezz meg' checkbox, illetve egy bejelentkezési gomb. Ezek mellett az oldal tetszőlegesen egyedivé tehető.
 A bejelentkezés gomb megnyomására az alábbi folyamatnak kell megtörténnie:
 
- 1. Ellenőrizzük, hogy érvényesek-e a beírt értékek. Az email mezőnek megfelelő formátumban kell lennie, a jelszónak pedig legalább 6 karakter hosszúnak kell lennie (ezek ellenőrzésére használható például a  `validators` könyvtár). Ha valamelyik nem felel meg, akkor az adott mező alá ki kell írni egy hibaüzenetet (`InputDecoration.errorText`). Ha megváltozik a mező tartalma, akkor a hibaüzenetet egyből törölni kell.
+ 1. Ellenőrizzük, hogy érvényesek-e a beírt értékek. Az email mezőnek megfelelő formátumban kell lennie, a jelszónak pedig legalább 6 karakter hosszúnak kell lennie (ezek ellenőrzésére használható például a  `validators` könyvtár). Ha valamelyik nem felel meg, akkor az adott mező alá ki kell írni egy hibaüzenetet (`InputDecoration.errorText`). Amint megváltozik valamelyik mező tartalma, akkor a mezőhöz tartozó hibaüzenetet egyből törölni kell.
  2. Ha érvényesek a mezők, el kell indítani a bejelentkezési folyamatot. **provider** esetében a `login()` metódust kell meghívni, illetve az ezáltal visszaadott Future eredményét megfelelően lekezelni. **bloc** esetében egy `LoginSubmitEvent` eseményt kell elküldeni a BLoC felé. Ezeknek csak akkor legyen hatása, ha még nem lett elindítva bejelentkezési folyamat.
  3. A bejelentkezés során töltőállapotba kell jutni. **provider** esetén ezt az `isLoading` változó jelzi, míg **bloc**-nál a `LoginLoading` állapotot kell kiadni. Töltőállapotban minden bemeneti mezőt le kell tiltani (szöveges mezők esetén az `enabled` változó, a checkbox és gomb esetén pedig a megfelelő callback paramétereket `null` értékre állításával).
- 4. Ha a hálózati kérés hibával zárul (pl. hibás felhasználónév/jelszót ad meg a felhasználó), akkor a hiba szövegét egy Snackbar-ban kell megjeleníteni. Ehhez **provider** esetén a `login()` metódusban egy `LoginException` hibát dobjunk, amit az login oldalon el tudunk kapni (ekkor a `login()` által visszaadott `Future` hibával fog végződni). **bloc** esetében egy `LoginError` állapotot küldjünk ki, amit egy **BlocListener** vagy **BlocConsumer** segítségével tudunk megfigyelni és lekezelni.
+ 4. Ha a hálózati kérés hibával zárul (pl. hibás felhasználónév/jelszót ad meg a felhasználó), akkor a hiba szövegét egy Snackbar-ban kell megjeleníteni. Ehhez **provider** esetén a `login()` metódusban egy `LoginException` hibát dobjunk, amit a login oldalon el tudunk kapni (ekkor a `login()` által visszaadott `Future` hibával fog végződni). **bloc** esetében egy `LoginError` állapotot küldjünk ki, amit egy **BlocListener** vagy **BlocConsumer** segítségével tudunk megfigyelni és lekezelni.
  5. Ha sikeres a kérés, akkor kapni fogunk egy tokent, amivel tudjuk magunkat azonosítani a szerver felé. Ha a felhasználó bepipálta a 'Jegyezz meg' checkboxot, akkor ezt a tokent mentsük el tetszőleges kulccsal a `SharedPreferences` objektumunkba. Erre a tokenre a későbbiekben még szükség lesz.
  6. Sikeres kérés esetén lépjünk át a lista oldalra. Ehhez nevesített útvonalat használjunk, a `/list` útvonalra navigáljunk át. **provider** esetében ezt a `login()` által visszaadott Future hiba nélküli lefutásával tudjuk detektálni, míg **bloc** esetén egy `LoginSuccess` állapotot kell kiküldeni.
  7. Végül ne felejtsük el a töltőállapotot megszüntetni az `isLoading` hamisra állításával, vagy a `LoginForm` állapot elküldésével.
@@ -117,15 +117,3 @@ Az automatizált tesztek miatt van pár rész, amire érdemes még odafigyelni a
 - `type 'Null' is not a subtype of type '***'`: Ilyen hibákat tipikusan akkor dob a teszt, ha nem találja a mockolt objektum azt a függvényhívást, amit a kód hívna. Ilyenkor érdemes megnézni a tesztet, hogy pontosan milyen hívások vannak értelmezve a mockolt objektumon (ezeket a `when()` hívásokon belül láthatjátok). Tipikus problémát szokott okozni, hogy a lista lekérésénél az autentikációs token a Dio `get()` hívásának az options paraméterében kerül átadásra. Ez bár működő megoldás, de minden kérésben meg kellene adni, ezért inkább egy interceptort szoktak használni. A mostani projektben arra kérnélek titeket, hogy a Dio objektum options változójában lévő headert állítsátok, az itt megadott értékek minden kéréshez hozzá fognak adódni.
 - `type 'List<dynamic>' is not a subtype of type 'List<***>'`: Ilyen hibákat akkor szokott dobni, ha a hálózati kommunikáció során olyan típust feltételeztek egy gyűjteményről, amit a Dart futás közben nem lát. Figyeljetek arra, hogy például egy `.map()` hívás nem fogja mindig átkasztolni a gyűjteményt az új típusra, ilyenkor az explicit `cast()` függvényhívással tudtok olyan típusú gyűjteményt készíteni, amire szükségetek van (tehát pl. `result.map(...).cast<UserItem>.toList()`).
 - Hiányzó dependenciák: Előfordulhat, hogy bizonyos tesztek hibát dobnak arra, hogy nincsen a GetIt-be beregisztrálva objektum. Ilyenkor ellenőrizzétek, hogy minden saját osztályt a `configureCustomDependencies()` vettetek fel. Ezek mellett a `*_page_*_test` teszteknél nincsen szükség a GetIt-re a sikeres lefutáshoz. Ha mégis hibát dobna, az valószínűleg azért történik, mert az oldal létrehozásakor egyből megpróbáljátok kiolvasni valamelyik függőséget. Mivel magának az oldalnak nincsen szüksége közvetlenül az adott függőségekre, érdemes azokat azokba az eseménykezelő függvényekbe mozgatni, ahol tényleg aktuálisan szükség van rá.
-
-`provider` esetén kicsit bonyolultabbra sikerült az oldal betöltése utáni akció kiváltás, mint azt szerettem volna úgy, hogy az oldal is működjön, és a tesztek is lefussanak. A következő mintát kövessétek:
-
-1. Az adott oldalon definiáljatok egy aszinkron metódust (pl. `_onPageInitialization()`), amit az `initState()` első sorában meg is hívtok (de nem várjátok be).
-2. Az aszinkron metódus első utasításaként a Login oldalon hívjátok meg a tryAutoLogin() metódust. Ezután, illetve a lista oldalon adjatok ki egy nulla idejű várakozást: `await Future.delayed(Duration.zero)`.
-3. Ezután az aszinkron metódus meghívhatja az aktuális `Model` objektum függvényét. Itt már csak akkor várjatok be valami folyamatot, ha tényleg szükséges (tehát pl. az isLoading állítása előtt ne legyen `await`).
-
-Elnézést, hogy ez kicsit problémásabbra sikerült, sajnos a `provider` nem a legideálisabb ennek a lekezelésére. A `bloc` használata esetén nincs ilyen probléma, ott az eseményt egyből hozzá lehet adni az `initState()` hívásban a `Bloc` objektumhoz.
-
-Pár tesztnél előjöttek problémák, amik az én megoldásomban nem voltak jelen. Ezeket az értékelés során figyelembe fogom venni:
-- A login_page_x_test.dart teszteken belül a 'LoginPage valid input calls correct function [2]' teszt hibával zárul, mert nincsen definiálva a "/list" oldal. Ebben az esetben ezt a hibát ignorálhatjátok, én el fogom fogadni a tesztet. Ha szeretnétek, hogy átmenjen a teszt, akkor a Navigator használatát egy try-catch-ben tegyétek meg, és kapjatok el minden hibát.
-- A lista oldalon nem jelenik meg elég felhasználó. Ezt is el fogom fogadni ilyen hiba esetén, de ha javítani szeretnétek, akkor a ListView.builder() helyett az alapértelmezett ListView konstruktort használjátok, ahol a children tömbben kell átadni az összes felhasználói elemet.
