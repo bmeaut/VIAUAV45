@@ -5,10 +5,10 @@ A házi feladat kötelező része a tárgynak. Összesen 60 pontot lehet szerezn
 Két módon lehetséges a teljesítése:
 
 ## Házi Feladat verseny
-A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a svájci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmaznák is:
+A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a svájci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmazzák is:
 
--   A harmadik helyezett **20.000 Ft** értékű MediaMarkt kupont kap.
--   A második helyezett **30.000 Ft** értékű MediaMarkt kupont kap.
+-   A harmadik helyezett **20.000 Ft** értékű MediaMarkt kupont kap (5 vagy több beadott feladat esetén).
+-   A második helyezett **30.000 Ft** értékű MediaMarkt kupont kap (5 vagy több beadott feladat esetén).
 -   Az első helyezett **50.000 Ft** értékű MediaMarkt kupont kap.
 
 A szépen elkészített alkalmazások pedig akár egy jövőbeli állásinterjún is jól tudnak mutatni.
@@ -16,7 +16,7 @@ A szépen elkészített alkalmazások pedig akár egy jövőbeli állásinterjú
 Konkrét témaötleteket az alábbi linken találtok: [https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true](https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true "https://docs.google.com/document/d/1ra0rvqvrhobpckclpvoh_yxnq2yvysvt/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true"). 
 A sablon feladatokhoz készültek dizájntervek is, melyek az alábbi linken érhetőek el: [https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus"). A figma oldalon belül a bal felső menüben tudjátok kiválasztani az alkalmazást, amelyiknek a dizájnját szeretnétek nézni.
 Ha itt valamelyik feladat megtetszik (a feladatok alapvetően nehézségi sorrendben vannak), akkor írjatok nekem, illetve közvetlen a cégnek az alábbi email címen: karoly.angyal@kadasolutions.ch. A céggel fogjátok tudni megbeszélni, hogy milyen részletességgel kell az alkalmazást elkészíteni.
-Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben való részvételhez a **határidő a 13. hét péntek, tehát május 26**. Ha nem készülnétek el erre a határidőre az alkalmazással, akkor a tárgy értékeléséhez a **póthét végéig (június 9)** kell beadni a projektet.
+Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben való részvételhez a **határidő a 13. hét péntek, tehát december 1**. Ha nem készülnétek el erre a határidőre az alkalmazással, akkor a tárgy értékeléséhez a **póthét végéig (december 17)** kell beadni a projektet.
 
 ### Értékelés
 A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a házi feladatra. Akiknek nem sikerül a verseny határidejére beadniuk a feladatot, de a póthét végére elkészülnek vele, azok legrosszabb esetben is **jelest (51)** kapnak az alkalmazásra (de a hibamentes megoldásért továbbra is a maximális pont jár).
@@ -102,12 +102,12 @@ A kiértékelés automatizálásához szükséges még egy segéd fájl kitölt�
  - Választott állapotkezelési megoldás (`bloc` vagy `provider`)
  - Opcionális: Szöveges értékelés az automatizált házi feladatról
 
-Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége péntek (december 9)**.
+Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége péntek (december 8)**.
 
 ### Beadás
 
-A beadás a Moodle felületén keresztül történik. Ide az elkészült projektet kell feltölteni becsomagolt verzióban (.zip vagy .rar kiterjesztéssel). 
-Figyeljetek rá, hogy az archívum ne legyen túl nagy méretű (nagyobb, mint 10 MB). 
+A beadás a Moodle felületén keresztül történik. Ide az elkészült projektet kell feltölteni becsomagolt verzióban (.zip kiterjesztéssel). 
+Figyeljetek rá, hogy az archívum ne legyen túl nagy méretű (nagyobb, mint 10 MB).
 Ehhez érdemes lefuttatni a `flutter clean` utasítást a projektmappán belül az archívum létrehozása előtt.
 
 ### Tippek a megoldáshoz
