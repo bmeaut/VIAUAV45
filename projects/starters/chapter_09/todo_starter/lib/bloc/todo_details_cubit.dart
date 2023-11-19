@@ -19,9 +19,7 @@ class TodoDetailsCubit extends Cubit<TodoState> {
 
   Future<void> getTodo(int id) async {
     final todo = await _dataSource.getTodo(id);
-    emit(
-      TodoLoaded(todo: todo),
-    );
+    emit(TodoLoaded(todo: todo));
   }
 }
 
@@ -38,12 +36,8 @@ class Loading implements TodoState {
 class TodoLoaded extends Equatable implements TodoState {
   final Todo todo;
 
-  const TodoLoaded({
-    required this.todo,
-  });
+  const TodoLoaded({required this.todo});
 
   @override
-  List<Object> get props => [
-        todo,
-      ];
+  List<Object> get props => [todo];
 }
