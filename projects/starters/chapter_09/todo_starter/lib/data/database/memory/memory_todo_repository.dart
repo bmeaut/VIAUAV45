@@ -9,7 +9,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
     Todo(
       id: 0,
       title: "Prepare for Flutter lecture",
-      dueDate: DateTime(2021, 11, 07),
+      dueDate: DateTime(2023, 11, 18),
       isDone: true,
       description: "Check Teams, have a laptop to code on",
       priority: TodoPriority.NORMAL,
@@ -17,7 +17,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
     Todo(
       id: 1,
       title: "Write Flutter homework",
-      dueDate: DateTime(2021, 12, 10),
+      dueDate: DateTime(2023, 12, 10),
       isDone: true,
       description: "Simple multiplatform app",
       priority: TodoPriority.NORMAL,
@@ -25,7 +25,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
     Todo(
       id: 2,
       title: "Have fun learning! :)",
-      dueDate: DateTime(2021, 11, 08),
+      dueDate: DateTime(2023, 12, 05),
       isDone: false,
       description: "Don't forget to ask questions!",
       priority: TodoPriority.HIGH,
@@ -61,11 +61,11 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
       final index = todos.indexWhere((element) => element.id == todo.id);
       if (index == -1) {
         if (todo.id == 0 || todo.id == null) {
-          if(todos.isEmpty) {
+          if (todos.isEmpty) {
             resultTodo = resultTodo.copyWith(id: 0);
           } else {
             resultTodo = resultTodo.copyWith(
-                id: todos.map((element) => element.id!).toList().reduce(max) + 1,
+              id: todos.map((element) => element.id!).toList().reduce(max) + 1,
             );
           }
         }
