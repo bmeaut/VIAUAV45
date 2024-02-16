@@ -12,16 +12,16 @@
 ## Chapters
 
 - [Chapter 1: Introduction](./material/01.md)
-- [Chapter 2: Flutter basics](./material/02.md) - ❗ONLINE❗
+- [Chapter 2: Flutter basics](./material/02.md)
 - [Chapter 3: Essential Flutter Widgets](./material/03.md)
 - [Chapter 5: Asynchronous operations, State handling Part I.](material/05.md)
-- [Chapter 4: Accessibility and responsive UI support](material/04.md) - ❗ONLINE❗
+- [Chapter 4: Accessibility and responsive UI support](material/04.md)
 - [Chapter 6: State handling Part II.](material/06.md)
 - [Chapter 7: Advanced widgets, navigation, animation](material/07.md)
 - [Chapter 8: HTTP communication](material/08.md)
 - [Chapter 9: Backend as a Service (BaaS), Firebase, FlutterFire](material/10.md)
-- [Chapter 10: Persistent data storage](material/09.md) - ❗ONLINE❗
-- [Chapter 11: Platform Channels and testing](./material/11.md) - ❗ONLINE❗
+- [Chapter 10: Persistent data storage](material/09.md)
+- [Chapter 11: Platform Channels and testing](./material/11.md)
 - [Chapter 12: App architecture](./material/12.md)
 
 ## Requirements
@@ -31,7 +31,7 @@
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
   - ### Homework, 60 points, minimum 40% (24 points)
-    - Detailed requirements, deadlines, and suggested topics [can be found here](./material/homework.md).
+    - Detailed requirements, deadlines, and suggested topics will be available at a later date.
 
 Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
 
@@ -47,10 +47,6 @@ The grade at the end of the semester will be calculated by **(Test points + Home
 |55-69|3|
 |40-54|2|
 |0-39|1|
-
-## Resources
-
-[Teams link](https://teams.microsoft.com/l/team/19%3a0D_i3EsvrAdoTF8CD34DfYrG_QWLLpfRxDfoZCsYb8w1%40thread.tacv2/conversations?groupId=931b03c9-c709-4dc6-83cd-78af43ea19b8&tenantId=6a3548ab-7570-4271-91a8-58da00697029)
 
 ## Extra materials recommended for reading and research
 
