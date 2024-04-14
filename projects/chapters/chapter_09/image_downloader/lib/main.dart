@@ -12,7 +12,7 @@ void main() {
 }
 
 class ImageDownloaderApp extends StatelessWidget {
-  const ImageDownloaderApp({Key? key}) : super(key: key);
+  const ImageDownloaderApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +28,12 @@ class ImageDownloaderApp extends StatelessWidget {
 }
 
 class ImageDownloaderPage extends StatefulWidget {
-  const ImageDownloaderPage({Key? key, required this.title}) : super(key: key);
+  const ImageDownloaderPage({super.key, required this.title});
 
   final String title;
 
   @override
-  _ImageDownloaderPageState createState() => _ImageDownloaderPageState();
+  State<ImageDownloaderPage> createState() => _ImageDownloaderPageState();
 }
 
 class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
@@ -67,7 +67,7 @@ class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
     );
     final file = File(filePath);
     await file.writeAsBytes(response.bodyBytes);
-    print("Image downloaded to: $filePath");
+    debugPrint("Image downloaded to: $filePath");
 
     setState(() {
       _imageFiles = _loadImages();
@@ -103,7 +103,7 @@ class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
           future: _imageFiles,
           initialData: const [],
           builder: (context, snapshot) {
-            SchedulerBinding.instance?.addPostFrameCallback((_) {
+            SchedulerBinding.instance.addPostFrameCallback((_) {
               _scrollToEnd();
             });
             if (snapshot.hasData) {
