@@ -16,7 +16,7 @@ A szépen elkészített alkalmazások pedig akár egy jövőbeli állásinterjú
 Konkrét témaötleteket az alábbi linken találtok: [https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true](https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true "https://docs.google.com/document/d/1ra0rvqvrhobpckclpvoh_yxnq2yvysvt/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true"). 
 A sablon feladatokhoz készültek dizájntervek is, melyek az alábbi linken érhetőek el: [https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus"). A figma oldalon belül a bal felső menüben tudjátok kiválasztani az alkalmazást, amelyiknek a dizájnját szeretnétek nézni.
 Ha itt valamelyik feladat megtetszik (a feladatok alapvetően nehézségi sorrendben vannak), akkor írjatok nekem, illetve közvetlen a cégnek az alábbi email címen: karoly.angyal@kadasolutions.ch. A céggel fogjátok tudni megbeszélni, hogy milyen részletességgel kell az alkalmazást elkészíteni.
-Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben való részvételhez a **határidő a 13. hét péntek, tehát december 1**. Ha nem készülnétek el erre a határidőre az alkalmazással, akkor a tárgy értékeléséhez a **póthét végéig (december 17)** kell beadni a projektet.
+Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben való részvételhez a **határidő a 14. hét péntek, tehát május 10**. Ha nem készülnétek el erre a határidőre az alkalmazással, akkor a tárgy értékeléséhez a **póthét végéig (május 19)** kell beadni a projektet.
 
 ### Értékelés
 A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a házi feladatra. Akiknek nem sikerül a verseny határidejére beadniuk a feladatot, de a póthét végére elkészülnek vele, azok legrosszabb esetben is **jelest (51)** kapnak az alkalmazásra (de a hibamentes megoldásért továbbra is a maximális pont jár).
@@ -102,7 +102,7 @@ A kiértékelés automatizálásához szükséges még egy segéd fájl kitölt�
  - Választott állapotkezelési megoldás (`bloc` vagy `provider`)
  - Opcionális: Szöveges értékelés az automatizált házi feladatról
 
-Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége péntek (december 8)**.
+Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége péntek (május 10)**.
 
 ### Beadás
 
