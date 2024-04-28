@@ -45,7 +45,7 @@ class _FirebaseInitializerState extends State<FirebaseInitializer> {
   @override
   Widget build(BuildContext context) {
     return Provider(
-      create: (context) => FirebaseAnalytics(),
+      create: (context) => FirebaseAnalytics.instance,
       child: FutureBuilder(
           future: _initialization,
           builder: (context, snapshot) {
