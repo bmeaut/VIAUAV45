@@ -112,20 +112,34 @@ class _CreatePostPageState extends State<CreatePostPage> {
                 return Container();
               },
             ),
-            ElevatedButton(
-              onPressed: () {
-                _pickImage();
-              },
-              child: Text("Take a photo".toUpperCase()),
+            SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _pickImage();
+                    },
+                    child: Text("Take a photo".toUpperCase()),
+                  ),
+                ),
+              ],
             ),
-            ElevatedButton(
-              onPressed: () async {
-                await _submitPost(context);
-                Provider.of<FirebaseAnalytics>(context, listen: false)
-                    .logEvent(name: "post_created");
-                Navigator.pop(context);
-              },
-              child: Text("Post".toUpperCase()),
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      await _submitPost(context);
+                      Provider.of<FirebaseAnalytics>(context, listen: false)
+                          .logEvent(name: "post_created");
+                      Navigator.pop(context);
+                    },
+                    child: Text("Post".toUpperCase()),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
