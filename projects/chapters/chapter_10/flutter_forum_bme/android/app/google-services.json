@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "74287400164",
+    "project_id": "flutterforumbme",
+    "storage_bucket": "flutterforumbme.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74287400164:android:cd9deea82da75c981dd8f1",
+        "android_client_info": {
+          "package_name": "hu.bme.auth.flutter_forum_bme.flutter_forum_bme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpmR4v92SpydRKUjG2mJJcfIe7x0VRgtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

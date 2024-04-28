@@ -39,21 +39,27 @@
 
 <!-- Firebase Configuration -->
 <script type="module">
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v8.10.1 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAVy-rc3E0ZnIr-gxasBHt82Y1b7k2Xo2w",
-    authDomain: "flutterforum-test.firebaseapp.com",
-    projectId: "flutterforum-test",
-    storageBucket: "flutterforum-test.appspot.com",
-    messagingSenderId: "461505167816",
-    appId: "1:461505167816:web:655ff6688250d1782b00fd",
-    measurementId: "G-G3WFEV6CN2"
-  };
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyAVy-rc3E0ZnIr-gxasBHt82Y1b7k2Xo2w",
+        authDomain: "flutterforum-test.firebaseapp.com",
+        projectId: "flutterforum-test",
+        storageBucket: "flutterforum-test.appspot.com",
+        messagingSenderId: "461505167816",
+        appId: "1:461505167816:web:655ff6688250d1782b00fd",
+        measurementId: "G-G3WFEV6CN2"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
 </script>
 
 <script src="main.dart.js" type="application/javascript"></script>
