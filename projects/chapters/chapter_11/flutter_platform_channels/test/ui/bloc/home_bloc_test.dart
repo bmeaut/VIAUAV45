@@ -26,7 +26,7 @@ void main() {
       expect(
         bloc.state,
         equals(
-          HomeStateLoading(),
+          HomeStateInitial(),
         ),
       );
     });
@@ -42,7 +42,7 @@ void main() {
 
       // Assert
       expectLater(
-        bloc,
+        bloc.stream,
         emitsInOrder(
           [
             HomeStateLoading(),
@@ -64,7 +64,7 @@ void main() {
 
       // Assert
       expectLater(
-        bloc,
+        bloc.stream,
         emitsInOrder(
           [
             HomeStateLoading(),
