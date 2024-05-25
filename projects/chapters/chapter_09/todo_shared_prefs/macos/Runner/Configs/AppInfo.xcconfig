@@ -8,7 +8,7 @@
 PRODUCT_NAME = todo_shared_prefs
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.todoSharedPrefs
+PRODUCT_BUNDLE_IDENTIFIER = hu.bme.aut.example.todoSharedPrefs
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 hu.bme.aut.example. All rights reserved.
