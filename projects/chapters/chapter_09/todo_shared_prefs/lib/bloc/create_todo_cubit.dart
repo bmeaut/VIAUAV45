@@ -1,10 +1,10 @@
-import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_shared_prefs/data/database/data_source.dart';
+import 'package:todo_shared_prefs/domain/model/todo.dart';
+import 'package:todo_shared_prefs/domain/model/todo_priority.dart';
 
 part 'create_todo_cubit.g.dart';
 
@@ -59,7 +59,7 @@ class CreateTodoState extends Equatable {
           dueDate: DateTime.now(),
           isDone: false,
           description: "",
-          priority: TodoPriority.NORMAL,
+          priority: TodoPriority.normal,
         );
 
   @override
