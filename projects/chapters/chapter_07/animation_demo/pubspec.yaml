@@ -1,0 +1,59 @@
+name: animation_demo
+description: A new Flutter project.
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  cupertino_icons: ^1.0.8
+  flutter_screenutil: ^5.9.3
+  animated_svg: ^2.1.0
+  rive: ^0.13.14
+  lottie: ^3.1.2
+  flutter_svg: ^2.0.10+1
+  # Potentially discountinued, may be switched to the official package if it gets updated
+  drawing_animation:
+    git: 
+      url: https://github.com/Kanyade/drawing_animation.git
+      ref: master
+  vector_graphics: ^1.1.11+1  
+  fluttertoast: ^8.2.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+
+flutter_gen:
+  output: lib/res/gen/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  integrations:
+    flutter_svg: true
+    rive: true
+    lottie: true
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/font/
+    - assets/images/
+    - assets/lottie/
+    - assets/rive/
+    - assets/svg/
+  fonts:
+    - family: Anton
+      fonts:
+        - asset: assets/font/Anton-Regular.ttf
