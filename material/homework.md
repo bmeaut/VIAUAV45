@@ -11,6 +11,7 @@ Alapvetően egyéni feladatmegoldást várunk el, de van lehetőség csapatban e
 Pár példa alkalmazásötletet találhattok az alábbi linkeken:
 
 [https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true](https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true "https://docs.google.com/document/d/1ra0rvqvrhobpckclpvoh_yxnq2yvysvt/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true")
+
 [https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus")
 
 ### Értékelés
