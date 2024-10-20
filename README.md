@@ -31,7 +31,7 @@
     - Sample test will be provided beforehand on Moodle.
     - There will be one retake available after the regular test.
   - ### Homework, 60 points, minimum 40% (24 points)
-    - Detailed requirements, deadlines, and suggested topics will be posted later.
+    - Detailed requirements, deadlines, and suggested topics can be found [here](./material/homework.md).
 
 Succeeding on the test **AND** completing the homework assignment are **both required** to complete the course.
 
