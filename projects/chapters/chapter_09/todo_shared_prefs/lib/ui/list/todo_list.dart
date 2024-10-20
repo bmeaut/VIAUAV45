@@ -1,13 +1,13 @@
-import 'package:awesome_todo_app/bloc/todos_cubit.dart';
-import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/ui/list/todo_list_item.dart';
-import 'package:awesome_todo_app/ui/newtodo/add_todo.dart';
+import 'package:todo_shared_prefs/bloc/todos_cubit.dart';
+import 'package:todo_shared_prefs/data/database/data_source.dart';
+import 'package:todo_shared_prefs/domain/model/todo.dart';
+import 'package:todo_shared_prefs/ui/list/todo_list_item.dart';
+import 'package:todo_shared_prefs/ui/newtodo/add_todo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TodoListPage extends StatefulWidget {
-  const TodoListPage({Key? key}) : super(key: key);
+  const TodoListPage({super.key});
 
   @override
   _TodoListPageState createState() => _TodoListPageState();

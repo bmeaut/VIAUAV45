@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:awesome_todo_app/data/database/todo_repository.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
+import 'package:todo_shared_prefs/data/database/todo_repository.dart';
+import 'package:todo_shared_prefs/domain/model/todo.dart';
+import 'package:todo_shared_prefs/domain/model/todo_priority.dart';
 
 class MemoryTodoRepository implements TodoRepository<Todo> {
   final List<Todo> todos = [
@@ -12,7 +12,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
       dueDate: DateTime(2021, 11, 07),
       isDone: true,
       description: "Check Teams, have a laptop to code on",
-      priority: TodoPriority.NORMAL,
+      priority: TodoPriority.normal,
     ),
     Todo(
       id: 1,
@@ -20,7 +20,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
       dueDate: DateTime(2021, 12, 10),
       isDone: true,
       description: "Simple multiplatform app",
-      priority: TodoPriority.NORMAL,
+      priority: TodoPriority.normal,
     ),
     Todo(
       id: 2,
@@ -28,7 +28,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
       dueDate: DateTime(2021, 11, 08),
       isDone: false,
       description: "Don't forget to ask questions!",
-      priority: TodoPriority.HIGH,
+      priority: TodoPriority.high,
     )
   ];
 
@@ -61,11 +61,11 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
       final index = todos.indexWhere((element) => element.id == todo.id);
       if (index == -1) {
         if (todo.id == 0 || todo.id == null) {
-          if(todos.isEmpty) {
+          if (todos.isEmpty) {
             resultTodo = resultTodo.copyWith(id: 0);
           } else {
             resultTodo = resultTodo.copyWith(
-                id: todos.map((element) => element.id!).toList().reduce(max) + 1,
+              id: todos.map((element) => element.id!).toList().reduce(max) + 1,
             );
           }
         }

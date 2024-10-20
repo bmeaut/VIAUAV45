@@ -1,9 +1,9 @@
-import 'package:awesome_todo_app/bloc/todos_cubit.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
-import 'package:awesome_todo_app/ui/details/todo_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
+import 'package:todo_shared_prefs/bloc/todos_cubit.dart';
+import 'package:todo_shared_prefs/domain/model/todo.dart';
+import 'package:todo_shared_prefs/domain/model/todo_priority.dart';
+import 'package:todo_shared_prefs/ui/details/todo_details.dart';
 
 class TodoListItem extends StatelessWidget {
   final Todo todo;
@@ -63,20 +63,20 @@ class TodoListItem extends StatelessWidget {
 class TodoPriorityIndicator extends StatelessWidget {
   final TodoPriority priority;
 
-  const TodoPriorityIndicator(this.priority, {Key? key}) : super(key: key);
+  const TodoPriorityIndicator(this.priority, {super.key});
 
   @override
   Widget build(BuildContext context) {
     Color indicatorColor;
 
     switch (priority) {
-      case TodoPriority.LOW:
+      case TodoPriority.low:
         indicatorColor = Colors.green;
         break;
-      case TodoPriority.NORMAL:
+      case TodoPriority.normal:
         indicatorColor = Colors.yellow;
         break;
-      case TodoPriority.HIGH:
+      case TodoPriority.high:
         indicatorColor = Colors.red;
         break;
       default:

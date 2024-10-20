@@ -1,15 +1,15 @@
-import 'package:awesome_todo_app/bloc/create_todo_cubit.dart';
-import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
-import 'package:awesome_todo_app/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_shared_prefs/bloc/create_todo_cubit.dart';
+import 'package:todo_shared_prefs/data/database/data_source.dart';
+import 'package:todo_shared_prefs/domain/model/todo_priority.dart';
+import 'package:todo_shared_prefs/util.dart';
 
 class AddTodoPage extends StatefulWidget {
-  const AddTodoPage({Key? key}) : super(key: key);
+  const AddTodoPage({super.key});
 
   @override
-  _AddTodoPageState createState() => _AddTodoPageState();
+  State<AddTodoPage> createState() => _AddTodoPageState();
 }
 
 class _AddTodoPageState extends State<AddTodoPage> {
@@ -74,17 +74,17 @@ class _AddTodoPageState extends State<AddTodoPage> {
                       items: [
                         DropdownMenuItem(
                           onTap: () {},
-                          value: TodoPriority.LOW,
+                          value: TodoPriority.low,
                           child: const Text("LOW"),
                         ),
                         DropdownMenuItem(
                           onTap: () {},
-                          value: TodoPriority.NORMAL,
+                          value: TodoPriority.normal,
                           child: const Text("NORMAL"),
                         ),
                         DropdownMenuItem(
                           onTap: () {},
-                          value: TodoPriority.HIGH,
+                          value: TodoPriority.high,
                           child: const Text("HIGH"),
                         ),
                       ],
@@ -113,9 +113,9 @@ class _AddTodoPageState extends State<AddTodoPage> {
                           child: ElevatedButton.icon(
                             onPressed: () async {
                               await context.read<CreateTodoCubit>().submitTodo(
-                                titleTextController.value.text,
-                                descriptionTextController.value.text,
-                              );
+                                    titleTextController.value.text,
+                                    descriptionTextController.value.text,
+                                  );
                               Navigator.pop(context);
                             },
                             icon: const Icon(Icons.add),

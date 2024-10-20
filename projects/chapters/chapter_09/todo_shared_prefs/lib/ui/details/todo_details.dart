@@ -1,21 +1,20 @@
-import 'package:awesome_todo_app/bloc/todo_details_cubit.dart';
-import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/ui/list/todo_list_item.dart';
-import 'package:awesome_todo_app/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_shared_prefs/bloc/todo_details_cubit.dart';
+import 'package:todo_shared_prefs/data/database/data_source.dart';
+import 'package:todo_shared_prefs/ui/list/todo_list_item.dart';
+import 'package:todo_shared_prefs/util.dart';
 
 class TodoDetails extends StatefulWidget {
   final int todoId;
 
-  const TodoDetails(this.todoId, {Key? key}) : super(key: key);
+  const TodoDetails(this.todoId, {super.key});
 
   @override
-  _TodoDetailsState createState() => _TodoDetailsState();
+  State<TodoDetails> createState() => _TodoDetailsState();
 }
 
 class _TodoDetailsState extends State<TodoDetails> {
-
   _TodoDetailsState();
 
   @override
@@ -38,11 +37,11 @@ class _TodoDetailsState extends State<TodoDetails> {
           padding: const EdgeInsets.all(8.0),
           child: BlocBuilder<TodoDetailsCubit, TodoState>(
             builder: (context, state) {
-              if(state is Loading) {
+              if (state is Loading) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
-              } else if(state is TodoLoaded) {
+              } else if (state is TodoLoaded) {
                 final todo = state.todo;
                 return Column(
                   children: [
@@ -82,10 +81,10 @@ class TodoDataRow extends StatelessWidget {
   final String rowData;
 
   const TodoDataRow({
-    Key? key,
+    super.key,
     required this.rowTitle,
     required this.rowData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
