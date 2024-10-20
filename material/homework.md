@@ -8,6 +8,10 @@ Két módon lehetséges a teljesítése:
 Lehetőség van egyéni feladat elkészítésére, melyben ti egy saját ötletet valósítottok meg, és azt adjátok be elkészült feladatnak.
 Mielőtt belekezdenétek, mindenképp egyeztessétek le (személyesen vagy Teamsen keresztül), hogy milyen alkalmazást akartok megvalósítani.
 Alapvetően egyéni feladatmegoldást várunk el, de van lehetőség csapatban elkészített alkalmazásra is, ameddig jól elkülöníthető, hogy ki melyik részein dolgozott az alkalamzásnak.
+Pár példa alkalmazásötletet találhattok az alábbi linkeken:
+
+[https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true](https://docs.google.com/document/d/1ra0RvqVrHObpckcLPVOH_YXnq2yvysvT/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true "https://docs.google.com/document/d/1ra0rvqvrhobpckclpvoh_yxnq2yvysvt/edit?usp=sharing&ouid=107826910246798864586&rtpof=true&sd=true")
+[https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus")
 
 ### Értékelés
 Minden feladat egyénileg kerül értékelésre. A szempontok közé tartozik a feladat komplexitása, a megvalósított alkalmazás kinézete, illetve a kód minősége.
