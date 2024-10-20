@@ -4,6 +4,19 @@
 A házi feladat kötelező része a tárgynak. Összesen 60 pontot lehet szerezni.
 Két módon lehetséges a teljesítése:
 
+## Egyéni feladat
+Lehetőség van egyéni feladat elkészítésére, melyben ti egy saját ötletet valósítottok meg, és azt adjátok be elkészült feladatnak.
+Mielőtt belekezdenétek, mindenképp egyeztessétek le (személyesen vagy Teamsen keresztül), hogy milyen alkalmazást akartok megvalósítani.
+Alapvetően egyéni feladatmegoldást várunk el, de van lehetőség csapatban elkészített alkalmazásra is, ameddig jól elkülöníthető, hogy ki melyik részein dolgozott az alkalamzásnak.
+
+### Értékelés
+Minden feladat egyénileg kerül értékelésre. A szempontok közé tartozik a feladat komplexitása, a megvalósított alkalmazás kinézete, illetve a kód minősége.
+Igény esetén van lehetőség javítani is az eredményen.
+A leadási határidő a **14. hét vége, tehát december 6.**.
+A Moodle rendszerén keresztül kell feltölteni az elkészült megoldást ZIP archívumban.
+A feltöltendő archívum nevében szerepeljen az **egyeni** szó is!
+
+<!---
 ## Házi Feladat verseny
 A tárgy létrehozatala óta most először van rá alkalom, hogy egy egyedi alkalmazás elkészítését egy Flutterrel foglalkozó cég értékelje, illetve jutalmazza. A nyár folyamán keresett meg a **kadasolutions** cég, mely egy magyar leányvállalattal is rendelkező svájci cég, fő területük pedig a svájci start-up cégeknek való alkalmazásfejlesztés. Részletesebben az alábbi Prezi bemutatóban tudtok olvasni a cégről: [https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/](https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/ "https://prezi.com/view/mSKOYTYSXxdKmMPsQUMI/") ( jobbra-balra nyíllal lehet lépkedni). Többek között felajánlották, hogy szívesen segítenek a házi feladatok javításában, illetve a legjobb megoldásokat jutalmazzák is:
 
@@ -20,11 +33,12 @@ Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben v
 
 ### Értékelés
 A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a házi feladatra. Akiknek nem sikerül a verseny határidejére beadniuk a feladatot, de a póthét végére elkészülnek vele, azok legrosszabb esetben is **jelest (51)** kapnak az alkalmazásra (de a hibamentes megoldásért továbbra is a maximális pont jár).
+-->
 
 ## Specifikált alkalmazás
 
 A másik lehetőségben egy megadott alkalmazást kell elkészítenetek. Ehhez egy kiinduló projektből kell egy, az alább megadott alkalmazást elkészítenetek. Az ellenőrzés tesztek segítségével fog megtörténni, mely része a kiinduló projektnek, így ti is nyomon tudjátok követni, hogy hány pontot kapnátok az aktuális állapotában.
-[A kiinduló projektet innen tudjátok letölteni](https://drive.google.com/file/d/1t_ll0m-dKFdU5tGdrEU4U8fdpwvuWyf6/view?usp=sharing)
+[A kiinduló projektet innen tudjátok letölteni](https://drive.google.com/file/d/1ZpO_hzZ9cQENmuwEu33Q1whJj8y3Qpc7/view?usp=sharing)
 
 ### Az alkalmazás
 
@@ -102,7 +116,7 @@ A kiértékelés automatizálásához szükséges még egy segéd fájl kitölt�
  - Választott állapotkezelési megoldás (`bloc` vagy `provider`)
  - Opcionális: Szöveges értékelés az automatizált házi feladatról
 
-Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége péntek (május 26)**.
+Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége, tehát december 6.**..
 
 ### Beadás
 
