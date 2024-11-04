@@ -1,0 +1,13 @@
+{
+  "changeAnimation": "Change animation",
+  "changeCurve": "Change curve",
+  "customEventTriggered": "Custom event triggered!",
+  "forMoreVisit": "For more:",
+  "nonRebuiltWidget": "Non-rebuilt\nwidget",
+  "reverseAnimation": "Reverse animation",
+  "riveHint": "Click on the animation.",
+  "riveLastHint": "Hover state was disabled for mobile, click one for hover effect, click again to reset.",
+  "staggeredAnimation": "Staggered Animation",
+  "startAnimation": "Start animation",
+  "stopAnimation": "Stop animation"
+}
