@@ -15,14 +15,15 @@ class MyHomePage extends StatelessWidget {
           listenWhen: (_, state) => state is CounterErrorEventState,
           listener: (context, state) {
             var errorMessage = (state as CounterErrorEventState).message;
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMessage)));
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(errorMessage)));
           },
           buildWhen: (_, state) => state is! CounterErrorEventState,
           builder: (context, state) {
             var count = 0;
-            if (state is CounterCountState){
+            if (state is CounterCountState) {
               count = state.count;
-            } else if (state is CounterLoadState){
+            } else if (state is CounterLoadState) {
               count = state.count;
             }
             return Text("My counter application: $count");

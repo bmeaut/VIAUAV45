@@ -21,7 +21,7 @@ class CounterCountState extends CounterState {
   List<Object?> get props => [count];
 }
 
-class CounterLoadState extends CounterState{
+class CounterLoadState extends CounterState {
   final int count;
 
   const CounterLoadState(this.count);
