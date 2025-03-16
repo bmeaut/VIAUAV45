@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'counter.dart';
 
 class CounterText extends StatelessWidget {
-  const CounterText();
+  const CounterText({super.key});
 
   @override
   Widget build(BuildContext context) {

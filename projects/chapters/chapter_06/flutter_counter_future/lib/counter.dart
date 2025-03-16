@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_counter_provider/remote_service.dart';
+import 'package:flutter_counter_future/remote_service.dart';
 
 class Counter extends ChangeNotifier {
   int count = 0;
