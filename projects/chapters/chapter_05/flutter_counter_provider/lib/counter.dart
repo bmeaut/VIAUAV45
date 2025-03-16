@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
-class Counter extends ChangeNotifier{
+class Counter extends ChangeNotifier {
   int count = 0;
 
-  void incrementCounter(){
+  void incrementCounter() {
     count++;
     notifyListeners();
   }
