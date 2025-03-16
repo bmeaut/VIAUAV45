@@ -1,4 +1,5 @@
-part of 'counter_cubit.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 
 @immutable
 abstract class CounterState extends Equatable {
@@ -21,10 +22,10 @@ class CounterCountState extends CounterState {
   List<Object?> get props => [count];
 }
 
-class CounterLoadState extends CounterState {
+class CounterLoadingState extends CounterState {
   final int count;
 
-  const CounterLoadState(this.count);
+  const CounterLoadingState(this.count);
 
   @override
   List<Object?> get props => [count];

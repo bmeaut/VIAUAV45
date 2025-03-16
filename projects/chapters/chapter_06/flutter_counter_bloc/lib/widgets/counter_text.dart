@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_counter_provider/cubit/counter_cubit.dart';
+import 'package:flutter_counter_bloc/bloc/counter_bloc.dart';
+import 'package:flutter_counter_bloc/bloc/counter_state.dart';
 
 class CounterText extends StatelessWidget {
-  const CounterText();
+  const CounterText({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CounterCubit, CounterState>(
+    return BlocBuilder<CounterBloc, CounterState>(
       buildWhen: (_, state) => state is! CounterErrorEventState,
       builder: (context, state) {
-        if (state is CounterLoadState) {
+        if (state is CounterLoadingState) {
           return CircularProgressIndicator();
         } else if (state is CounterCountState) {
           return Text(
