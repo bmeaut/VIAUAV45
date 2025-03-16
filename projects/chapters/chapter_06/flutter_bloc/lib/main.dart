@@ -13,9 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: BlocProvider(
         create: (_) => SearchBloc(),
         child: const MyHomePage(),
@@ -67,10 +65,7 @@ class MyHomePage extends StatelessWidget {
                         height: 90,
                         child: Row(
                           children: [
-                            Image.network(
-                              user.imageUrl,
-                              width: 90,
-                            ),
+                            Image.network(user.imageUrl, width: 90),
                             Text(user.name),
                           ],
                         ),
