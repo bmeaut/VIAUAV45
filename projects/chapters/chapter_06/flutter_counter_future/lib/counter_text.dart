@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'counter.dart';
 
-class CounterText extends StatelessWidget{
+class CounterText extends StatelessWidget {
   const CounterText();
 
   @override
@@ -12,8 +12,7 @@ class CounterText extends StatelessWidget{
     return Text(
       counter.counterText.toString(),
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline4,
+      style: Theme.of(context).textTheme.headlineMedium,
     );
   }
-
 }
