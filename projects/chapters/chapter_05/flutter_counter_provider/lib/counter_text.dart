@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'counter.dart';
 
 class CounterText extends StatelessWidget {
+  const CounterText({super.key});
+
   @override
   Widget build(BuildContext context) {
     var counter = context.watch<Counter>();

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'counter.dart';
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
