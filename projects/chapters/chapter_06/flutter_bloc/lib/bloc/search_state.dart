@@ -1,7 +1,7 @@
 part of 'search_bloc.dart';
 
 @immutable
-abstract class SearchState extends Equatable{}
+abstract class SearchState extends Equatable {}
 
 class SearchResultListState extends SearchState {
   final List<User> users;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_starter/bloc/search_bloc.dart';
-import 'package:flutter_bloc_starter/remote_service.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -43,7 +42,7 @@ class MyHomePage extends StatelessWidget {
                 labelText: "Search term",
                 enabledBorder: UnderlineInputBorder(),
               ),
-              onChanged: (text){
+              onChanged: (text) {
                 context.read<SearchBloc>().add(SearchUpdateNameEvent(text));
               },
             ),
@@ -51,9 +50,10 @@ class MyHomePage extends StatelessWidget {
           Expanded(
             child: BlocConsumer<SearchBloc, SearchState>(
               listenWhen: (_, state) => state is SearchErrorEventState,
-              listener: (context, state){
-                if (state is SearchErrorEventState){
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.message)));
+              listener: (context, state) {
+                if (state is SearchErrorEventState) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(state.message)));
                 }
               },
               buildWhen: (_, state) => state is SearchResultListState,
