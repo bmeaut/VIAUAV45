@@ -4,7 +4,7 @@ class DateChooser extends StatefulWidget {
   const DateChooser({super.key});
 
   @override
-  _DateChooserState createState() => _DateChooserState();
+  State<DateChooser> createState() => _DateChooserState();
 }
 
 class _DateChooserState extends State<DateChooser> {

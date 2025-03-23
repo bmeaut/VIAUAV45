@@ -14,7 +14,7 @@ class RealEstateSearchFormPage extends StatefulWidget {
   final String title;
 
   @override
-  _RealEstateSearchFormPageState createState() =>
+  State<RealEstateSearchFormPage> createState() =>
       _RealEstateSearchFormPageState();
 }
 
