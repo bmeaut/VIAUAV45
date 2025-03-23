@@ -5,7 +5,7 @@ import 'package:input_widgets_demo/inputs_demo/bloc/real_estate_search_form_cubi
 import '../../../util.dart';
 
 class SliderRow extends StatelessWidget {
-  const SliderRow({Key? key}) : super(key: key);
+  const SliderRow({super.key});
 
   @override
   Widget build(BuildContext context) {
