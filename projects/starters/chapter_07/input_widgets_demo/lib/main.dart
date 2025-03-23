@@ -13,10 +13,6 @@ class InputWidgetsDemoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Real Estate Search',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: const RealEstateSearchFormPage(title: 'Flutter Real Estate Search'),
     );
   }
