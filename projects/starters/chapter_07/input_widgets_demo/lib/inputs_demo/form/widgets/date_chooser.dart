@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:input_widgets_demo/inputs_demo/bloc/real_estate_search_form_cubit.dart';
-
-import '../../../util.dart';
 
 class DateChooser extends StatefulWidget {
-  const DateChooser({Key? key}) : super(key: key);
+  const DateChooser({super.key});
 
   @override
   _DateChooserState createState() => _DateChooserState();

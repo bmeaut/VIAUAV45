@@ -7,7 +7,7 @@ void main() {
 }
 
 class InputWidgetsDemoApp extends StatelessWidget {
-  const InputWidgetsDemoApp({Key? key}) : super(key: key);
+  const InputWidgetsDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
