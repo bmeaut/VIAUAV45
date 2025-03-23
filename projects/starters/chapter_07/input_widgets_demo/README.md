@@ -1,6 +1,6 @@
 # input_widgets_demo
 
-A new Flutter project.
+A new Flutter project to demonstrate the usage of input fields.
 
 ## Getting Started
 
