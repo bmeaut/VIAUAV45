@@ -6,36 +6,26 @@ import '../../util.dart';
 
 class RealEstateSearchFormCubit extends Cubit<FormState> {
   RealEstateSearchFormCubit()
-      : super(FormState.initial(soonestMovingInDate: DateTime.now()));
+    : super(FormState.initial(soonestMovingInDate: DateTime.now()));
 
   void newlyBuiltCheckedChanged(bool checked) {
-    emit(
-      state.copyWith(isNewlyBuiltChecked: checked),
-    );
+    emit(state.copyWith(isNewlyBuiltChecked: checked));
   }
 
   void setPropertySearchType(PropertySearchType type) {
-    emit(
-      state.copyWith(propertySearchType: type),
-    );
+    emit(state.copyWith(propertySearchType: type));
   }
 
   void onPriceValuesChanged(double start, double end) {
-    emit(
-      state.copyWith(minPriceValue: start, maxPriceValue: end),
-    );
+    emit(state.copyWith(minPriceValue: start, maxPriceValue: end));
   }
 
   void setDetailedSearchVisible(bool visible) {
-    emit(
-      state.copyWith(isShowingDetailedSearch: visible),
-    );
+    emit(state.copyWith(isShowingDetailedSearch: visible));
   }
 
   void setSoonestMovingInDate(DateTime date) {
-    emit(
-      state.copyWith(soonestMovingInDate: date),
-    );
+    emit(state.copyWith(soonestMovingInDate: date));
   }
 }
 
@@ -86,11 +76,11 @@ class FormState extends Equatable {
 
   @override
   List<Object> get props => [
-        isNewlyBuiltChecked,
-        isShowingDetailedSearch,
-        propertySearchType,
-        minPriceValue,
-        maxPriceValue,
-        soonestMovingInDate,
-      ];
+    isNewlyBuiltChecked,
+    isShowingDetailedSearch,
+    propertySearchType,
+    minPriceValue,
+    maxPriceValue,
+    soonestMovingInDate,
+  ];
 }
