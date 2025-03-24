@@ -4,7 +4,7 @@ import 'second_page.dart';
 
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+  const FirstPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +16,7 @@ class FirstPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.android,
-                color: Colors.greenAccent,
-                size: 120,
-              ),
+              const Icon(Icons.android, color: Colors.greenAccent, size: 120),
               const SizedBox(height: 16),
               const Text("This is the first page"),
               ElevatedButton(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ParameterPage extends StatelessWidget {
   final String? parameter;
 
-  const ParameterPage({Key? key, this.parameter}) : super(key: key);
+  const ParameterPage({super.key, this.parameter});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ParameterPage extends StatelessWidget {
               Text("Parameter value: $parameter"),
               ElevatedButton(
                 child: const Text("Back"),
-                onPressed: (){
+                onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
