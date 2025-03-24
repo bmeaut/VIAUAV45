@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 import 'pages/first_page.dart';
 import 'pages/parameter_page.dart';
@@ -13,7 +12,7 @@ void main() {
 var globalNavigatorHolderKey = GlobalKey<_NavigatorHolderState>();
 
 class PageBasedNavigationApp extends StatelessWidget {
-  const PageBasedNavigationApp({Key? key}) : super(key: key);
+  const PageBasedNavigationApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,53 +31,47 @@ class NavigatorHolder extends StatefulWidget {
   NavigatorHolder() : super(key: globalNavigatorHolderKey);
 
   @override
-  _NavigatorHolderState createState() => _NavigatorHolderState();
+  State<NavigatorHolder> createState() => _NavigatorHolderState();
 }
 
 class _NavigatorHolderState extends State<NavigatorHolder> {
-  List<Page> pages = [
-    const MaterialPage(child: MainPage()),
-  ];
+  List<Page> pages = [const MaterialPage(child: MainPage())];
 
   @override
   Widget build(BuildContext context) {
     return Navigator(
       pages: pages.toList(),
-      onPopPage: (Route route, dynamic result) {
+      onDidRemovePage: (page) {
         setState(() {
-          route.didPop(result);
           pages.removeLast();
         });
-        return true;
       },
       onGenerateRoute: (route) {
         switch (route.name) {
           case "/parameterpage":
             return MaterialPageRoute(
               settings: const RouteSettings(name: "/parameterpage"),
-              builder: (context) => ParameterPage(
-                parameter: route.arguments.toString(),
-              ),
+              builder:
+                  (context) =>
+                      ParameterPage(parameter: route.arguments.toString()),
             );
         }
         if (route.name?.contains("/parameterpage/") ?? false) {
           final routeName = route.name!;
           final arg = routeName.substring(
-              routeName.lastIndexOf("/") + 1, routeName.length);
+            routeName.lastIndexOf("/") + 1,
+            routeName.length,
+          );
           return MaterialPageRoute(
             settings: RouteSettings(name: "/parameterpage/$arg"),
-            builder: (context) => ParameterPage(
-              parameter: Uri.decodeFull(arg),
-            ),
+            builder: (context) => ParameterPage(parameter: Uri.decodeFull(arg)),
           );
         }
         return null;
       },
       onUnknownRoute: (route) {
         return MaterialPageRoute(
-          builder: (_) => ParameterPage(
-            parameter: route.toString(),
-          ),
+          builder: (_) => ParameterPage(parameter: route.toString()),
         );
       },
     );
@@ -99,32 +92,31 @@ class _NavigatorHolderState extends State<NavigatorHolder> {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({
-    Key? key,
-  }) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      onPopInvokedWithResult: (_, _) async {
         var result = await showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                title: const Text("Are you sure?"),
-                content: const Text("Do you really want to quit?"),
-                actions: [
-                  TextButton(
-                    child: const Text("No"),
-                    onPressed: () => Navigator.pop(context, false),
-                  ),
-                  TextButton(
-                    child: const Text("Yes"),
-                    onPressed: () => Navigator.pop(context, true),
-                  ),
-                ],
-              );
-            });
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text("Are you sure?"),
+              content: const Text("Do you really want to quit?"),
+              actions: [
+                TextButton(
+                  child: const Text("No"),
+                  onPressed: () => Navigator.pop(context, false),
+                ),
+                TextButton(
+                  child: const Text("Yes"),
+                  onPressed: () => Navigator.pop(context, true),
+                ),
+              ],
+            );
+          },
+        );
         return result ?? false;
       },
       child: Scaffold(
@@ -132,20 +124,23 @@ class MainPage extends StatelessWidget {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 16,
             children: [
               const Text("This is the main page!"),
               ElevatedButton(
                 child: const Text("Go to first page"),
                 onPressed: () {
-                  globalNavigatorHolderKey.currentState!
-                      .addNewPage(const FirstPage());
+                  globalNavigatorHolderKey.currentState!.addNewPage(
+                    const FirstPage(),
+                  );
                 },
               ),
               ElevatedButton(
                 child: const Text("Go to second page"),
                 onPressed: () {
-                  globalNavigatorHolderKey.currentState!
-                      .addNewPage(const SecondPage());
+                  globalNavigatorHolderKey.currentState!.addNewPage(
+                    const SecondPage(),
+                  );
                 },
               ),
               ElevatedButton(
