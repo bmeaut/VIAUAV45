@@ -10,17 +10,13 @@ void main() {
 }
 
 class ImperativeNavigationApp extends StatelessWidget {
-  const ImperativeNavigationApp({Key? key}) : super(key: key);
+  const ImperativeNavigationApp({super.key});
 
   // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Imperative Navigation Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: const MainPage(),
       // TODO 7.1 Add routes to FirstPage and SecondPage
       // TODO 7.8 Implement onGenerateRoute
@@ -30,16 +26,17 @@ class ImperativeNavigationApp extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO 7.3 Add WillPopScope
+    // TODO 7.3 Add PopScope
     return Scaffold(
       appBar: AppBar(title: const Text("Main page")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 16,
           children: [
             const Text("This is the main page!"),
             ElevatedButton(

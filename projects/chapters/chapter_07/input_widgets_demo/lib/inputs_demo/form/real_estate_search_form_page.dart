@@ -9,13 +9,12 @@ import 'widgets/slider_row.dart';
 import 'widgets/switch_row.dart';
 
 class RealEstateSearchFormPage extends StatefulWidget {
-  const RealEstateSearchFormPage({Key? key, required this.title})
-      : super(key: key);
+  const RealEstateSearchFormPage({super.key, required this.title});
 
   final String title;
 
   @override
-  _RealEstateSearchFormPageState createState() =>
+  State<RealEstateSearchFormPage> createState() =>
       _RealEstateSearchFormPageState();
 }
 
@@ -27,9 +26,7 @@ class _RealEstateSearchFormPageState extends State<RealEstateSearchFormPage> {
     return BlocProvider(
       create: (_) => RealEstateSearchFormCubit(),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
+        appBar: AppBar(title: Text(widget.title)),
         body: SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
@@ -41,10 +38,7 @@ class _RealEstateSearchFormPageState extends State<RealEstateSearchFormPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Search query",
-                  textAlign: TextAlign.start,
-                ),
+                const Text("Search query", textAlign: TextAlign.start),
                 TextField(
                   decoration: const InputDecoration(
                     labelText: "City, Street, etc.",

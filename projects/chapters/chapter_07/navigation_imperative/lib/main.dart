@@ -10,17 +10,13 @@ void main() {
 }
 
 class ImperativeNavigationApp extends StatelessWidget {
-  const ImperativeNavigationApp({Key? key}) : super(key: key);
+  const ImperativeNavigationApp({super.key});
 
   // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Imperative Navigation Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: const MainPage(),
       routes: {
         "/firstpage": (context) => const FirstPage(),
@@ -31,30 +27,27 @@ class ImperativeNavigationApp extends StatelessWidget {
           case "/parameterpage":
             return MaterialPageRoute(
               settings: const RouteSettings(name: "/parameterpage"),
-              builder: (context) => ParameterPage(
-                parameter: route.arguments.toString(),
-              ),
+              builder:
+                  (context) =>
+                      ParameterPage(parameter: route.arguments.toString()),
             );
         }
         if (route.name?.contains("/parameterpage/") ?? false) {
           final routeName = route.name!;
-          final arg =
-              routeName.substring(routeName.lastIndexOf("/")+1, routeName.length);
+          final arg = routeName.substring(
+            routeName.lastIndexOf("/") + 1,
+            routeName.length,
+          );
           return MaterialPageRoute(
             settings: RouteSettings(name: "/parameterpage/$arg"),
-            builder: (context) => ParameterPage(
-              parameter: Uri.decodeFull(arg),
-            ),
+            builder: (context) => ParameterPage(parameter: Uri.decodeFull(arg)),
           );
         }
         return null;
       },
       onUnknownRoute: (route) {
         return MaterialPageRoute(
-          builder: (_) =>
-              ParameterPage(
-                parameter: route.toString(),
-              ),
+          builder: (_) => ParameterPage(parameter: route.toString()),
         );
       },
     );
@@ -62,47 +55,49 @@ class ImperativeNavigationApp extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        var result = await showDialog(
+    return PopScope<Object?>(
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, Object? result) async {
+        await showDialog<bool>(
           context: context,
-          builder: (context) {
+          builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text("Are you sure?"),
-              content: const Text("Do you really want to quit?"),
+              title: const Text('Are you sure?'),
+              content: const Text('Do you really want to quit'),
               actions: [
                 TextButton(
-                  child: const Text("No"),
-                  onPressed: () => Navigator.pop(context, false),
+                  child: const Text('No'),
+                  onPressed: () {
+                    Navigator.pop(context, false);
+                  },
                 ),
                 TextButton(
-                  child: const Text("Yes"),
-                  onPressed: () => Navigator.pop(context, true),
+                  child: const Text('Yes'),
+                  onPressed: () {
+                    Navigator.pop(context, true);
+                  },
                 ),
               ],
             );
           },
         );
-        return result ?? false;
       },
       child: Scaffold(
         appBar: AppBar(title: const Text("Main page")),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 16,
             children: [
               const Text("This is the main page!"),
               ElevatedButton(
                 child: const Text("Go to first page"),
                 onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    "/firstpage",
-                  );
+                  Navigator.pushNamed(context, "/firstpage");
                 },
               ),
               ElevatedButton(
@@ -114,10 +109,7 @@ class MainPage extends StatelessWidget {
                   //     builder: (context) => const SecondPage(),
                   //   ),
                   // );
-                  Navigator.pushNamed(
-                    context,
-                    "/secondpage",
-                  );
+                  Navigator.pushNamed(context, "/secondpage");
                 },
               ),
               ElevatedButton(

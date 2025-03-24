@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ParameterPage extends StatelessWidget {
   final String? parameter;
 
-  const ParameterPage({Key? key, this.parameter}) : super(key: key);
+  const ParameterPage({super.key, this.parameter});
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +14,14 @@ class ParameterPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 16,
             children: [
-              const Icon(
-                Icons.android,
-                color: Colors.lightGreenAccent,
-                size: 120,
-              ),
-              const SizedBox(height: 16),
+              const Icon(Icons.android, color: Colors.green, size: 120),
               const Text("This is the parameter page"),
               Text("Parameter value: $parameter"),
               ElevatedButton(
                 child: const Text("Back"),
-                onPressed: (){
+                onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),

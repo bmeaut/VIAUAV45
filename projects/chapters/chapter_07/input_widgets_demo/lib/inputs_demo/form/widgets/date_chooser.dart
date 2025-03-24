@@ -5,10 +5,10 @@ import 'package:input_widgets_demo/inputs_demo/bloc/real_estate_search_form_cubi
 import '../../../util.dart';
 
 class DateChooser extends StatefulWidget {
-  const DateChooser({Key? key}) : super(key: key);
+  const DateChooser({super.key});
 
   @override
-  _DateChooserState createState() => _DateChooserState();
+  State<DateChooser> createState() => _DateChooserState();
 }
 
 class _DateChooserState extends State<DateChooser> {
@@ -28,11 +28,10 @@ class _DateChooserState extends State<DateChooser> {
           Text(getFormattedDate(soonestMovingInDate)),
           TextButton(
             child: const Text("SELECT"),
-            onPressed: () => showSoonestMovingInDatePicker(
-              context,
-              soonestMovingInDate,
-            ),
-          )
+            onPressed:
+                () =>
+                    showSoonestMovingInDatePicker(context, soonestMovingInDate),
+          ),
         ],
       );
     } else {
@@ -40,7 +39,10 @@ class _DateChooserState extends State<DateChooser> {
     }
   }
 
-  void showSoonestMovingInDatePicker(BuildContext context, DateTime initialDate) async {
+  void showSoonestMovingInDatePicker(
+    BuildContext context,
+    DateTime initialDate,
+  ) async {
     final now = DateTime.now();
     final date = await showDatePicker(
       context: context,

@@ -7,16 +7,12 @@ void main() {
 }
 
 class InputWidgetsDemoApp extends StatelessWidget {
-  const InputWidgetsDemoApp({Key? key}) : super(key: key);
+  const InputWidgetsDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Real Estate Search',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: const RealEstateSearchFormPage(title: 'Flutter Real Estate Search'),
     );
   }
