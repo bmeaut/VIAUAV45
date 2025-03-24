@@ -91,6 +91,7 @@ class MainPage extends StatelessWidget {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 16,
             children: [
               const Text("This is the main page!"),
               ElevatedButton(
