@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/detailed_page.dart';
@@ -7,7 +6,7 @@ import '../data/photo_data_store.dart';
 class GridItemWidget extends StatelessWidget {
   final StockPhoto item;
 
-  const GridItemWidget({Key? key, required this.item}) : super(key: key);
+  const GridItemWidget({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +16,7 @@ class GridItemWidget extends StatelessWidget {
           Positioned.fill(
             child: Hero(
               tag: item.id,
-              child: Image.network(
-                item.url,
-                fit: BoxFit.cover,
-              ),
+              child: Image.network(item.url, fit: BoxFit.cover),
             ),
           ),
           Positioned.fill(
@@ -28,11 +24,7 @@ class GridItemWidget extends StatelessWidget {
               color: Colors.transparent,
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    "/details",
-                    arguments: item,
-                  );
+                  Navigator.pushNamed(context, "/details", arguments: item);
                 },
               ),
             ),

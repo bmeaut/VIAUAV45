@@ -2,15 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../widgets/grid_item_widget.dart';
-import '../widgets/list_item_widget.dart';
 import '../data/photo_data_store.dart';
 
 class ListPage extends StatefulWidget {
-  const ListPage({Key? key}) : super(key: key);
+  const ListPage({super.key});
 
   @override
-  _ListPageState createState() => _ListPageState();
+  State<ListPage> createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
@@ -20,23 +18,16 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Lists & Grids"),
-      ),
+      appBar: AppBar(title: const Text("Lists & Grids")),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
               // ... is the spread operator
-              ...Iterable.generate(
-                10,
-                (id) {
-                  var item = StockPhoto.fromId(id);
-                  return ListItemWidget(
-                    item: item,
-                  );
-                },
-              ),
+              ...Iterable.generate(10, (id) {
+                var item = StockPhoto.fromId(id);
+                return ListItemWidget(item: item);
+              }),
             ],
           ),
         ),

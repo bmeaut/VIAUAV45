@@ -8,20 +8,14 @@ void main() {
 }
 
 class ListAndGridApp extends StatelessWidget {
-  const ListAndGridApp({Key? key}) : super(key: key);
+  const ListAndGridApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: const ListPage(),
-      routes: {
-        "/details": (context) => const DetailedPage(),
-      },
+      routes: {"/details": (context) => const DetailedPage()},
     );
   }
 }
