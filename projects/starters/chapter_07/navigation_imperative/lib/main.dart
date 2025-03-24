@@ -30,7 +30,7 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO 7.3 Add WillPopScope
+    // TODO 7.3 Add PopScope
     return Scaffold(
       appBar: AppBar(title: const Text("Main page")),
       body: Center(

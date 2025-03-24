@@ -15,9 +15,9 @@ class FirstPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 16,
             children: [
-              const Icon(Icons.android, color: Colors.greenAccent, size: 120),
-              const SizedBox(height: 16),
+              const Icon(Icons.android, color: Colors.green, size: 120),
               const Text("This is the first page"),
               ElevatedButton(
                 child: const Text("Navigate to second page"),
