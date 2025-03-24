@@ -16,7 +16,7 @@ class ParameterPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 16,
             children: [
-              const Icon(Icons.apple, color: Colors.black, size: 120),
+              const Icon(Icons.android, color: Colors.green, size: 120),
               const Text("This is the parameter page"),
               Text("Parameter value: $parameter"),
               ElevatedButton(
