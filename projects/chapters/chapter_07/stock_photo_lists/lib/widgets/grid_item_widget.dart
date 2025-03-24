@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../pages/detailed_page.dart';
 import '../data/photo_data_store.dart';
 
 class GridItemWidget extends StatelessWidget {
