@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetailPage extends StatefulWidget {
   final Santa santa;
@@ -53,7 +54,7 @@ class _DetailPageState extends State<DetailPage>
                   tag: "image_${widget.santa.name}",
                   child: Image.asset(
                     widget.santa.avatar,
-                    height: MediaQuery.of(context).size.height / 2,
+                    height: MediaQuery.sizeOf(context).height / 2,
                   ),
                 ),
                 AnimatedBuilder(
@@ -70,11 +71,11 @@ class _DetailPageState extends State<DetailPage>
                         child: widget,
                       ),
                   child: Padding(
-                    padding: const EdgeInsets.all(16),
+                    padding: EdgeInsets.all(16.r),
                     child: Text(
                       widget.santa.description,
-                      style: const TextStyle(
-                        fontSize: 24,
+                      style: TextStyle(
+                        fontSize: 24.sp,
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
                       ),

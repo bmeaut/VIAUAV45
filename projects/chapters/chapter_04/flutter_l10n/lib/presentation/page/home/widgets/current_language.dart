@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_l10n/l10n/l10n.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CurrentLanguage extends StatelessWidget {
   const CurrentLanguage({super.key});
@@ -9,16 +10,16 @@ class CurrentLanguage extends StatelessWidget {
     final l10n = L10n.of(context)!;
     return Column(
       children: [
-        const SizedBox(height: 32),
+        SizedBox(height: 32.h),
         Text(
           l10n.homeCurrentLanguage(l10n.localeName),
-          style: const TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 16.sp),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         Image.asset(
           "assets/icon/flag/${l10n.localeName}.png",
-          height: 40,
-          width: 60,
+          height: 40.h,
+          width: 60.w,
         ),
       ],
     );
