@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
+import 'package:flutter_l10n/l10n/l10n.dart';
 import 'package:flutter_l10n/presentation/page/home/widgets/current_language.dart';
 import 'package:flutter_l10n/presentation/page/home/widgets/santa_card.dart';
 
-import '../../../common_imports.dart';
-
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 32),
             Text(
               l10n.homeYourSanta,
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 8),
             SantaCard(

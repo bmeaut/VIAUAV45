@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+
 //import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'presentation/page/home/home_page.dart';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter l10n demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.red,
-      ),
+      theme: ThemeData(primaryColor: Colors.red),
       home: const HomePage(),
 
       /// TODO: 2 - Add delegates and supported locales to App.
