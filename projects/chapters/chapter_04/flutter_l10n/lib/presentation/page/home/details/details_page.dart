@@ -4,13 +4,10 @@ import 'package:flutter_l10n/domain/model/santa.dart';
 class DetailPage extends StatefulWidget {
   final Santa santa;
 
-  const DetailPage({
-    Key? key,
-    required this.santa,
-  }) : super(key: key);
+  const DetailPage({super.key, required this.santa});
 
   @override
-  _DetailPageState createState() => _DetailPageState();
+  State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage>
@@ -39,9 +36,7 @@ class _DetailPageState extends State<DetailPage>
       children: [
         Hero(
           tag: "background_${widget.santa.name}",
-          child: Container(
-            color: Theme.of(context).primaryColor,
-          ),
+          child: Container(color: Theme.of(context).primaryColor),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
@@ -63,15 +58,17 @@ class _DetailPageState extends State<DetailPage>
                 ),
                 AnimatedBuilder(
                   animation: _controller,
-                  builder: (context, widget) => Transform.translate(
-                    transformHitTests: false,
-                    offset: Offset.lerp(
-                      const Offset(0.0, 200.0),
-                      Offset.zero,
-                      _controller.value,
-                    )!,
-                    child: widget,
-                  ),
+                  builder:
+                      (context, widget) => Transform.translate(
+                        transformHitTests: false,
+                        offset:
+                            Offset.lerp(
+                              const Offset(0.0, 200.0),
+                              Offset.zero,
+                              _controller.value,
+                            )!,
+                        child: widget,
+                      ),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Text(
@@ -87,7 +84,7 @@ class _DetailPageState extends State<DetailPage>
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }

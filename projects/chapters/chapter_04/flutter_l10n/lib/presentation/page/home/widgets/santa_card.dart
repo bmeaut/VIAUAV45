@@ -5,10 +5,7 @@ import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
 class SantaCard extends StatelessWidget {
   final Santa santa;
 
-  const SantaCard({
-    Key? key,
-    required this.santa,
-  }) : super(key: key);
+  const SantaCard({super.key, required this.santa});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +13,20 @@ class SantaCard extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           PageRouteBuilder<void>(
-            pageBuilder: (BuildContext context, Animation<double> animation,
-                Animation<double> secondaryAnimation) {
+            pageBuilder: (
+              BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+            ) {
               return AnimatedBuilder(
-                  animation: animation,
-                  builder: (_, Widget? child) {
-                    return Opacity(
-                      opacity: animation.value,
-                      child: DetailPage(santa: santa),
-                    );
-                  });
+                animation: animation,
+                builder: (_, Widget? child) {
+                  return Opacity(
+                    opacity: animation.value,
+                    child: DetailPage(santa: santa),
+                  );
+                },
+              );
             },
             transitionDuration: const Duration(milliseconds: 400),
           ),
@@ -49,10 +50,9 @@ class SantaCard extends StatelessWidget {
                 ),
                 child: Text(
                   santa.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4!
-                      .copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                   textAlign: TextAlign.end,
                 ),
               ),
@@ -64,13 +64,9 @@ class SantaCard extends StatelessWidget {
             top: 32,
             child: Hero(
               tag: "image_${santa.name}",
-              child: Image.asset(
-                santa.avatar,
-                height: 114,
-                width: 171,
-              ),
+              child: Image.asset(santa.avatar, height: 114, width: 171),
             ),
-          )
+          ),
         ],
       ),
     );

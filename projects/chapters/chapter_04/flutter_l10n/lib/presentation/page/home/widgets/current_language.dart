@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../../../common_imports.dart';
+import 'package:flutter_l10n/l10n/l10n.dart';
 
 class CurrentLanguage extends StatelessWidget {
-  const CurrentLanguage({Key? key}) : super(key: key);
+  const CurrentLanguage({super.key});
 
   @override
   Widget build(BuildContext context) {
