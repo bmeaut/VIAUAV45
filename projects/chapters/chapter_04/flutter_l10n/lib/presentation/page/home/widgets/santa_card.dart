@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_l10n/domain/model/santa.dart';
 import 'package:flutter_l10n/presentation/page/home/details/details_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SantaCard extends StatelessWidget {
   final Santa santa;
@@ -40,18 +41,19 @@ class SantaCard extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                borderRadius: BorderRadius.all(Radius.circular(16.r)),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  end: 16,
-                  top: 160,
-                  bottom: 16,
+                padding: EdgeInsetsDirectional.only(
+                  end: 16.w,
+                  top: 160.h,
+                  bottom: 16.h,
                 ),
                 child: Text(
                   santa.name,
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                     fontWeight: FontWeight.bold,
+                    fontSize: 16.sp,
                   ),
                   textAlign: TextAlign.end,
                 ),
@@ -60,11 +62,11 @@ class SantaCard extends StatelessWidget {
           ),
           Positioned.directional(
             textDirection: Directionality.of(context),
-            end: 16,
-            top: 32,
+            end: 16.w,
+            top: 32.h,
             child: Hero(
               tag: "image_${santa.name}",
-              child: Image.asset(santa.avatar, height: 114, width: 171),
+              child: Image.asset(santa.avatar, height: 114.h, width: 171.w),
             ),
           ),
         ],
