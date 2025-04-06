@@ -4,6 +4,8 @@ import 'package:flutter_http/list_repository.dart';
 import 'package:weather_icons/weather_icons.dart';
 
 class ListPageWidget extends StatefulWidget {
+  const ListPageWidget({super.key});
+
   @override
   State<ListPageWidget> createState() => _ListPageWidgetState();
 }
@@ -31,25 +33,24 @@ class _ListPageWidgetState extends State<ListPageWidget> {
           await request;
         },
         child: FutureBuilder<List<WeatherCityItem>>(
-            future: listRequest,
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text("Hiba történt: ${snapshot.error}"),
-                );
-              } else if (snapshot.hasData) {
-                var list = snapshot.data!;
-                return ListView.builder(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  itemCount: list.length,
-                  itemBuilder: (context, i) {
-                    return ListItem(list[i]);
-                  },
-                );
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            }),
+          future: listRequest,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Center(child: Text("Hiba történt: ${snapshot.error}"));
+            } else if (snapshot.hasData) {
+              var list = snapshot.data!;
+              return ListView.builder(
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemCount: list.length,
+                itemBuilder: (context, i) {
+                  return ListItem(item: list[i]);
+                },
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
       ),
     );
   }
@@ -60,11 +61,10 @@ class ListItem extends StatelessWidget {
 
   const ListItem({super.key, required this.item});
 
-
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
+      child: SizedBox(
         height: 80,
         child: Stack(
           children: [
@@ -83,9 +83,10 @@ class ListItem extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                          "${item.minTemp} - ${item.currentTemp} - ${item.maxTemp}")
+                        "${item.minTemp} - ${item.currentTemp} - ${item.maxTemp}",
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
