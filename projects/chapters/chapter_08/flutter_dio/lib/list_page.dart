@@ -1,12 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_http/list_model.dart';
-import 'package:flutter_http/list_repository.dart';
+import 'package:flutter_dio/list_model.dart';
+import 'package:flutter_dio/list_repository.dart';
 import 'package:weather_icons/weather_icons.dart';
 
 class ListPageWidget extends StatefulWidget {
+  const ListPageWidget({super.key});
+
   @override
-  _ListPageWidgetState createState() => _ListPageWidgetState();
+  State<ListPageWidget> createState() => _ListPageWidgetState();
 }
 
 class _ListPageWidgetState extends State<ListPageWidget> {
@@ -15,16 +16,14 @@ class _ListPageWidgetState extends State<ListPageWidget> {
 
   @override
   void initState() {
-    listRequest = repository.getCities();
     super.initState();
+    listRequest = repository.getCities();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("WeatherApp"),
-      ),
+      appBar: AppBar(title: Text("WeatherApp")),
       body: RefreshIndicator(
         onRefresh: () async {
           var request = repository.getCities();
@@ -36,27 +35,21 @@ class _ListPageWidgetState extends State<ListPageWidget> {
         child: FutureBuilder<List<WeatherCityItem>>(
           future: listRequest,
           builder: (context, snapshot) {
-            if (snapshot.hasError){
-              return Center(
-                child: Text(
-                  "Hiba történt: ${snapshot.error}"
-                ),
-              );
-            } else if (snapshot.hasData){
+            if (snapshot.hasError) {
+              return Center(child: Text("Hiba történt: ${snapshot.error}"));
+            } else if (snapshot.hasData) {
               var list = snapshot.data!;
               return ListView.builder(
                 physics: const AlwaysScrollableScrollPhysics(),
-                itemBuilder: (context, i){
-                  return ListItem(list[i]);
-                },
                 itemCount: list.length,
+                itemBuilder: (context, i) {
+                  return ListItem(item: list[i]);
+                },
               );
             } else {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
+              return Center(child: CircularProgressIndicator());
             }
-          }
+          },
         ),
       ),
     );
@@ -66,36 +59,34 @@ class _ListPageWidgetState extends State<ListPageWidget> {
 class ListItem extends StatelessWidget {
   final WeatherCityItem item;
 
-  const ListItem(this.item, {Key? key}) : super(key: key);
+  const ListItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
+      child: SizedBox(
         height: 80,
         child: Stack(
           children: [
             AspectRatio(
               aspectRatio: 1 / 1,
-              child: Image(
-                image: item.iconImage,
-                fit: BoxFit.cover,
-              ),
+              child: Image(image: item.iconImage, fit: BoxFit.cover),
             ),
             Align(
               alignment: Alignment.center,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    item.name,
-                    style: const TextStyle(fontSize: 18),
-                  ),
+                  Text(item.name, style: const TextStyle(fontSize: 18)),
                   SizedBox(height: 8),
                   Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: [Text("${item.minTemp} - ${item.currentTemp} - ${item.maxTemp}")],
-                  )
+                    children: [
+                      Text(
+                        "${item.minTemp} - ${item.currentTemp} - ${item.maxTemp}",
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

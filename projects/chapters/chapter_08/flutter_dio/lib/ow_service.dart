@@ -1,17 +1,13 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_http/list_page.dart';
-import 'package:flutter_http/main.dart';
-import 'package:flutter_http/ow_json_models.dart';
+import 'package:flutter_dio/main.dart';
+import 'package:flutter_dio/ow_json_models.dart';
 
 const _openWeatherApiKey = "e6932dac2b4ba21c31ba22d19f4ecc56";
 const _baseUrl = "api.openweathermap.org";
 
 class OWService {
-  var _dio = Dio();
+  final _dio = Dio();
 
   OWService() {
     _dio.options.baseUrl = "https://$_baseUrl/data/2.5/";
@@ -40,56 +36,51 @@ class OWService {
       ),
     );
     _dio.interceptors.add(
-        InterceptorsWrapper(
-          onRequest: (request, handler){
-            request.queryParameters["lan"] = "hu";
-            request.queryParameters["units"] = "metric";
-            request.queryParameters["appid"] = _openWeatherApiKey;
-            handler.next(request);
-          }
-        )
+      InterceptorsWrapper(
+        onRequest: (request, handler) {
+          request.queryParameters["lan"] = "hu";
+          request.queryParameters["units"] = "metric";
+          request.queryParameters["appid"] = _openWeatherApiKey;
+          handler.next(request);
+        },
+      ),
     );
     _dio.interceptors.add(LogInterceptor());
     _dio.interceptors.add(
-      InterceptorsWrapper(onError: (error, handler) async {
-        var scaffoldMessenger = scaffoldMessengerKey.currentState;
-        if (scaffoldMessenger != null && scaffoldMessenger.mounted == true) {
-          var snackbarResult = scaffoldMessenger.showSnackBar(
-            SnackBar(
-              content: Text("Hálózati hiba!"),
-              action: SnackBarAction(
-                label: 'RETRY',
-                onPressed: () {},
+      InterceptorsWrapper(
+        onError: (error, handler) async {
+          var scaffoldMessenger = scaffoldMessengerKey.currentState;
+          if (scaffoldMessenger != null && scaffoldMessenger.mounted == true) {
+            var snackbarResult = scaffoldMessenger.showSnackBar(
+              SnackBar(
+                content: Text("Hálózati hiba!"),
+                action: SnackBarAction(label: 'RETRY', onPressed: () {}),
+                duration: Duration(seconds: 10),
               ),
-              duration: Duration(seconds: 10),
-            ),
-          );
-          var reason = await snackbarResult.closed;
-          if (reason == SnackBarClosedReason.action) {
-            handler.resolve(await _dio.requestOption(error.requestOptions));
-            return;
+            );
+            var reason = await snackbarResult.closed;
+            if (reason == SnackBarClosedReason.action) {
+              handler.resolve(await _dio.requestOption(error.requestOptions));
+              return;
+            }
           }
-        }
-        handler.next(error);
-      }),
+          handler.next(error);
+        },
+      ),
     );
   }
 
   Future<OWCitiesFindResponse> getOWCities() async {
     var response = await _dio.get(
       "find",
-      queryParameters: {
-        "lat": 46.92393,
-        "lon": 18.09012,
-        "cnt": 50,
-      },
+      queryParameters: {"lat": 46.92393, "lon": 18.09012, "cnt": 50},
     );
     return OWCitiesFindResponse.fromJson(response.data);
   }
 }
 
-extension _DioRequestOption on Dio{
-  Future<Response<T>> requestOption<T>(RequestOptions requestOptions){
+extension _DioRequestOption on Dio {
+  Future<Response<T>> requestOption<T>(RequestOptions requestOptions) {
     return request(
       requestOptions.path,
       cancelToken: requestOptions.cancelToken,
