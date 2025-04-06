@@ -5,8 +5,11 @@ import 'package:flutter_http/list_repository.dart';
 import 'package:weather_icons/weather_icons.dart';
 
 class ListPageWidget extends StatefulWidget {
+  const ListPageWidget({super.key});
+
+
   @override
-  _ListPageWidgetState createState() => _ListPageWidgetState();
+  State<ListPageWidget> createState() => _ListPageWidgetState();
 }
 
 class _ListPageWidgetState extends State<ListPageWidget> {
@@ -66,7 +69,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
 class ListItem extends StatelessWidget {
   final WeatherCityItem item;
 
-  const ListItem(this.item, {Key? key}) : super(key: key);
+  const ListItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
