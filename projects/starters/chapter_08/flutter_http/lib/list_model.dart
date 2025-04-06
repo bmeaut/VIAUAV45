@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class WeatherCityItem{
+class WeatherCityItem {
   final num id;
   final String name;
   final ImageProvider iconImage;
@@ -18,6 +18,6 @@ class WeatherCityItem{
     this.currentTemp,
     this.maxTemp,
     this.windDegree,
-    this.windMagnitude
+    this.windMagnitude,
   );
 }
