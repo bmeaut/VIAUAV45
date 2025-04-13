@@ -1,4 +1,4 @@
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
+import 'package:todo_app/domain/model/todo_priority.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:flutter/foundation.dart';
 

@@ -1,11 +1,11 @@
-import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo_app/data/database/data_source.dart';
+import 'package:todo_app/domain/model/todo.dart';
+import 'package:todo_app/domain/model/todo_priority.dart';
 
 part 'todos_cubit.g.dart';
 
@@ -14,9 +14,7 @@ class TodosCubit extends Cubit<TodosState> {
 
   final DataSource _dataSource;
 
-  TodosCubit(
-    this._dataSource,
-  ) : super(const Loading()) {
+  TodosCubit(this._dataSource) : super(const Loading()) {
     getTodos();
   }
 
@@ -63,14 +61,10 @@ class TodosCubit extends Cubit<TodosState> {
     final prefs = await SharedPreferences.getInstance();
     final hideDoneTodos = prefs.getBool(HIDE_DONE_TODOS_KEY) ?? false;
     if (!hideDoneTodos) {
-      emit(
-        TodosLoaded(todos: allTodos, hideDoneTodos: hideDoneTodos),
-      );
+      emit(TodosLoaded(todos: allTodos, hideDoneTodos: hideDoneTodos));
     } else {
       final todos = allTodos.where((todo) => !todo.isDone).toList();
-      emit(
-        TodosLoaded(todos: todos, hideDoneTodos: hideDoneTodos),
-      );
+      emit(TodosLoaded(todos: todos, hideDoneTodos: hideDoneTodos));
     }
   }
 }
@@ -89,14 +83,8 @@ class TodosLoaded extends Equatable implements TodosState {
   final List<Todo> todos;
   final bool hideDoneTodos;
 
-  const TodosLoaded({
-    required this.todos,
-    required this.hideDoneTodos,
-  });
+  const TodosLoaded({required this.todos, required this.hideDoneTodos});
 
   @override
-  List<Object> get props => [
-        todos,
-        hideDoneTodos,
-      ];
+  List<Object> get props => [todos, hideDoneTodos];
 }

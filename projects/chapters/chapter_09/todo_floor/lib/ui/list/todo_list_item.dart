@@ -1,17 +1,14 @@
-import 'package:awesome_todo_app/bloc/todos_cubit.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
-import 'package:awesome_todo_app/ui/details/todo_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
+import 'package:todo_app/bloc/todos_cubit.dart';
+import 'package:todo_app/domain/model/todo.dart';
+import 'package:todo_app/domain/model/todo_priority.dart';
+import 'package:todo_app/ui/details/todo_details.dart';
 
 class TodoListItem extends StatelessWidget {
   final Todo todo;
 
-  const TodoListItem(
-    Key key,
-    this.todo,
-  ) : super(key: key);
+  const TodoListItem(Key key, this.todo) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +16,9 @@ class TodoListItem extends StatelessWidget {
     return InkWell(
       key: ObjectKey(todo),
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => TodoDetails(todo.id!)));
+        Navigator.of(
+          context,
+        ).push(MaterialPageRoute(builder: (context) => TodoDetails(todo.id!)));
       },
       child: Row(
         children: [
@@ -39,17 +37,12 @@ class TodoListItem extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(todo.title),
-                ],
+                children: [Text(todo.title)],
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(
-              Icons.delete,
-              color: Colors.grey,
-            ),
+            icon: const Icon(Icons.delete, color: Colors.grey),
             onPressed: () {
               cubit.deleteTodo(todo);
             },

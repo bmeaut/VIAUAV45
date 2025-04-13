@@ -1,16 +1,16 @@
-import 'package:awesome_todo_app/bloc/todos_cubit.dart';
-import 'package:awesome_todo_app/data/database/data_source.dart';
-import 'package:awesome_todo_app/domain/model/todo.dart';
-import 'package:awesome_todo_app/ui/list/todo_list_item.dart';
-import 'package:awesome_todo_app/ui/newtodo/add_todo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/bloc/todos_cubit.dart';
+import 'package:todo_app/data/database/data_source.dart';
+import 'package:todo_app/domain/model/todo.dart';
+import 'package:todo_app/ui/list/todo_list_item.dart';
+import 'package:todo_app/ui/newtodo/add_todo.dart';
 
 class TodoListPage extends StatefulWidget {
-  const TodoListPage({Key? key}) : super(key: key);
+  const TodoListPage({super.key});
 
   @override
-  _TodoListPageState createState() => _TodoListPageState();
+  State<TodoListPage> createState() => _TodoListPageState();
 }
 
 class _TodoListPageState extends State<TodoListPage> {
@@ -20,9 +20,7 @@ class _TodoListPageState extends State<TodoListPage> {
   Widget build(BuildContext context) {
     return BlocProvider<TodosCubit>(
       create: (context) {
-        return TodosCubit(
-          context.read<DataSource>(),
-        );
+        return TodosCubit(context.read<DataSource>());
       },
       child: Scaffold(
         appBar: AppBar(
@@ -48,7 +46,7 @@ class _TodoListPageState extends State<TodoListPage> {
                                 const Text("Show done todos"),
                               } else ...{
                                 const Text("Hide done todos"),
-                              }
+                              },
                             ],
                           ),
                         ),
@@ -65,9 +63,7 @@ class _TodoListPageState extends State<TodoListPage> {
         body: BlocBuilder<TodosCubit, TodosState>(
           builder: (context, state) {
             if (state is Loading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const Center(child: CircularProgressIndicator());
             } else if (state is TodosLoaded) {
               List<Todo> items = state.todos;
               int itemCount = items.length;
@@ -75,10 +71,7 @@ class _TodoListPageState extends State<TodoListPage> {
               return ListView.builder(
                 itemCount: itemCount,
                 itemBuilder: (context, index) {
-                  return TodoListItem(
-                    ObjectKey(items[index]),
-                    items[index],
-                  );
+                  return TodoListItem(ObjectKey(items[index]), items[index]);
                 },
               );
             } else {
@@ -87,18 +80,17 @@ class _TodoListPageState extends State<TodoListPage> {
           },
         ),
         floatingActionButton: BlocBuilder<TodosCubit, TodosState>(
-          builder: (context, state) => FloatingActionButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const AddTodoPage(),
-                ),
-              ).then((_) => context.read<TodosCubit>().getTodos());
-            },
-            tooltip: 'New Todo',
-            child: const Icon(Icons.add),
-          ),
+          builder:
+              (context, state) => FloatingActionButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const AddTodoPage()),
+                  ).then((_) => context.read<TodosCubit>().getTodos());
+                },
+                tooltip: 'New Todo',
+                child: const Icon(Icons.add),
+              ),
         ),
       ),
     );

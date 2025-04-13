@@ -1,8 +1,4 @@
-enum TodoPriority {
-  LOW,
-  NORMAL,
-  HIGH,
-}
+enum TodoPriority { LOW, NORMAL, HIGH }
 
 TodoPriority todoPriorityFromInt(int index) {
   switch (index) {
@@ -14,6 +10,7 @@ TodoPriority todoPriorityFromInt(int index) {
       return TodoPriority.HIGH;
     default:
       throw ArgumentError(
-          "Invalid Todo priority encountered while parsing from int");
+        "Invalid Todo priority encountered while parsing from int",
+      );
   }
 }
