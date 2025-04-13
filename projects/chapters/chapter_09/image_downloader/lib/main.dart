@@ -16,13 +16,9 @@ class ImageDownloaderApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Image Downloader',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: const ImageDownloaderPage(title: 'Image Downloader Home Page'),
+      home: ImageDownloaderPage(title: 'Image Downloader Home Page'),
     );
   }
 }
@@ -96,32 +92,30 @@ class _ImageDownloaderPageState extends State<ImageDownloaderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: FutureBuilder<List<File>>(
-          future: _imageFiles,
-          initialData: const [],
-          builder: (context, snapshot) {
-            SchedulerBinding.instance.addPostFrameCallback((_) {
-              _scrollToEnd();
-            });
-            if (snapshot.hasData) {
-              final imageFiles = snapshot.data;
-              return GridView.builder(
-                controller: _scrollController,
-                itemCount: imageFiles!.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
-                itemBuilder: (context, index) {
-                  return Image.file(imageFiles[index]);
-                },
-              );
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
+        future: _imageFiles,
+        initialData: const [],
+        builder: (context, snapshot) {
+          SchedulerBinding.instance.addPostFrameCallback((_) {
+            _scrollToEnd();
+          });
+          if (snapshot.hasData) {
+            final imageFiles = snapshot.data;
+            return GridView.builder(
+              controller: _scrollController,
+              itemCount: imageFiles!.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemBuilder: (context, index) {
+                return Image.file(imageFiles[index]);
+              },
             );
-          }),
+          }
+          return const Center(child: CircularProgressIndicator());
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _downloadNewImage,
         tooltip: 'Download image',
