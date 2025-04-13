@@ -38,7 +38,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   provider: ^6.1.4
   equatable: ^2.0.7
-  copy_with_extension: ^4.0.0
+  copy_with_extension: ^6.0.1
   floor: ^1.5.0
 
   cupertino_icons: ^1.0.8
