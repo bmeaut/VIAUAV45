@@ -5,7 +5,7 @@ void main() {
 }
 
 class MaterialDemoApp extends StatelessWidget {
-  const MaterialDemoApp({Key? key}) : super(key: key);
+  const MaterialDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +13,12 @@ class MaterialDemoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-
       ),
       home: Scaffold(
         appBar: AppBar(
           leading: const Icon(Icons.arrow_back),
           title: const Text("App title"),
-          actions: const [
-            Text("Action1"),
-            Text("Action2")
-          ],
+          actions: const [Text("Action1"), Text("Action2")],
         ),
       ),
     );

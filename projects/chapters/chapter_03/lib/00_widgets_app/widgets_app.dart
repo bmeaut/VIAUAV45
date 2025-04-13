@@ -5,12 +5,15 @@ void main() {
 }
 
 class WidgetsAppDemo extends StatelessWidget {
-  const WidgetsAppDemo({Key? key}) : super(key: key);
+  const WidgetsAppDemo({super.key});
 
   Route generateRoutes(RouteSettings settings) {
     return PageRouteBuilder(
-      pageBuilder: (BuildContext context, Animation<double> animation,
-          Animation<double> secondaryAnimation) {
+      pageBuilder: (
+        BuildContext context,
+        Animation<double> animation,
+        Animation<double> secondaryAnimation,
+      ) {
         return const WidgetsAppDemoPage();
       },
     );
@@ -25,15 +28,13 @@ class WidgetsAppDemo extends StatelessWidget {
       initialRoute: "/",
       // If we use multiple pages, we have to define exactly how navigation should happen between them.
       onGenerateRoute: generateRoutes,
-      textStyle: const TextStyle(
-        color: Color.fromARGB(255, 0, 0, 0),
-      ),
+      textStyle: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
     );
   }
 }
 
 class WidgetsAppDemoPage extends StatelessWidget {
-  const WidgetsAppDemoPage({Key? key}) : super(key: key);
+  const WidgetsAppDemoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,16 +54,15 @@ class WidgetsAppDemoPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: GestureDetector(
-                child: const Text(
-                  "New Game",
-                  textAlign: TextAlign.center,
-                ),
+                child: const Text("New Game", textAlign: TextAlign.center),
                 onTap: () {
                   showGeneralDialog(
                     context: context,
-                    pageBuilder: (BuildContext context,
-                        Animation<double> animation,
-                        Animation<double> secondaryAnimation) {
+                    pageBuilder: (
+                      BuildContext context,
+                      Animation<double> animation,
+                      Animation<double> secondaryAnimation,
+                    ) {
                       return Center(
                         child: Container(
                           width: 200,
@@ -71,9 +71,7 @@ class WidgetsAppDemoPage extends StatelessWidget {
                           child: const SizedBox(
                             width: 200,
                             height: 200,
-                            child: Center(
-                              child: Text("New Game clicked"),
-                            ),
+                            child: Center(child: Text("New Game clicked")),
                           ),
                         ),
                       );
@@ -84,17 +82,11 @@ class WidgetsAppDemoPage extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(
-                "Load Game",
-                textAlign: TextAlign.center,
-              ),
+              child: Text("Load Game", textAlign: TextAlign.center),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(
-                "Exit",
-                textAlign: TextAlign.center,
-              ),
+              child: Text("Exit", textAlign: TextAlign.center),
             ),
           ],
         ),
