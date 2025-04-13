@@ -11,4 +11,4 @@ PRODUCT_NAME = todo_shared_prefs
 PRODUCT_BUNDLE_IDENTIFIER = hu.bme.aut.example.todoSharedPrefs
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2024 hu.bme.aut.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2025 hu.bme.aut.example. All rights reserved.

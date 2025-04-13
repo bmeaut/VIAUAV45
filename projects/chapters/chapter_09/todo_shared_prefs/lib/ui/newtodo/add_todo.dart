@@ -22,14 +22,10 @@ class _AddTodoPageState extends State<AddTodoPage> {
   Widget build(BuildContext context) {
     return BlocProvider<CreateTodoCubit>(
       create: (context) {
-        return CreateTodoCubit(
-          context.read<DataSource>(),
-        );
+        return CreateTodoCubit(context.read<DataSource>());
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Add a new todo"),
-        ),
+        appBar: AppBar(title: const Text("Add a new todo")),
         body: SingleChildScrollView(
           child: BlocBuilder<CreateTodoCubit, CreateTodoState>(
             builder: (context, state) {
@@ -38,38 +34,28 @@ class _AddTodoPageState extends State<AddTodoPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Title",
-                      textAlign: TextAlign.start,
-                    ),
+                    const Text("Title", textAlign: TextAlign.start),
                     TextField(
                       decoration: const InputDecoration(
-                          hintText: "Do something awesome today!"),
+                        hintText: "Do something awesome today!",
+                      ),
                       controller: titleTextController,
                     ),
                     const Padding(
                       padding: EdgeInsets.only(top: 24.0),
-                      child: Text(
-                        "Description",
-                        textAlign: TextAlign.start,
-                      ),
+                      child: Text("Description", textAlign: TextAlign.start),
                     ),
-                    TextField(
-                      controller: descriptionTextController,
-                    ),
+                    TextField(controller: descriptionTextController),
                     const Padding(
                       padding: EdgeInsets.only(top: 24.0),
-                      child: Text(
-                        "Priority",
-                        textAlign: TextAlign.start,
-                      ),
+                      child: Text("Priority", textAlign: TextAlign.start),
                     ),
                     DropdownButton<TodoPriority>(
                       value: state.todo.priority,
                       onChanged: (todoPriority) {
                         context.read<CreateTodoCubit>().updateState(
-                              priority: todoPriority,
-                            );
+                          priority: todoPriority,
+                        );
                       },
                       items: [
                         DropdownMenuItem(
@@ -95,14 +81,14 @@ class _AddTodoPageState extends State<AddTodoPage> {
                           padding: EdgeInsets.only(right: 4),
                           child: Text("Due date:"),
                         ),
-                        Text(getFormattedDate(
-                          state.todo.dueDate,
-                        )),
+                        Text(getFormattedDate(state.todo.dueDate)),
                         TextButton(
                           child: const Text("SELECT DATE"),
-                          onPressed: () => showDueDatePicker(
-                              context.read<CreateTodoCubit>()),
-                        )
+                          onPressed:
+                              () => showDueDatePicker(
+                                context.read<CreateTodoCubit>(),
+                              ),
+                        ),
                       ],
                     ),
                     Row(
@@ -113,9 +99,9 @@ class _AddTodoPageState extends State<AddTodoPage> {
                           child: ElevatedButton.icon(
                             onPressed: () async {
                               await context.read<CreateTodoCubit>().submitTodo(
-                                    titleTextController.value.text,
-                                    descriptionTextController.value.text,
-                                  );
+                                titleTextController.value.text,
+                                descriptionTextController.value.text,
+                              );
                               Navigator.pop(context);
                             },
                             icon: const Icon(Icons.add),
@@ -123,7 +109,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
                           ),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               );

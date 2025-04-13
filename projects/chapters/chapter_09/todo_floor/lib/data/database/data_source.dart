@@ -1,4 +1,4 @@
-import 'package:awesome_todo_app/domain/model/todo_priority.dart';
+import 'package:todo_app/domain/model/todo_priority.dart';
 
 import '../../domain/model/todo.dart';
 import '../../util.dart';
@@ -40,12 +40,13 @@ class DataSource {
 extension TodoToFloorTodo on Todo {
   FloorTodo toDbModel() {
     return FloorTodo(
-        id: id,
-        title: title,
-        description: description,
-        priority: priority.index,
-        isDone: isDone ? 1 : 0,
-        dueDate: getFormattedDate(dueDate));
+      id: id,
+      title: title,
+      description: description,
+      priority: priority.index,
+      isDone: isDone ? 1 : 0,
+      dueDate: getFormattedDate(dueDate),
+    );
   }
 }
 
@@ -64,14 +65,16 @@ extension FloorTodoToTodo on FloorTodo {
         break;
       default:
         throw ArgumentError(
-            "Invalid Todo priority encountered while mapping database object to domain object");
+          "Invalid Todo priority encountered while mapping database object to domain object",
+        );
     }
     return Todo(
-        id: id,
-        title: title,
-        description: description,
-        priority: priority,
-        isDone: isDone == 1 ? true : false,
-        dueDate: parseDate(dueDate));
+      id: id,
+      title: title,
+      description: description,
+      priority: priority,
+      isDone: isDone == 1 ? true : false,
+      dueDate: parseDate(dueDate),
+    );
   }
 }

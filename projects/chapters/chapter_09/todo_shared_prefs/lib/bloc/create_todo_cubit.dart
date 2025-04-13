@@ -11,19 +11,11 @@ part 'create_todo_cubit.g.dart';
 class CreateTodoCubit extends Cubit<CreateTodoState> {
   final DataSource _dataSource;
 
-  CreateTodoCubit(
-    this._dataSource,
-  ) : super(CreateTodoState.initial());
+  CreateTodoCubit(this._dataSource) : super(CreateTodoState.initial());
 
-  Future<void> submitTodo(
-    String title,
-    String description,
-  ) async {
+  Future<void> submitTodo(String title, String description) async {
     await _dataSource.upsertTodo(
-      state.todo.copyWith(
-        title: title,
-        description: description,
-      ),
+      state.todo.copyWith(title: title, description: description),
     );
   }
 
@@ -33,13 +25,16 @@ class CreateTodoCubit extends Cubit<CreateTodoState> {
     TodoPriority? priority,
     DateTime? dueDate,
   }) {
-    emit(state.copyWith(
+    emit(
+      state.copyWith(
         todo: state.todo.copyWith(
-      title: title,
-      description: description,
-      priority: priority,
-      dueDate: dueDate,
-    )));
+          title: title ?? state.todo.title,
+          description: description ?? state.todo.description,
+          priority: priority ?? state.todo.priority,
+          dueDate: dueDate ?? state.todo.dueDate,
+        ),
+      ),
+    );
   }
 }
 
@@ -48,22 +43,18 @@ class CreateTodoCubit extends Cubit<CreateTodoState> {
 class CreateTodoState extends Equatable {
   final Todo todo;
 
-  const CreateTodoState({
-    required this.todo,
-  });
+  const CreateTodoState({required this.todo});
 
   CreateTodoState.initial()
-      : todo = Todo(
-          id: null,
-          title: "",
-          dueDate: DateTime.now(),
-          isDone: false,
-          description: "",
-          priority: TodoPriority.normal,
-        );
+    : todo = Todo(
+        id: null,
+        title: "",
+        dueDate: DateTime.now(),
+        isDone: false,
+        description: "",
+        priority: TodoPriority.normal,
+      );
 
   @override
-  List<Object> get props => [
-        todo,
-      ];
+  List<Object> get props => [todo];
 }

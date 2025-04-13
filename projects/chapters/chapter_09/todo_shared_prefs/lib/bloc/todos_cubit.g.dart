@@ -7,9 +7,9 @@ part of 'todos_cubit.dart';
 // **************************************************************************
 
 abstract class _$TodosLoadedCWProxy {
-  TodosLoaded hideDoneTodos(bool hideDoneTodos);
-
   TodosLoaded todos(List<Todo> todos);
+
+  TodosLoaded hideDoneTodos(bool hideDoneTodos);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `TodosLoaded(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -17,27 +17,23 @@ abstract class _$TodosLoadedCWProxy {
   /// ```dart
   /// TodosLoaded(...).copyWith(id: 12, name: "My name")
   /// ````
-  TodosLoaded call({
-    bool? hideDoneTodos,
-    List<Todo>? todos,
-  });
+  TodosLoaded call({List<Todo> todos, bool hideDoneTodos});
 }
 
 /// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfTodosLoaded.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfTodosLoaded.copyWith.fieldName(...)`
 class _$TodosLoadedCWProxyImpl implements _$TodosLoadedCWProxy {
+  const _$TodosLoadedCWProxyImpl(this._value);
+
   final TodosLoaded _value;
 
-  const _$TodosLoadedCWProxyImpl(this._value);
+  @override
+  TodosLoaded todos(List<Todo> todos) => this(todos: todos);
 
   @override
   TodosLoaded hideDoneTodos(bool hideDoneTodos) =>
       this(hideDoneTodos: hideDoneTodos);
 
   @override
-  TodosLoaded todos(List<Todo> todos) => this(todos: todos);
-
-  @override
-
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `TodosLoaded(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -45,24 +41,26 @@ class _$TodosLoadedCWProxyImpl implements _$TodosLoadedCWProxy {
   /// TodosLoaded(...).copyWith(id: 12, name: "My name")
   /// ````
   TodosLoaded call({
-    Object? hideDoneTodos = const $CopyWithPlaceholder(),
     Object? todos = const $CopyWithPlaceholder(),
+    Object? hideDoneTodos = const $CopyWithPlaceholder(),
   }) {
     return TodosLoaded(
+      todos:
+          todos == const $CopyWithPlaceholder()
+              ? _value.todos
+              // ignore: cast_nullable_to_non_nullable
+              : todos as List<Todo>,
       hideDoneTodos:
-          hideDoneTodos == const $CopyWithPlaceholder() || hideDoneTodos == null
+          hideDoneTodos == const $CopyWithPlaceholder()
               ? _value.hideDoneTodos
               // ignore: cast_nullable_to_non_nullable
               : hideDoneTodos as bool,
-      todos: todos == const $CopyWithPlaceholder() || todos == null
-          ? _value.todos
-          // ignore: cast_nullable_to_non_nullable
-          : todos as List<Todo>,
     );
   }
 }
 
 extension $TodosLoadedCopyWith on TodosLoaded {
-  /// Returns a callable class that can be used as follows: `instanceOfclass TodosLoaded extends Equatable implements TodosState.name.copyWith(...)` or like so:`instanceOfclass TodosLoaded extends Equatable implements TodosState.name.copyWith.fieldName(...)`.
+  /// Returns a callable class that can be used as follows: `instanceOfTodosLoaded.copyWith(...)` or like so:`instanceOfTodosLoaded.copyWith.fieldName(...)`.
+  // ignore: library_private_types_in_public_api
   _$TodosLoadedCWProxy get copyWith => _$TodosLoadedCWProxyImpl(this);
 }
