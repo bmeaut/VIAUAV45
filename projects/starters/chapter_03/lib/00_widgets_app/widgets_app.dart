@@ -5,12 +5,15 @@ void main() {
 }
 
 class WidgetsAppDemo extends StatelessWidget {
-  const WidgetsAppDemo({Key? key}) : super(key: key);
+  const WidgetsAppDemo({super.key});
 
   Route generateRoutes(RouteSettings settings) {
     return PageRouteBuilder(
-      pageBuilder: (BuildContext context, Animation<double> animation,
-          Animation<double> secondaryAnimation) {
+      pageBuilder: (
+        BuildContext context,
+        Animation<double> animation,
+        Animation<double> secondaryAnimation,
+      ) {
         return const WidgetsAppDemoPage();
       },
     );
@@ -25,24 +28,20 @@ class WidgetsAppDemo extends StatelessWidget {
       initialRoute: "/",
       // If we use multiple pages, we have to define exactly how navigation should happen between them.
       onGenerateRoute: generateRoutes,
-      textStyle: const TextStyle(
-        color: Color.fromARGB(255, 0, 0, 0),
-      ),
+      textStyle: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
     );
   }
 }
 
 class WidgetsAppDemoPage extends StatelessWidget {
-  const WidgetsAppDemoPage({Key? key}) : super(key: key);
+  const WidgetsAppDemoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Text(
         "WidgetsApp Demo",
-        style: TextStyle(
-          color: Color.fromARGB(255, 255, 255, 255),
-        ),
+        style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
       ),
     ); // TODO 0.1 Container + Column
   }
