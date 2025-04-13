@@ -33,7 +33,7 @@ class DataSource {
       dueDate: todo.dueDate,
       isDone: isDone,
       description: todo.description,
-      priority: todo.priority
+      priority: todo.priority,
     );
     return database.upsertTodo(newTodo);
   }

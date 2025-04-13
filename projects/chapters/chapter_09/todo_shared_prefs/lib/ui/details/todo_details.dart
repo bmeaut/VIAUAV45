@@ -25,22 +25,17 @@ class _TodoDetailsState extends State<TodoDetails> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<TodoDetailsCubit>(
-      create: (context) => TodoDetailsCubit(
-        context.read<DataSource>(),
-        widget.todoId,
-      ),
+      create:
+          (context) =>
+              TodoDetailsCubit(context.read<DataSource>(), widget.todoId),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Todo Details"),
-        ),
+        appBar: AppBar(title: const Text("Todo Details")),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: BlocBuilder<TodoDetailsCubit, TodoState>(
             builder: (context, state) {
               if (state is Loading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
+                return const Center(child: CircularProgressIndicator());
               } else if (state is TodoLoaded) {
                 final todo = state.todo;
                 return Column(
@@ -48,10 +43,7 @@ class _TodoDetailsState extends State<TodoDetails> {
                     Row(
                       children: [
                         TodoPriorityIndicator(todo.priority),
-                        Checkbox(
-                          value: todo.isDone,
-                          onChanged: null,
-                        ),
+                        Checkbox(value: todo.isDone, onChanged: null),
                         Text(todo.title),
                       ],
                     ),
@@ -80,11 +72,7 @@ class TodoDataRow extends StatelessWidget {
   final String rowTitle;
   final String rowData;
 
-  const TodoDataRow({
-    super.key,
-    required this.rowTitle,
-    required this.rowData,
-  });
+  const TodoDataRow({super.key, required this.rowTitle, required this.rowData});
 
   @override
   Widget build(BuildContext context) {

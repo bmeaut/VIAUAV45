@@ -29,7 +29,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
       isDone: false,
       description: "Don't forget to ask questions!",
       priority: TodoPriority.high,
-    )
+    ),
   ];
 
   @override
@@ -49,9 +49,7 @@ class MemoryTodoRepository implements TodoRepository<Todo> {
 
   @override
   Future<Todo> getTodo(int id) {
-    return Future.value(
-      todos.firstWhere((element) => element.id == id),
-    );
+    return Future.value(todos.firstWhere((element) => element.id == id));
   }
 
   @override

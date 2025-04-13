@@ -8,10 +8,7 @@ import 'package:todo_shared_prefs/ui/details/todo_details.dart';
 class TodoListItem extends StatelessWidget {
   final Todo todo;
 
-  const TodoListItem(
-    Key key,
-    this.todo,
-  ) : super(key: key);
+  const TodoListItem(Key key, this.todo) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +16,9 @@ class TodoListItem extends StatelessWidget {
     return InkWell(
       key: ObjectKey(todo),
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => TodoDetails(todo.id!)));
+        Navigator.of(
+          context,
+        ).push(MaterialPageRoute(builder: (context) => TodoDetails(todo.id!)));
       },
       child: Row(
         children: [
@@ -31,7 +29,9 @@ class TodoListItem extends StatelessWidget {
           Checkbox(
             value: todo.isDone,
             onChanged: (isDone) {
-              cubit.upsertTodo(todo.copyWith(isDone: isDone));
+              if (isDone != null) {
+                cubit.upsertTodo(todo.copyWith(isDone: isDone));
+              }
             },
           ),
           Expanded(
@@ -39,17 +39,12 @@ class TodoListItem extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(todo.title),
-                ],
+                children: [Text(todo.title)],
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(
-              Icons.delete,
-              color: Colors.grey,
-            ),
+            icon: const Icon(Icons.delete, color: Colors.grey),
             onPressed: () {
               cubit.deleteTodo(todo);
             },
@@ -79,10 +74,6 @@ class TodoPriorityIndicator extends StatelessWidget {
       case TodoPriority.high:
         indicatorColor = Colors.red;
         break;
-      default:
-        throw ArgumentError(
-          "A Todo has an invalid priority. This should never happen.",
-        );
     }
 
     return SizedBox(

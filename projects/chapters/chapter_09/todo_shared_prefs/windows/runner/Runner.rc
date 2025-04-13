@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "todo_shared_prefs" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "todo_shared_prefs" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 hu.bme.aut.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 hu.bme.aut.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "todo_shared_prefs.exe" "\0"
             VALUE "ProductName", "todo_shared_prefs" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
