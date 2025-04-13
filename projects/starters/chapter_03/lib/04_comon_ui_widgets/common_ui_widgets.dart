@@ -5,27 +5,27 @@ void main() {
 }
 
 class EssentialWidgetsDemoApp extends StatelessWidget {
-  const EssentialWidgetsDemoApp({Key? key}) : super(key: key);
+  const EssentialWidgetsDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Essential Widgets',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: const EssentialWidgetsDemoPage(
+        title: 'Flutter Essential Widgets Demo',
       ),
-      home: const EssentialWidgetsDemoPage(title: 'Flutter Essential Widgets Demo'),
     );
   }
 }
 
 class EssentialWidgetsDemoPage extends StatefulWidget {
-  const EssentialWidgetsDemoPage({Key? key, required this.title}) : super(key: key);
+  const EssentialWidgetsDemoPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<EssentialWidgetsDemoPage> createState() => _EssentialWidgetsDemoPageState();
+  State<EssentialWidgetsDemoPage> createState() =>
+      _EssentialWidgetsDemoPageState();
 }
 
 class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
@@ -40,10 +40,9 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center( // TODO 4.7 Container TODO 4.8 Stack
+      appBar: AppBar(title: Text(widget.title)),
+      body: Center(
+        // TODO 4.7 Container TODO 4.8 Stack
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -51,12 +50,11 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
             // TODO 4.3 AssetImage, Image.asset
             // TODO 4.6 SizedBox
             // TODO 4.4 Image.network (+4.5)
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text( // TODO 4.1 Text parameters
+            const Text('You have pushed the button this many times:'),
+            Text(
+              // TODO 4.1 Text parameters
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),

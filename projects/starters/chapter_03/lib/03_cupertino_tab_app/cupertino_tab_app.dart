@@ -5,7 +5,7 @@ void main() {
 }
 
 class CupertinoTabsDemoApp extends StatelessWidget {
-  const CupertinoTabsDemoApp({Key? key}) : super(key: key);
+  const CupertinoTabsDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,31 +34,31 @@ class CupertinoTabsDemoApp extends StatelessWidget {
           late CupertinoTabView returnValue;
           switch (index) {
             case 0:
-              returnValue = CupertinoTabView(builder: (context) {
-                return const CupertinoPageScaffold(
-                  child: Center(
-                    child: Text("Products"),
-                  ),
-                );
-              });
+              returnValue = CupertinoTabView(
+                builder: (context) {
+                  return const CupertinoPageScaffold(
+                    child: Center(child: Text("Products")),
+                  );
+                },
+              );
               break;
             case 1:
-              returnValue = CupertinoTabView(builder: (context) {
-                return const CupertinoPageScaffold(
-                  child: Center(
-                    child: Text("Search"),
-                  ),
-                );
-              });
+              returnValue = CupertinoTabView(
+                builder: (context) {
+                  return const CupertinoPageScaffold(
+                    child: Center(child: Text("Search")),
+                  );
+                },
+              );
               break;
             case 2:
-              returnValue = CupertinoTabView(builder: (context) {
-                return const CupertinoPageScaffold(
-                  child: Center(
-                    child: Text("Cart"),
-                  ),
-                );
-              });
+              returnValue = CupertinoTabView(
+                builder: (context) {
+                  return const CupertinoPageScaffold(
+                    child: Center(child: Text("Cart")),
+                  );
+                },
+              );
               break;
           }
           return returnValue;

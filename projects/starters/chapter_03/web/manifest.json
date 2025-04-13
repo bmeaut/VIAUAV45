@@ -1,6 +1,6 @@
 {
-    "name": "chapter_03",
-    "short_name": "chapter_03",
+    "name": "starters",
+    "short_name": "starters",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

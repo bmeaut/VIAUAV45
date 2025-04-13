@@ -6,27 +6,27 @@ void main() {
 }
 
 class EssentialWidgetsDemoApp extends StatelessWidget {
-  const EssentialWidgetsDemoApp({Key? key}) : super(key: key);
+  const EssentialWidgetsDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Essential Widgets',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: const EssentialWidgetsDemoPage(
+        title: 'Flutter Essential Widgets Demo',
       ),
-      home: const EssentialWidgetsDemoPage(title: 'Flutter Essential Widgets Demo'),
     );
   }
 }
 
 class EssentialWidgetsDemoPage extends StatefulWidget {
-  const EssentialWidgetsDemoPage({Key? key, required this.title}) : super(key: key);
+  const EssentialWidgetsDemoPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<EssentialWidgetsDemoPage> createState() => _EssentialWidgetsDemoPageState();
+  State<EssentialWidgetsDemoPage> createState() =>
+      _EssentialWidgetsDemoPageState();
 }
 
 class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
@@ -41,22 +41,18 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: Stack(
         children: [
           Container(
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                border: Border.all(
-                  color: Colors.black,
-                  width: 8,
-                ),
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.circular(8)),
+              shape: BoxShape.rectangle,
+              border: Border.all(color: Colors.black, width: 8),
+              color: Colors.blueGrey,
+              borderRadius: BorderRadius.circular(8),
+            ),
             alignment: Alignment.center,
             child: Center(
               child: Column(
@@ -69,16 +65,8 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: const [
-                      Icon(
-                        Icons.android,
-                        color: Colors.greenAccent,
-                        size: 40,
-                      ),
-                      Icon(
-                        Icons.alarm,
-                        color: Colors.orangeAccent,
-                        size: 40,
-                      ),
+                      Icon(Icons.android, color: Colors.greenAccent, size: 40),
+                      Icon(Icons.alarm, color: Colors.orangeAccent, size: 40),
                     ],
                   ),
                   Expanded(
@@ -89,11 +77,9 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
                     ),
                   ),
                   SizedBox(
-                      width: 80,
-                      height: 20,
-                      child: Container(
-                        color: Colors.brown,
-                      )
+                    width: 80,
+                    height: 20,
+                    child: Container(color: Colors.brown),
                   ),
                   Expanded(
                     flex: 2,
@@ -101,24 +87,26 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
                       "https://picsum.photos/150",
                       color: Colors.red,
                       colorBlendMode: BlendMode.colorBurn,
-                      loadingBuilder: (BuildContext context, Widget child,
-                          ImageChunkEvent? loadingProgress) {
+                      loadingBuilder: (
+                        BuildContext context,
+                        Widget child,
+                        ImageChunkEvent? loadingProgress,
+                      ) {
                         if (loadingProgress == null) return child;
                         return Center(
                           child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!
-                                : null,
+                            value:
+                                loadingProgress.expectedTotalBytes != null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
                           ),
                         );
                       },
                       headers: const {"Authorization": "Bearer 0123456789"},
                     ),
                   ),
-                  const Text(
-                    'You have pushed the button this many times:',
-                  ),
+                  const Text('You have pushed the button this many times:'),
                   Text(
                     '$_counter',
                     // style: Theme.of(context).textTheme.headline4,
@@ -138,10 +126,7 @@ class _EssentialWidgetsDemoPageState extends State<EssentialWidgetsDemoPage> {
           Positioned(
             left: 250,
             top: 230,
-            child: Image.asset(
-              'assets/images/logo_flutter.png',
-              height: 100,
-            ),
+            child: Image.asset('assets/images/logo_flutter.png', height: 100),
           ),
         ],
       ),

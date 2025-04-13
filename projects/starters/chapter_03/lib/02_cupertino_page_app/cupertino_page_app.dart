@@ -5,19 +5,19 @@ void main() {
 }
 
 class CupertinoDemoApp extends StatelessWidget {
-  const CupertinoDemoApp({Key? key}) : super(key: key);
+  const CupertinoDemoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const CupertinoApp(
-        title: "Cupertino Page Demo",
-        home: CupertinoDemoHomePage()
+      title: "Cupertino Page Demo",
+      home: CupertinoDemoHomePage(),
     );
   }
 }
 
 class CupertinoDemoHomePage extends StatelessWidget {
-  const CupertinoDemoHomePage({Key? key}) : super(key: key);
+  const CupertinoDemoHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,19 +37,20 @@ class CupertinoDemoHomePage extends StatelessWidget {
               onPressed: () {
                 showCupertinoDialog(
                   context: context,
-                  builder: (_) => CupertinoAlertDialog(
-                    title: const Text("Good job!"),
-                    content: const Text("Now press OK"),
-                    actions: [
-                      CupertinoDialogAction(
-                        isDefaultAction: true,
-                        child: const Text("OK"),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+                  builder:
+                      (_) => CupertinoAlertDialog(
+                        title: const Text("Good job!"),
+                        content: const Text("Now press OK"),
+                        actions: [
+                          CupertinoDialogAction(
+                            isDefaultAction: true,
+                            child: const Text("OK"),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
                 );
               },
             ),
