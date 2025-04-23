@@ -17,7 +17,7 @@ Pár példa alkalmazásötletet találhattok az alábbi linkeken:
 ### Értékelés
 Minden feladat egyénileg kerül értékelésre. A szempontok közé tartozik a feladat komplexitása, a megvalósított alkalmazás kinézete, illetve a kód minősége.
 Igény esetén van lehetőség javítani is az eredményen.
-A leadási határidő a **14. hét vége, tehát december 6.**.
+A leadási határidő a **14. hét vége, tehát május 25.**.
 A Moodle rendszerén keresztül kell feltölteni az elkészült megoldást ZIP archívumban.
 A feltöltendő archívum nevében szerepeljen az **egyeni** szó is!
 
@@ -121,7 +121,7 @@ A kiértékelés automatizálásához szükséges még egy segéd fájl kitölt�
  - Választott állapotkezelési megoldás (`bloc` vagy `provider`)
  - Opcionális: Szöveges értékelés az automatizált házi feladatról
 
-Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége, tehát december 6.**..
+Az elkészült projektet becsomagolva a Moodle-ön keresztül kell beadni (elég csak a `lib` mappát és  `pubspec.yaml` fájlt becsomagolni). A házi feladat sikeres teljesítéséhez legalább 24 pontot el kell érni. A beadási határidő a **14. hét vége, tehát május 25.**..
 
 ### Beadás
 
