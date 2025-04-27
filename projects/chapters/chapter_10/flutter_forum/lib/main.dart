@@ -12,6 +12,11 @@ import 'ui/posts/posts_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  /// Initialize Firebase using the command of `flutterfire configure` which will
+  /// create the `firebase_options.dart` file.
+  ///
+  /// Refer the documentation for more information: https://firebase.google.com/docs/flutter/setup?platform=ios
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const FlutterForumApp());
 }
