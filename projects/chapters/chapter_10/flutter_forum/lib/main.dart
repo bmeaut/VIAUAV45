@@ -31,7 +31,9 @@ class FlutterForumApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           title: 'Flutter Forum',
-          theme: ThemeData(primarySwatch: Colors.amber),
+          theme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+          ),
           home: HomeScreenRenderer(),
           routes: {
             "/login": (context) => LoginPage(),

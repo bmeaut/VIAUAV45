@@ -27,10 +27,12 @@ class _CreatePostPageState extends State<CreatePostPage> {
   Future<File>? _imageFuture;
   File? _selectedImage;
   String? _imageUrl;
-  final _imagePicker = ImagePicker();
+  final ImagePicker _imagePicker = ImagePicker();
 
   Future<void> _pickImage() async {
-    final pickedFile = await _imagePicker.pickImage(source: ImageSource.camera);
+    final pickedFile = await _imagePicker.pickImage(
+      source: ImageSource.gallery,
+    );
 
     setState(() {
       if (pickedFile != null) {
@@ -81,6 +83,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          spacing: 16,
           children: [
             TextField(
               controller: _postTitleController,
