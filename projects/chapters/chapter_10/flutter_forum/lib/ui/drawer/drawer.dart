@@ -1,17 +1,16 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:flutter_forum/ui/login/login_page.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 class ForumDrawer extends StatelessWidget {
   final User user;
   final FirebaseAnalytics analytics;
 
-  ForumDrawer(this.user, this.analytics);
-
+  const ForumDrawer(this.user, this.analytics, {super.key});
 
   Future<void> _logOut() {
     return FirebaseAuth.instance.signOut();
@@ -41,27 +40,23 @@ class ForumDrawer extends StatelessWidget {
               _logOut();
               analytics.logEvent(name: "log_out");
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => LoginPage(),
-                ),
+                MaterialPageRoute(builder: (context) => LoginPage()),
               );
             },
           ),
           Conditional.single(
             context: context,
             conditionBuilder: (context) => !kIsWeb,
-            widgetBuilder: (context) => DrawerMenuItem(
-              icon: Icon(
-                Icons.cancel,
-                color: Colors.red,
-              ),
-              text: Text("Crash the app :("),
-              onTap: () {
-                _apocalypse();
-              },
-            ),
+            widgetBuilder:
+                (context) => DrawerMenuItem(
+                  icon: Icon(Icons.cancel, color: Colors.red),
+                  text: Text("Crash the app :("),
+                  onTap: () {
+                    _apocalypse();
+                  },
+                ),
             fallbackBuilder: (context) => Container(),
-          )
+          ),
         ],
       ),
     );
@@ -73,7 +68,8 @@ class DrawerMenuItem extends StatelessWidget {
   final Text text;
   final Function() onTap;
 
-  DrawerMenuItem({
+  const DrawerMenuItem({
+    super.key,
     required this.icon,
     required this.text,
     required this.onTap,
@@ -87,10 +83,7 @@ class DrawerMenuItem extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 4.0),
-              child: icon,
-            ),
+            Padding(padding: const EdgeInsets.only(right: 4.0), child: icon),
             text,
           ],
         ),

@@ -13,8 +13,10 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 class CreatePostPage extends StatefulWidget {
+  const CreatePostPage({super.key});
+
   @override
-  _CreatePostPageState createState() => _CreatePostPageState();
+  State<CreatePostPage> createState() => _CreatePostPageState();
 }
 
 class _CreatePostPageState extends State<CreatePostPage> {
@@ -34,7 +36,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
       if (pickedFile != null) {
         _imageFuture = Future.value(File(pickedFile.path));
       } else {
-        print('No image selected.');
+        debugPrint('No image selected.');
       }
     });
   }
@@ -50,21 +52,24 @@ class _CreatePostPageState extends State<CreatePostPage> {
       await newImageRef.putFile(_selectedImage!);
       _imageUrl = await newImageRef.getDownloadURL();
 
-      return uploadPost(context, _imageUrl);
+      if (context.mounted) {
+        return uploadPost(context, _imageUrl);
+      }
     } else {
       return uploadPost(context);
     }
   }
 
   Future<void> uploadPost(BuildContext context, [String? imageUrl]) {
-    final newPost = Post(
-      uid: Uuid().v4(),
-      title: _postTitleController.text,
-      time: DateTime.now(),
-      body: _postBodyController.text,
-      author: FirebaseAuth.instance.currentUser?.email ?? "Anonymous",
-      imageUrl: imageUrl,
-    ).toJson();
+    final newPost =
+        Post(
+          uid: Uuid().v4(),
+          title: _postTitleController.text,
+          time: DateTime.now(),
+          body: _postBodyController.text,
+          author: FirebaseAuth.instance.currentUser?.email ?? "Anonymous",
+          imageUrl: imageUrl,
+        ).toJson();
 
     return posts.add(newPost);
   }
@@ -72,9 +77,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Create Post"),
-      ),
+      appBar: AppBar(title: Text("Create Post")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -121,9 +124,13 @@ class _CreatePostPageState extends State<CreatePostPage> {
             ElevatedButton(
               onPressed: () async {
                 await _submitPost(context);
-                Provider.of<FirebaseAnalytics>(context, listen: false)
-                    .logEvent(name: "post_created");
-                Navigator.pop(context);
+                if (context.mounted) {
+                  Provider.of<FirebaseAnalytics>(
+                    context,
+                    listen: false,
+                  ).logEvent(name: "post_created");
+                  Navigator.pop(context);
+                }
               },
               child: Text("Post".toUpperCase()),
             ),

@@ -8,8 +8,10 @@ import 'package:flutter_forum/ui/posts/post_item.dart';
 import 'package:provider/provider.dart';
 
 class PostsPage extends StatefulWidget {
+  const PostsPage({super.key});
+
   @override
-  _PostsPageState createState() => _PostsPageState();
+  State<PostsPage> createState() => _PostsPageState();
 }
 
 class _PostsPageState extends State<PostsPage> {
@@ -19,26 +21,25 @@ class _PostsPageState extends State<PostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter Forum Posts"),
-      ),
+      appBar: AppBar(title: Text("Flutter Forum Posts")),
       body: StreamBuilder<QuerySnapshot>(
         stream: posts.orderBy("time", descending: true).snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError || !snapshot.hasData) {
-            print("snapshot error: ${snapshot.error}");
+            debugPrint("snapshot error: ${snapshot.error}");
             return Center(child: Text("Something went wrong"));
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            print("loading");
+            debugPrint("loading");
             return Center(child: CircularProgressIndicator());
           }
 
           final items = List.from(
             snapshot.data!.docs
-                .map((post) =>
-                    Post.fromJson(post.data() as Map<String, dynamic>))
+                .map(
+                  (post) => Post.fromJson(post.data() as Map<String, dynamic>),
+                )
                 .toList(),
           );
 
@@ -51,7 +52,7 @@ class _PostsPageState extends State<PostsPage> {
             );
           }
 
-          print("loaded");
+          debugPrint("loaded");
           return ListView.builder(
             itemCount: items.length,
             itemBuilder: (context, index) {
