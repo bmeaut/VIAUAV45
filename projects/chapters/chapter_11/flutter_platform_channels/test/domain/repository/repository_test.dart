@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_platform_channels/data/native/native_datasource.dart';
 import 'package:flutter_platform_channels/domain/repository/repository.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../di/di_test_utils.dart';
 
@@ -22,7 +22,7 @@ void main() {
           () async {
         // Arrange
         const int expectedResult = 10;
-        when(mockNativeDataSource.getTemperature())
+        when(() => mockNativeDataSource.getTemperature())
             .thenAnswer((_) async => expectedResult);
 
         // Act
@@ -30,6 +30,8 @@ void main() {
 
         // Assert
         expect(result, expectedResult);
+        verify(() => mockNativeDataSource.getTemperature()).called(1);
+        verifyNoMoreInteractions(mockNativeDataSource);
       });
 
       test(
@@ -37,7 +39,7 @@ void main() {
           () async {
         // Arrange
         const int expectedResult = -10;
-        when(mockNativeDataSource.getTemperature())
+        when(() => mockNativeDataSource.getTemperature())
             .thenAnswer((_) async => expectedResult);
 
         // Act
@@ -45,6 +47,8 @@ void main() {
 
         // Assert
         expect(result, expectedResult);
+        verify(() => mockNativeDataSource.getTemperature()).called(1);
+        verifyNoMoreInteractions(mockNativeDataSource);
       });
     });
 
@@ -54,7 +58,7 @@ void main() {
           () async {
         // Arrange
         const int expectedResult = 0;
-        when(mockNativeDataSource.getTemperature()).thenAnswer(
+        when(() => mockNativeDataSource.getTemperature()).thenAnswer(
           (_) async => throw PlatformException(code: ''),
         );
 
@@ -63,6 +67,8 @@ void main() {
 
         // Assert
         expect(result, expectedResult);
+        verify(() => mockNativeDataSource.getTemperature()).called(1);
+        verifyNoMoreInteractions(mockNativeDataSource);
       });
     });
   });
