@@ -2,17 +2,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_platform_channels/data/native/channel.dart';
 import 'package:flutter_platform_channels/data/native/native_datasource.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../di/di_test_utils.dart';
 
 void main() {
   late NativeDataSource nativeDataSource;
-  late MethodChannel methodChannel;
+  late MethodChannel mockMethodChannel;
 
   setUp(() {
-    methodChannel = MethodChannelMock();
-    nativeDataSource = NativeDataSourceImpl(methodChannel: methodChannel);
+    mockMethodChannel = MethodChannelMock();
+    nativeDataSource = NativeDataSourceImpl(methodChannel: mockMethodChannel);
   });
 
   group('getTemperature()', () {
@@ -22,7 +22,7 @@ void main() {
           () async {
         // Arrange
         const int expectedResult = 10;
-        when(methodChannel.invokeMethod(Channel.getTemp))
+        when(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
             .thenAnswer((_) async => expectedResult);
 
         // Act
@@ -30,6 +30,9 @@ void main() {
 
         // Assert
         expect(result, expectedResult);
+        verify(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
+            .called(1);
+        verifyNoMoreInteractions(mockMethodChannel);
       });
 
       test(
@@ -37,7 +40,7 @@ void main() {
           () async {
         // Arrange
         const int expectedResult = -10;
-        when(methodChannel.invokeMethod(Channel.getTemp))
+        when(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
             .thenAnswer((_) async => expectedResult);
 
         // Act
@@ -55,7 +58,7 @@ void main() {
         // Arrange
         const int? response = null;
         const String expectedError = 'temp is missing';
-        when(methodChannel.invokeMethod(Channel.getTemp))
+        when(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
             .thenAnswer((_) async => response);
 
         // Act
@@ -67,6 +70,9 @@ void main() {
                 (e) => e is PlatformException && e.message == expectedError),
           ),
         );
+        verify(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
+            .called(1);
+        verifyNoMoreInteractions(mockMethodChannel);
       });
 
       test(
@@ -74,18 +80,19 @@ void main() {
           () async {
         // Arrange
         const String expectedError = 'temp is missing';
-        when(methodChannel.invokeMethod(Channel.getTemp))
-            .thenThrow(PlatformException(message: expectedError, code: ""));
 
         // Act
         // Assert
         expect(
           () => nativeDataSource.getTemperature(),
           throwsA(
-            predicate(
-                (e) => e is PlatformException && e.message == expectedError),
+            isA<PlatformException>()
+                .having((e) => e.message, 'message', expectedError),
           ),
         );
+        verify(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
+            .called(1);
+        verifyNoMoreInteractions(mockMethodChannel);
       });
 
       test(
@@ -93,18 +100,23 @@ void main() {
           () async {
         // Arrange
         const String expectedError = 'temp is missing';
-        when(methodChannel.invokeMethod(Channel.getTemp))
-            .thenThrow(MissingPluginException());
+        final mockException = MissingPluginException('Missing implementation');
+        when(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
+            .thenThrow(mockException);
 
         // Act
         // Assert
         expect(
           () => nativeDataSource.getTemperature(),
           throwsA(
-            predicate(
-                (e) => e is PlatformException && e.message == expectedError),
+            isA<PlatformException>().having((e) => e.message, 'message',
+                expectedError // Asserting the message from the catch block
+                ),
           ),
         );
+        verify(() => mockMethodChannel.invokeMethod<int>(Channel.getTemp))
+            .called(1);
+        verifyNoMoreInteractions(mockMethodChannel);
       });
     });
   });
