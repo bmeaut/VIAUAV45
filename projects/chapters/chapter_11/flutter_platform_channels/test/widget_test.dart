@@ -7,83 +7,87 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_platform_channels/main.dart';
 import 'package:flutter_platform_channels/ui/home/bloc/home_bloc.dart';
-import 'package:flutter_platform_channels/ui/home/home.dart';
+import 'package:flutter_platform_channels/ui/home/home_screen.dart';
 import 'package:flutter_platform_channels/ui/home/widgets/home_error.dart';
 import 'package:flutter_platform_channels/ui/home/widgets/home_loading.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
-class MockHomeBlock extends Mock implements HomeBloc {}
+class MockHomeBloc extends Mock implements HomeBloc {}
 
 void main() {
-  MockHomeBlock homeBloc;
+  late MockHomeBloc mockBloc;
 
   setUp(() {
-    homeBloc = MockHomeBlock();
+    mockBloc = MockHomeBloc();
+
+    when(() => mockBloc.stream).thenAnswer((_) => Stream<HomeState>.empty());
+    when(() => mockBloc.state).thenReturn(HomeStateInitial());
   });
 
   Widget getWidget(HomeBloc bloc) {
-    when(bloc.stream).thenAnswer((realInvocation) => const Stream.empty());
     return MaterialApp(
-      home: BlocProvider<HomeBloc>(
-        create: (context) => bloc,
-        child: MyHomePage(),
+      home: BlocProvider<HomeBloc>.value(
+        // Use .value for existing mocks
+        value: mockBloc,
+        child: HomeScreen(),
       ),
     );
   }
 
   group('happy scenarios', () {
-    testWidgets('MyHomePage has a title', (WidgetTester tester) async {
-      await tester.pumpWidget(getWidget(homeBloc));
+    testWidgets('Home screen has correct App Bar', (WidgetTester tester) async {
+      // ARRANGE
+      // ACT
+      await tester.pumpWidget(getWidget(mockBloc));
 
-      // Verifications.
-      expect(find.text("Flutter Platform Channels demo - updated"),
-          findsOneWidget);
+      // ASSERT
+      expect(find.text("Flutter Platform Channels demo"), findsOneWidget);
     });
 
     testWidgets('Test render loaded state', (WidgetTester tester) async {
       // ARRANGE
-      when(homeBloc.state).thenReturn(HomeStateLoaded(temperature: 10));
-      final widget = getWidget(homeBloc);
+      const testTemp = 10;
+      when(() => mockBloc.state)
+          .thenReturn(HomeStateLoaded(temperature: testTemp));
+      final widget = getWidget(mockBloc);
 
       // ACT
       await tester.pumpWidget(widget);
       await tester.pumpAndSettle(Duration(seconds: 1));
 
-      // Verifications.
-      expect(find.text("Flutter Platform Channels demo - updated"),
-          findsOneWidget);
+      // ASSERT
+      expect(find.text("Flutter Platform Channels demo"), findsOneWidget);
       expect(find.text('0'), findsNothing);
       expect(find.textContaining('Received'), findsOneWidget);
-      //expect(find.textContaining('10'), findsOneWidget);
+      expect(find.textContaining('10'), findsOneWidget);
     });
 
     testWidgets('Test render loading', (tester) async {
       // ARRANGE
-      when(homeBloc.state).thenReturn(HomeStateLoading());
-      final widget = getWidget(homeBloc);
+      when(() => mockBloc.state).thenReturn(HomeStateLoading());
+      final widget = getWidget(mockBloc);
 
       // ACT
       await tester.pumpWidget(widget);
 
-      // Verifications.
-      expect(find.byType(HomeLoading), findsOneWidget);
+      // ASSERT
+      expect(find.byType(HomeLoadingWidget), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
   });
   group('error scenarios', () {
     testWidgets('Test render error', (tester) async {
       // ARRANGE
-      when(homeBloc.state).thenReturn(HomeStateError());
-      final widget = getWidget(homeBloc);
+      when(() => mockBloc.state).thenReturn(HomeStateError());
+      final widget = getWidget(mockBloc);
 
       // ACT
       await tester.pumpWidget(widget);
 
-      // Verifications.
-      expect(find.byType(HomeError), findsOneWidget);
+      // ASSERT
+      expect(find.byType(HomeErrorWidget), findsOneWidget);
     });
   });
 }

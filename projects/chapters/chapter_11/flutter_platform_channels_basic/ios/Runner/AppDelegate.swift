@@ -1,7 +1,7 @@
-import UIKit
 import Flutter
+import UIKit
 
-@UIApplicationMain
+@main
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(
     _ application: UIApplication,
@@ -25,6 +25,6 @@ import Flutter
   }
 
   private func getPlatformSpecificData(result: FlutterResult) {
-      result(30)
+      result(23)
     }
 }

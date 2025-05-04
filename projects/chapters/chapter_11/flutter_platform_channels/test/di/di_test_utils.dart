@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_platform_channels/data/native/native_datasource.dart';
 import 'package:flutter_platform_channels/domain/repository/repository.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 class MethodChannelMock extends Mock implements MethodChannel {}
 

@@ -14,7 +14,7 @@ class HomeStateLoading extends HomeState {}
 class HomeStateLoaded extends HomeState {
   final int temperature;
 
-  HomeStateLoaded({this.temperature});
+  HomeStateLoaded({required this.temperature});
 
   @override
   List<Object> get props => [temperature];
