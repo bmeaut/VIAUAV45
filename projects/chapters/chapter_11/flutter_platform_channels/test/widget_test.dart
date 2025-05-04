@@ -7,7 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_platform_channels/main.dart';
 import 'package:flutter_platform_channels/ui/home/bloc/home_bloc.dart';
 import 'package:flutter_platform_channels/ui/home/home.dart';
 import 'package:flutter_platform_channels/ui/home/widgets/home_error.dart';
@@ -18,7 +17,7 @@ import 'package:mockito/mockito.dart';
 class MockHomeBlock extends Mock implements HomeBloc {}
 
 void main() {
-  MockHomeBlock homeBloc;
+  late MockHomeBlock homeBloc;
 
   setUp(() {
     homeBloc = MockHomeBlock();

@@ -7,8 +7,8 @@ import 'package:mockito/mockito.dart';
 import '../../di/di_test_utils.dart';
 
 void main() {
-  NativeDataSource mockNativeDataSource;
-  Repository repository;
+  late NativeDataSource mockNativeDataSource;
+  late Repository repository;
 
   setUp(() {
     mockNativeDataSource = NativeDataSourceMock();

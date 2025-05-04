@@ -7,8 +7,8 @@ import 'package:mockito/mockito.dart';
 import '../../di/di_test_utils.dart';
 
 void main() {
-  NativeDataSource nativeDataSource;
-  MethodChannel methodChannel;
+  late NativeDataSource nativeDataSource;
+  late MethodChannel methodChannel;
 
   setUp(() {
     methodChannel = MethodChannelMock();
@@ -53,7 +53,7 @@ void main() {
           'return data error when native fails to return temperature and it returns with null',
           () async {
         // Arrange
-        const int response = null;
+        const int? response = null;
         const String expectedError = 'temp is missing';
         when(methodChannel.invokeMethod(Channel.getTemp))
             .thenAnswer((_) async => response);

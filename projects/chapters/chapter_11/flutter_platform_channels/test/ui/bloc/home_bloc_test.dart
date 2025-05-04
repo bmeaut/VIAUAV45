@@ -7,8 +7,8 @@ import 'package:mockito/mockito.dart';
 import '../../di/di_test_utils.dart';
 
 void main() {
-  HomeBloc bloc;
-  Repository mockRepository;
+  late HomeBloc bloc;
+  late Repository mockRepository;
 
   setUp(() {
     mockRepository = RepositoryMock();

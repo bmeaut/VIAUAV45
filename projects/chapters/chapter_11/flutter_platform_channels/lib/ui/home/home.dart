@@ -11,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  HomeBloc bloc;
+  late HomeBloc bloc;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Text(
                     'Tap the button to get sensor data!',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headlineMedium,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 16),
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Text(
                     'Received data from native:\n${state.temperature}',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headlineMedium,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 16),
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             );
           }
-          return Container();
+          return SizedBox.shrink();
         },
       ),
     );

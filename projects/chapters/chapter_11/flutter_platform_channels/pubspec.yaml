@@ -1,40 +1,35 @@
 name: flutter_platform_channels
 description: A new Flutter project.
-
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  shared_preferences: ^2.0.13
-  cupertino_icons: ^1.0.4
+  shared_preferences: ^2.5.3
+  cupertino_icons: ^1.0.8
 
-  #State
-  flutter_bloc: ^7.1.0
-  equatable: ^2.0.3
+  # State
+  flutter_bloc: ^9.1.1
+  equatable: ^2.0.7
 
 dev_dependencies:
-  #TEST
+  # TEST
   flutter_test:
     sdk: flutter
   test: any
-  mockito: ^5.1.0
+  mockito: ^5.4.6
+  mocktail: ^1.0.4
+  bloc_test: ^10.0.0
   integration_test:
     sdk: flutter
-  bloc_test: ^8.1.0
-
 
   # Other useful packages
-  network_image_mock: ^2.1.0
-
+  network_image_mock: ^2.1.1
 
 flutter:
-
   uses-material-design: true
-

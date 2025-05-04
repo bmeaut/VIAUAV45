@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_platform_channels/data/native/native_datasource.dart';
 
 abstract class Repository {
@@ -8,9 +7,7 @@ abstract class Repository {
 class RepositoryImpl extends Repository {
   final NativeDataSource nativeDataSource;
 
-  RepositoryImpl({
-    @required this.nativeDataSource,
-  });
+  RepositoryImpl({required this.nativeDataSource});
 
   @override
   Future<int> getTemperature() async {
