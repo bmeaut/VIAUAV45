@@ -34,40 +34,37 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Flutter Platform Channels demo"),
       ),
-      body: RefreshIndicator(
-        onRefresh: _handleRefresh,
-        child: FutureBuilder<int>(
-            future: _platformSpecificData, // The future we are monitoring
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    'Error: ${snapshot.error}',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                );
-              } else if (snapshot.hasData) {
-                return Center(
-                  child: Text(
-                    'Received data from native:\n${snapshot.data!}',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                );
-              } else {
-                return Center(
-                  child: Text(
-                    'No data received',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                );
-              }
-            }),
-      ),
+      body: FutureBuilder<int>(
+          future: _platformSpecificData, // The future we are monitoring
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  'Error: ${snapshot.error}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            } else if (snapshot.hasData) {
+              return Center(
+                child: Text(
+                  'Received data from native:\n${snapshot.data!}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            } else {
+              return Center(
+                child: Text(
+                  'No data received',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            }
+          }),
     );
   }
 
@@ -83,18 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
       throw Exception("Failed to get platform data: ${error.message}");
     } catch (error) {
       throw Exception("Failed to get platform data: $error");
-    }
-  }
-
-  Future<void> _handleRefresh() async {
-    Future<int> newFuture = _getPlatformSpecificData();
-    setState(() {
-      _platformSpecificData = newFuture;
-    });
-    try {
-      await newFuture;
-    } catch (_) {
-      // Handle the error if needed
     }
   }
 }
