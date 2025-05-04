@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  var _emailValid = true;
-  var _passwordValid = true;
+  bool _emailValid = true;
+  bool _passwordValid = true;
 
   Future<void> _tryLogin(BuildContext context) async {
     final email = _emailController.text;
@@ -21,18 +23,30 @@ class _LoginPageState extends State<LoginPage> {
     final analytics = Provider.of<FirebaseAnalytics>(context, listen: false);
 
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-      print("Logging in...");
+      debugPrint("Logging in...");
 
       analytics.logLogin();
 
-      Navigator.pushReplacementNamed(context, "/posts");
+      if (context.mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text("Login successful!")));
+        Navigator.pushReplacementNamed(context, "/posts");
+      } else {
+        debugPrint("Context is not mounted, cannot show SnackBar");
+      }
     } on Exception catch (e) {
-      print("Login failed: ${e.toString()}");
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Login failed, please try again!")));
+      debugPrint("Login failed: ${e.toString()}");
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Login failed, please try again!")),
+        );
+      }
     }
   }
 
@@ -49,28 +63,33 @@ class _LoginPageState extends State<LoginPage> {
 
       analytics.logSignUp(signUpMethod: "email");
 
-      print("User registration successful! Logging in...");
+      debugPrint("User registration successful! Logging in...");
 
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
       analytics.logLogin();
 
-      Navigator.pushReplacementNamed(context, "/posts");
+      if (context.mounted) {
+        Navigator.pushReplacementNamed(context, "/posts");
+      }
     } on Exception catch (e) {
-      print("User registration/login failed: ${e.toString()}");
+      debugPrint("User registration/login failed: ${e.toString()}");
       analytics.logEvent(name: "registration_failed");
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Registration failed, please try again!")));
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Registration failed, please try again!")),
+        );
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("FlutterForum"),
-      ),
+      appBar: AppBar(title: Text("FlutterForum")),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -81,11 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.forum,
-                      color: Colors.orange,
-                      size: 120,
-                    ),
+                    Icon(Icons.forum, color: Colors.orange, size: 120),
                   ],
                 ),
                 TextField(
@@ -93,9 +108,10 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     alignLabelWithHint: true,
                     labelText: "Email address",
-                    errorText: _emailValid
-                        ? null
-                        : "Please provide a valid email address",
+                    errorText:
+                        _emailValid
+                            ? null
+                            : "Please provide a valid email address",
                   ),
                   keyboardType: TextInputType.emailAddress,
                 ),
@@ -104,9 +120,10 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     alignLabelWithHint: true,
                     labelText: "Password",
-                    errorText: _passwordValid
-                        ? null
-                        : "The given password is invalid or not strong enough",
+                    errorText:
+                        _passwordValid
+                            ? null
+                            : "The given password is invalid or not strong enough",
                   ),
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,

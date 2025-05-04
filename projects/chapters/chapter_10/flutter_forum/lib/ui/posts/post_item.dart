@@ -6,7 +6,7 @@ import 'package:flutter_forum/util.dart';
 class PostItem extends StatelessWidget {
   final Post post;
 
-  PostItem(this.post);
+  const PostItem(this.post, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,9 @@ class PostItem extends StatelessWidget {
                         Text(
                           post.title,
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 8.0),
@@ -52,10 +54,7 @@ class PostItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Text(
-                    post.time.format(),
-                    overflow: TextOverflow.ellipsis,
-                  )
+                  Text(post.time.format(), overflow: TextOverflow.ellipsis),
                 ],
               ),
             ),
@@ -66,10 +65,7 @@ class PostItem extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(top: 4.0),
                   child: Center(
-                    child: Image.network(
-                      post.imageUrl!,
-                      height: 150,
-                    ),
+                    child: Image.network(post.imageUrl!, height: 150),
                   ),
                 );
               },
