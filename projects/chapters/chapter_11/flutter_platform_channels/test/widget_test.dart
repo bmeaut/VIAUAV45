@@ -16,26 +16,8 @@ import 'package:mocktail/mocktail.dart';
 
 class MockHomeBloc extends Mock implements HomeBloc {}
 
-// --- Register Fallbacks for States/Events if needed ---
-// Required by mocktail for non-nullable types or custom classes when using
-// certain matchers or verifying interactions, though often optional for simple stubbing.
-// Do this BEFORE main() or inside setUpAll()
-void registerFallbacks() {
-  registerFallbackValue(
-      HomeStateInitial()); // Register one instance of each state/event type
-  registerFallbackValue(HomeStateLoading());
-  registerFallbackValue(
-      HomeStateLoaded(temperature: 0)); // Provide default values
-  registerFallbackValue(HomeStateError());
-  registerFallbackValue(HomeEventGetTemperature());
-}
-
 void main() {
   late MockHomeBloc mockBloc;
-
-  setUpAll(() {
-    registerFallbacks();
-  });
 
   setUp(() {
     mockBloc = MockHomeBloc();
