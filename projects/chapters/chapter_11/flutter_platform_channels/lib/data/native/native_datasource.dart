@@ -13,6 +13,7 @@ class NativeDataSourceImpl extends NativeDataSource {
   @override
   Future<int> getTemperature() async {
     try {
+      /// await Future.delayed(Duration(seconds: 2));
       final int? currentTemp =
           await methodChannel.invokeMethod(Channel.getTemp);
       if (currentTemp == null) {

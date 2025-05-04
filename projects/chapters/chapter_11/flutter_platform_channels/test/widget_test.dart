@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_channels/ui/home/bloc/home_bloc.dart';
-import 'package:flutter_platform_channels/ui/home/home.dart';
+import 'package:flutter_platform_channels/ui/home/home_screen.dart';
 import 'package:flutter_platform_channels/ui/home/widgets/home_error.dart';
 import 'package:flutter_platform_channels/ui/home/widgets/home_loading.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -28,7 +28,7 @@ void main() {
     return MaterialApp(
       home: BlocProvider<HomeBloc>(
         create: (context) => bloc,
-        child: MyHomePage(),
+        child: HomeScreen(),
       ),
     );
   }
@@ -68,7 +68,7 @@ void main() {
       await tester.pumpWidget(widget);
 
       // Verifications.
-      expect(find.byType(HomeLoading), findsOneWidget);
+      expect(find.byType(HomeLoadingWidget), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
   });
@@ -82,7 +82,7 @@ void main() {
       await tester.pumpWidget(widget);
 
       // Verifications.
-      expect(find.byType(HomeError), findsOneWidget);
+      expect(find.byType(HomeErrorWidget), findsOneWidget);
     });
   });
 }
