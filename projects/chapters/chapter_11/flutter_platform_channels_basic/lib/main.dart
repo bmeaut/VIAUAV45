@@ -8,10 +8,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: MyHomePage(),
-    );
+    return MaterialApp(home: MyHomePage());
   }
 }
 
@@ -21,13 +18,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _platformSpecificData = 'Unknown';
+  late Future<int> _platformSpecificData;
 
   @override
   void initState() {
     super.initState();
-    //Fetch the platform-specific data:
-    _getPlatformSpecificData();
+
+    /// Fetch the platform-specific data:
+    _platformSpecificData = _getPlatformSpecificData();
   }
 
   @override
@@ -36,35 +34,67 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Flutter Platform Channels demo"),
       ),
-      body: Center(
-        child: Text(
-          'Received data from native:\n$_platformSpecificData',
-          style: Theme
-              .of(context)
-              .textTheme
-              .headline6,
-          textAlign: TextAlign.center,
-        ),
+      body: RefreshIndicator(
+        onRefresh: _handleRefresh,
+        child: FutureBuilder<int>(
+            future: _platformSpecificData, // The future we are monitoring
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    'Error: ${snapshot.error}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                );
+              } else if (snapshot.hasData) {
+                return Center(
+                  child: Text(
+                    'Received data from native:\n${snapshot.data!}',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                );
+              } else {
+                return Center(
+                  child: Text(
+                    'No data received',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                );
+              }
+            }),
       ),
     );
   }
 
-  // Get platform-specific data.
-  Future<void> _getPlatformSpecificData() async {
-    // Create a MethodChannel.
+  /// Get platform-specific data.
+  Future<int> _getPlatformSpecificData() async {
+    /// Create a MethodChannel.
     const platformChannel = const MethodChannel("hu.bme.aut.flutter/data");
-
     try {
       final int result =
-      await platformChannel.invokeMethod('getPlatformSpecificData');
-      setState(() {
-        _platformSpecificData = "$result in Celsius";
-      });
+          await platformChannel.invokeMethod('getPlatformSpecificData');
+      return result;
     } on PlatformException catch (error) {
-      setState(() {
-        _platformSpecificData =
-        "Failed to get platform specific data: '${error.message}'.";
-      });
+      throw Exception("Failed to get platform data: ${error.message}");
+    } catch (error) {
+      throw Exception("Failed to get platform data: $error");
+    }
+  }
+
+  Future<void> _handleRefresh() async {
+    Future<int> newFuture = _getPlatformSpecificData();
+    setState(() {
+      _platformSpecificData = newFuture;
+    });
+    try {
+      await newFuture;
+    } catch (_) {
+      // Handle the error if needed
     }
   }
 }
