@@ -17,7 +17,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
   @override
   void initState() {
     super.initState();
-    listRequest = repository.getCities();
+    listRequest = repository.getCitiesInSequence();
   }
 
   @override
@@ -26,7 +26,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
       appBar: AppBar(title: Text("WeatherApp")),
       body: RefreshIndicator(
         onRefresh: () async {
-          var request = repository.getCities();
+          var request = repository.getCitiesInSequence();
           setState(() {
             listRequest = request;
           });

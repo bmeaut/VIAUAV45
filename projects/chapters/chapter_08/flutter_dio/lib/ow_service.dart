@@ -13,35 +13,84 @@ class OWService {
     _dio.options.baseUrl = "https://$_baseUrl/data/2.5/";
     _dio.interceptors.add(
       InterceptorsWrapper(
-        onRequest: (request, handler) {
-          print("Request: 1");
+        onRequest: (request, handler) async {
+          final requestId = request.extra["requestId"] ?? "N/A";
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onRequest: Interceptor1 - Entered",
+          );
+          await Future.delayed(Duration(seconds: 1), () {
+            debugPrint(
+              "${DateTime.now().ssMMM} [$requestId] onRequest: Interceptor1 - Completed, calling next()",
+            );
+          });
           handler.next(request);
         },
         onResponse: (response, handler) {
-          print("Response: 1");
+          final requestId = response.requestOptions.extra["requestId"] ?? "N/A";
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onResponse: Interceptor1 - Entered",
+          );
           handler.next(response);
+        },
+      ),
+    );
+    _dio.interceptors.add(
+      QueuedInterceptorsWrapper(
+        onRequest: (request, handler) async {
+          final requestId = request.extra["requestId"] ?? "N/A";
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onRequest: QueuedInterceptor2 - Entered, queueing for sequential processing...",
+          );
+
+          await Future.delayed(Duration(seconds: 2));
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onRequest: QueuedInterceptor2 - Sequential processing completed, calling next()",
+          );
+          handler.next(request);
+        },
+        onResponse: (response, handler) async {
+          final requestId = response.requestOptions.extra["requestId"] ?? "N/A";
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onResponse: QueuedInterceptor2 - Entered, queueing for sequential processing...",
+          );
+          await Future.delayed(Duration(seconds: 2));
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onResponse: QueuedInterceptor2 - Sequential processing completed, calling next()",
+          );
+          handler.next(response);
+        },
+        onError: (error, handler) async {
+          final requestId = error.requestOptions.extra["requestId"] ?? "N/A";
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onError: QueuedInterceptor2 - Entered, queueing for sequential processing...",
+          );
+          await Future.delayed(Duration(seconds: 2));
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onError: QueuedInterceptor2 - Sequential processing completed, calling next()",
+          );
+          handler.next(error);
         },
       ),
     );
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (request, handler) {
-          print("Request: 2");
-          handler.next(request);
-        },
-        onResponse: (response, handler) {
-          print("Response: 2");
-          handler.next(response);
-        },
-      ),
-    );
-    _dio.interceptors.add(
-      InterceptorsWrapper(
-        onRequest: (request, handler) {
-          request.queryParameters["lan"] = "hu";
+          final requestId = request.extra["requestId"] ?? "N/A";
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onRequest: Interceptor3 - Entered",
+          );
+
+          request.queryParameters["lan"] = "en";
           request.queryParameters["units"] = "metric";
           request.queryParameters["appid"] = _openWeatherApiKey;
           handler.next(request);
+        },
+        onResponse: (response, handler) {
+          final requestId = response.requestOptions.extra["requestId"] ?? "N/A";
+          debugPrint(
+            "${DateTime.now().ssMMM} [$requestId] onResponse: Interceptor3 - Entered",
+          );
+          handler.next(response);
         },
       ),
     );
@@ -49,11 +98,14 @@ class OWService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onError: (error, handler) async {
+          final requestId = error.requestOptions.extra["requestId"] ?? "N/A";
           var scaffoldMessenger = scaffoldMessengerKey.currentState;
           if (scaffoldMessenger != null && scaffoldMessenger.mounted == true) {
             var snackbarResult = scaffoldMessenger.showSnackBar(
               SnackBar(
-                content: Text("Hálózati hiba!"),
+                content: Text(
+                  "${DateTime.now().ssMMM} [$requestId] Network error!",
+                ),
                 action: SnackBarAction(label: 'RETRY', onPressed: () {}),
                 duration: Duration(seconds: 10),
               ),
@@ -70,10 +122,11 @@ class OWService {
     );
   }
 
-  Future<OWCitiesFindResponse> getOWCities() async {
+  Future<OWCitiesFindResponse> getOWCities({String? requestId}) async {
     var response = await _dio.get(
       "find",
-      queryParameters: {"lat": 46.92393, "lon": 18.09012, "cnt": 50},
+      queryParameters: {"lat": 25.276987, "lon": 55.296249, "cnt": 15},
+      options: Options(extra: {"requestId": requestId ?? "UNKNOWN"}),
     );
     return OWCitiesFindResponse.fromJson(response.data);
   }
@@ -105,5 +158,11 @@ extension _DioRequestOption on Dio {
       onReceiveProgress: requestOptions.onReceiveProgress,
       onSendProgress: requestOptions.onSendProgress,
     );
+  }
+}
+
+extension TimestampFormatting on DateTime {
+  String get ssMMM {
+    return "${second.toString().padLeft(2, '0')}.${millisecond.toString().padLeft(3, '0')}";
   }
 }
