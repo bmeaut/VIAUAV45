@@ -17,7 +17,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
   @override
   void initState() {
     super.initState();
-    listRequest = repository.getCities();
+    listRequest = repository.getCitiesInParallel();
   }
 
   @override
