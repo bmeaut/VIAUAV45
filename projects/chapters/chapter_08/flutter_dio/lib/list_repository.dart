@@ -6,9 +6,9 @@ import 'package:flutter_dio/ow_json_models.dart';
 class ListRepository {
   var owService = OWService();
 
-  Future<List<WeatherCityItem>> getCities() async {
-    var response1 = await owService.getOWCities(requestId: "SEQ-1");
-    var response2 = await owService.getOWCities(requestId: "SEQ-2");
+  Future<List<WeatherCityItem>> getCitiesInSequence() async {
+    final response1 = await owService.getOWCities(requestId: "SEQ-1");
+    final response2 = await owService.getOWCities(requestId: "SEQ-2");
     return (response1.list + response2.list)
         .map(
           (e) => WeatherCityItem(
