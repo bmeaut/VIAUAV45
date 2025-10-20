@@ -1,0 +1,28 @@
+name: stock_photo_lists_with_pagination
+description: "A new Flutter project demonstrate pagination."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_lorem: ^2.0.0
+  animations: ^2.0.11
+  equatable: ^2.0.7
+  infinite_scroll_pagination: ^5.0.0
+  flutter_bloc: ^9.1.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^10.0.0
+  mocktail: ^1.0.4
+  network_image_mock: ^2.1.1
+  flutter_lints: ^5.0.0
+flutter:
+  uses-material-design: true
+
