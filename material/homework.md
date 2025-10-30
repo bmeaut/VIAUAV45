@@ -43,7 +43,7 @@ A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a ház
 ## Specifikált alkalmazás
 
 A másik lehetőségben egy megadott alkalmazást kell elkészítenetek. Ehhez egy kiinduló projektből kell egy, az alább megadott alkalmazást elkészítenetek. Az ellenőrzés tesztek segítségével fog megtörténni, mely része a kiinduló projektnek, így ti is nyomon tudjátok követni, hogy hány pontot kapnátok az aktuális állapotában.
-[A kiinduló projektet innen tudjátok letölteni](https://drive.google.com/file/d/1ZpO_hzZ9cQENmuwEu33Q1whJj8y3Qpc7/view?usp=sharing)
+[A kiinduló projektet innen tudjátok letölteni](https://drive.google.com/file/d/1bLWEEa-sGGIRujy4oa4CDjXMpbXPhLWr/view?usp=sharing)
 
 ### Az alkalmazás
 
