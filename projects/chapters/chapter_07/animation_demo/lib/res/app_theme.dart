@@ -22,7 +22,7 @@ abstract final class AppTheme {
           if (states.contains(WidgetState.pressed)) {
             return blue400;
           } else if (states.contains(WidgetState.disabled)) {
-            return white.withOpacity(0.5);
+            return white.withAlpha(127);
           } else {
             return blue700;
           }
@@ -31,7 +31,7 @@ abstract final class AppTheme {
           if (states.contains(WidgetState.pressed)) {
             return blue700;
           } else if (states.contains(WidgetState.disabled)) {
-            return blue800.withOpacity(0.25);
+            return blue800.withAlpha(64);
           } else {
             return white;
           }

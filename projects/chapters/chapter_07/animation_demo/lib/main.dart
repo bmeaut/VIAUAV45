@@ -1,4 +1,5 @@
 import 'package:animation_demo/res/app_theme.dart';
+import 'package:animation_demo/res/l10n/app_localizations.dart';
 import 'package:animation_demo/view/components/app_bar.dart';
 import 'package:animation_demo/view/components/page_indicator.dart';
 import 'package:animation_demo/view/page1_animated_size.dart';
@@ -12,11 +13,12 @@ import 'package:animation_demo/view/page8_lottie.dart';
 import 'package:animation_demo/view/page9_rive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rive/rive.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await RiveNative.init();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   runApp(const AnimationDemo());

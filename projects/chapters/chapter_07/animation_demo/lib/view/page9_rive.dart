@@ -30,11 +30,29 @@ class _RiveAnimationDemoState extends State<RiveAnimationDemo> {
   }.entries.toList();
 
   int _assetIndex = 0;
+  File? _riveFile;
+  RiveWidgetController? _controller;
+  StateMachine? _activeStateMachine;
+  Object? _loadError;
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadRiveFile();
+  }
+
+  @override
+  void dispose() {
+    _detachStateMachine();
+    _controller?.dispose();
+    _riveFile?.dispose();
+    super.dispose();
+  }
 
   void setNextAsset() {
-    setState(() {
-      _assetIndex = (_assetIndex + 1) % _artboardStateMachineMapping.length;
-    });
+    final nextIndex = (_assetIndex + 1) % _artboardStateMachineMapping.length;
+    _selectAsset(nextIndex);
   }
 
   @override
@@ -54,14 +72,21 @@ class _RiveAnimationDemoState extends State<RiveAnimationDemo> {
                 child: OutlinedText(text: context.l10n.forMoreVisit, textStyle: context.textTheme.displaySmall),
               ),
             Expanded(
-              child: isRocketsite
-                  ? _ComplexRiveAnim(artboard: currentAnim.key, stateMachine: currentAnim.value)
-                  : RiveAnimation.asset(
-                      key: ValueKey(currentAnim.key + currentAnim.value), // Only for changing artboards correctly
-                      Assets.rive.bme.path,
-                      artboard: currentAnim.key,
-                      stateMachines: [currentAnim.value],
+              child: switch ((_isLoading, _loadError, _controller)) {
+                (true, _, _) => const Center(child: CircularProgressIndicator.adaptive()),
+                (false, final Object? error, _) when error != null => Center(
+                    child: Text(
+                      context.l10n.animationLoadingFailed,
+                      style: context.textTheme.bodyLarge,
+                      textAlign: TextAlign.center,
                     ),
+                  ),
+                (_, _, final RiveWidgetController? controller) when controller != null => RiveWidget(
+                    key: ValueKey(currentAnim.key + currentAnim.value),
+                    controller: controller,
+                  ),
+                _ => const SizedBox.shrink(),
+              },
             ),
             _AnimationsInfoBox(isRocketsite: isRocketsite),
           ],
@@ -69,30 +94,82 @@ class _RiveAnimationDemoState extends State<RiveAnimationDemo> {
       ),
     );
   }
-}
 
-//
-// A bit more complex Rive animation handling.
-//
+  Future<void> _loadRiveFile() async {
+    try {
+      final file = await File.asset(
+        Assets.rive.bme,
+        riveFactory: Factory.rive,
+      );
+      if (!mounted) {
+        file?.dispose();
+        return;
+      }
+      setState(() {
+        _riveFile = file;
+        _isLoading = false;
+        _loadError = null;
+      });
+      _selectAsset(_assetIndex);
+    } catch (error) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _loadError = error;
+        _isLoading = false;
+      });
+    }
+  }
 
-class _ComplexRiveAnim extends StatefulWidget {
-  _ComplexRiveAnim({
-    required this.artboard,
-    required this.stateMachine,
-  }) : super(key: ValueKey(artboard + stateMachine));
+  void _selectAsset(int index) {
+    final resolvedIndex = index % _artboardStateMachineMapping.length;
 
-  final String artboard;
-  final String stateMachine;
+    _detachStateMachine();
+    final previousController = _controller;
+    _controller = null;
+    previousController?.dispose();
 
-  @override
-  State<_ComplexRiveAnim> createState() => _ComplexRiveAnimState();
-}
+    RiveWidgetController? newController;
+    StateMachine? newStateMachine;
+    Object? newError = _loadError;
 
-class _ComplexRiveAnimState extends State<_ComplexRiveAnim> {
-  StateMachineController? _controller;
+    final file = _riveFile;
+    if (file != null) {
+      final entry = _artboardStateMachineMapping[resolvedIndex];
+      try {
+        newController = RiveWidgetController(
+          file,
+          artboardSelector: ArtboardSelector.byName(entry.key),
+          stateMachineSelector: StateMachineSelector.byName(entry.value),
+        );
+        newError = null;
 
-  void _handleRiveEvents(RiveEvent event) {
-    // Has to match the event name added in Rive editor.
+        if (entry.key == 'Rocketsite AB') {
+          newStateMachine = newController.stateMachine..addEventListener(_handleRiveEvents);
+        }
+      } catch (error) {
+        newController?.dispose();
+        newController = null;
+        newStateMachine = null;
+        newError = error;
+      }
+    }
+
+    setState(() {
+      _assetIndex = resolvedIndex;
+      _controller = newController;
+      _activeStateMachine = newStateMachine;
+      _loadError = newError;
+    });
+  }
+
+  void _detachStateMachine() {
+    _activeStateMachine?.removeEventListener(_handleRiveEvents);
+    _activeStateMachine = null;
+  }
+
+  void _handleRiveEvents(Event event) {
     if (event.name == 'AnimationEND') {
       Fluttertoast.showToast(
         msg: context.l10n.customEventTriggered,
@@ -100,29 +177,6 @@ class _ComplexRiveAnimState extends State<_ComplexRiveAnim> {
         gravity: ToastGravity.BOTTOM,
       );
     }
-  }
-
-  @override
-  void dispose() {
-    _controller?.removeEventListener(_handleRiveEvents);
-    _controller?.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return RiveAnimation.asset(
-      Assets.rive.bme.path,
-      artboard: widget.artboard,
-      stateMachines: [widget.stateMachine],
-      onInit: (artboard) {
-        _controller = StateMachineController.fromArtboard(artboard, 'Site SM');
-        if (_controller != null) {
-          _controller?.addEventListener(_handleRiveEvents);
-          artboard.addController(_controller!);
-        }
-      },
-    );
   }
 }
 
