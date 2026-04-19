@@ -2,10 +2,10 @@
 # Házi feladat
 
 A házi feladat kötelező része a tárgynak. Összesen 60 pontot lehet szerezni.
-Két módon lehetséges a teljesítése:
+<!--- Két módon lehetséges a teljesítése: -->
 
 ## Egyéni feladat
-Lehetőség van egyéni feladat elkészítésére, melyben ti egy saját ötletet valósítottok meg, és azt adjátok be elkészült feladatnak.
+A házi feladat teljesítéséhez egy egyéni feladat elkészítését várjuk el, melyben ti egy saját ötletet valósítottok meg.
 Mielőtt belekezdenétek, mindenképp egyeztessétek le (személyesen vagy Teamsen keresztül), hogy milyen alkalmazást akartok megvalósítani.
 Alapvetően egyéni feladatmegoldást várunk el, de van lehetőség csapatban elkészített alkalmazásra is, ameddig jól elkülöníthető, hogy ki melyik részein dolgozott az alkalamzásnak.
 Pár példa alkalmazásötletet találhattok az alábbi linkeken:
@@ -14,12 +14,24 @@ Pár példa alkalmazásötletet találhattok az alábbi linkeken:
 
 [https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus](https://www.figma.com/file/Bs9PgPtAeRSkwCs7Q8ByrH/BME-Flutter-Kurzus "https://www.figma.com/file/bs9pgptaerskwcs7q8byrh/bme-flutter-kurzus")
 
+### Követelmények
+
+- Rendelkezzen az alkalmazás legalább *két* elkülönített oldallal, melyek között valamelyik beépített vagy külső könyvtár által biztosított navigációs megoldást használjátok.
+- Alkalmazzatok valamilyen aszinkron folyamatot az alkalmazáson belül (Pl. hálózati kérés valamelyik nyílt szolgáltatás felé, lokális adatbázis kapcsolat).
+- Használjatok egy állapotkezelő megoldást a projekten belül (előadáson a _ChangeNotifier_ és _bloc_ került bemutatásra, de bármi egyéb is használható).
+- A projekt jól struktúrált legyen, könnyen követhető legyen a fájlok elhelyezkedése.
+
+A házi feladat teljesítéséhez használhattok tetszőleges mesterséges intelligencia alapú eszközt is a következő megkötésekkel:
+
+- A **README.md** fájlban egyértelműen jelöljétek majd, hogy milyen célből, milyen eszközt, milyen promptokkal használtatok.
+- Hibakeresés, kódmagyarázás, ajánlás nyugodtan használható korlátok nélkül.
+- Felhasználói felületi elemek, oldalak, illetve bármilyen egyéb üzleti logikai vagy állapotkezelési **kód generálása** megengedett, azonban ilyenkor egy extra követelményt is tartanotok kell: az utolsó, 12. anyagban található _Dependency Injection_ mintát kell követni a projekten belül, illetve alkalmaznotok kell még az _injectable_ könyvtárat is!
+
 ### Értékelés
 Minden feladat egyénileg kerül értékelésre. A szempontok közé tartozik a feladat komplexitása, a megvalósított alkalmazás kinézete, illetve a kód minősége.
 Igény esetén van lehetőség javítani is az eredményen.
-A leadási határidő a **14. hét vége, tehát december 12.**.
+A leadási határidő a **14. hét vége, tehát május 31.**.
 A Moodle rendszerén keresztül kell feltölteni az elkészült megoldást ZIP archívumban.
-A feltöltendő archívum nevében szerepeljen az **egyeni** szó is!
 
 <!---
 ## Házi Feladat verseny
@@ -38,7 +50,7 @@ Annak érdekében, hogy az eredményeket még ki tudjuk hirdetni, a versenyben v
 
 ### Értékelés
 A versenyen részt vevők közül mindenki **maximális (60)** pontot kap a házi feladatra. Akiknek nem sikerül a verseny határidejére beadniuk a feladatot, de a póthét végére elkészülnek vele, azok legrosszabb esetben is **jelest (51)** kapnak az alkalmazásra (de a hibamentes megoldásért továbbra is a maximális pont jár).
--->
+
 
 ## Specifikált alkalmazás
 
@@ -136,3 +148,4 @@ Az automatizált tesztek miatt van pár rész, amire érdemes még odafigyelni a
 - `type 'Null' is not a subtype of type '***'`: Ilyen hibákat tipikusan akkor dob a teszt, ha nem találja a mockolt objektum azt a függvényhívást, amit a kód hívna. Ilyenkor érdemes megnézni a tesztet, hogy pontosan milyen hívások vannak értelmezve a mockolt objektumon (ezeket a `when()` hívásokon belül láthatjátok). Tipikus problémát szokott okozni, hogy a lista lekérésénél az autentikációs token a Dio `get()` hívásának az options paraméterében kerül átadásra. Ez bár működő megoldás, de minden kérésben meg kellene adni, ezért inkább egy interceptort szoktak használni. A mostani projektben arra kérnélek titeket, hogy a Dio objektum options változójában lévő headert állítsátok, az itt megadott értékek minden kéréshez hozzá fognak adódni.
 - `type 'List<dynamic>' is not a subtype of type 'List<***>'`: Ilyen hibákat akkor szokott dobni, ha a hálózati kommunikáció során olyan típust feltételeztek egy gyűjteményről, amit a Dart futás közben nem lát. Figyeljetek arra, hogy például egy `.map()` hívás nem fogja mindig átkasztolni a gyűjteményt az új típusra, ilyenkor az explicit `cast()` függvényhívással tudtok olyan típusú gyűjteményt készíteni, amire szükségetek van (tehát pl. `result.map(...).cast<UserItem>.toList()`).
 - Hiányzó dependenciák: Előfordulhat, hogy bizonyos tesztek hibát dobnak arra, hogy nincsen a GetIt-be beregisztrálva objektum. Ilyenkor ellenőrizzétek, hogy minden saját osztályt a `configureCustomDependencies()` vettetek fel. Ezek mellett a `*_page_*_test` teszteknél nincsen szükség a GetIt-re a sikeres lefutáshoz. Ha mégis hibát dobna, az valószínűleg azért történik, mert az oldal létrehozásakor egyből megpróbáljátok kiolvasni valamelyik függőséget. Mivel magának az oldalnak nincsen szüksége közvetlenül az adott függőségekre, érdemes azokat azokba az eseménykezelő függvényekbe mozgatni, ahol tényleg aktuálisan szükség van rá.
+-->
