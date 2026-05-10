@@ -9,5 +9,6 @@
   "riveLastHint": "Hover state was disabled for mobile, click one for hover effect, click again to reset.",
   "staggeredAnimation": "Staggered Animation",
   "startAnimation": "Start animation",
-  "stopAnimation": "Stop animation"
+  "stopAnimation": "Stop animation",
+  "animationLoadingFailed": "Failed to load animation"
 }

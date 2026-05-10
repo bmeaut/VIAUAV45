@@ -206,6 +206,7 @@ class _StaggerAnimation extends StatelessWidget {
               opacity: _opacity.value,
               child: Text(
                 context.l10n.startAnimation,
+                textAlign: TextAlign.center,
                 style: const TextStyle(color: AppTheme.white, fontWeight: FontWeight.w500),
               ),
             ),
